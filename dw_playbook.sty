@@ -1,0 +1,334 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{dw_playbook}[2021/07/02 Dungeon World Playbook Package]
+
+% imports
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{xargs}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{ragged2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    constants
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{mainTextColor}{HTML}{FFFFFF}
+\definecolor{mainPageColor}{HTML}{000000}
+
+\definecolor{titleFill}{HTML}{303030}
+\definecolor{headerFill}{HTML}{505050}
+\definecolor{shade}{HTML}{CCCCCC}
+\definecolor{shadeDark}{HTML}{A0A0A0}
+
+\newcommand
+    {\playbook}
+    {Playbook_Name}
+\newcommand
+    {\defineplaybook}
+    [1]
+    {\renewcommand{\playbook}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\standardfont}
+    {\fontsize{10}{0}\fontshape{n}\fontseries{m}\selectfont \color{mainTextColor}}
+
+\newcommand
+    {\movename}
+    [1]
+    {\fontsize{12}{0}\fontshape{n}\fontseries{b}\selectfont #1 \standardfont}
+
+\newcommand
+    {\headertext}
+    [1]
+    {\fontsize{16}{0}\fontseries{b}\selectfont #1 \standardfont}
+
+\newcommand
+    {\subtext}
+    [1]
+    {\footnotesize \color{shade} \textsl{#1} \color{mainTextColor} \normalsize}
+
+\newcommand
+    {\instruction}
+    [1]
+    {\fontsize{9}{0}\fontshape{sl}\selectfont \color{shadeDark} #1\\[2mm] \standardfont}
+
+\newcommand
+    {\blank}
+    [1]
+    {\underline{\makebox[#1cm][s]{}}}
+
+\newcommand
+    {\blankName}
+    {\underline{\makebox[3cm][s]{}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    dice icons
+%    from: https://tex.stackexchange.com/questions/144193/how-do-i-put-a-die-roll-at-the-top-of-each-page
+%    thanks to John Kormylo and David Carlisle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\dfour}
+    [1]
+    {
+        \def\x{1.05cm}
+        \def\y{0.6cm}
+        \def\mult{1.5}
+
+        % primary face
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.3cm*\mult)
+            -- (\x-0.433cm*\mult,\y-0.45cm*\mult)
+            -- (\x+0.35cm*\mult,\y-0.55cm*\mult)
+            -- cycle;
+
+        % top right
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.3cm*\mult)
+            -- (\x+0.35cm*\mult,\y-0.55cm*\mult)
+            -- (\x+0.5cm*\mult,\y-0.2cm*\mult)
+            -- cycle;
+
+        \draw [color=black]
+            (\x-0.05cm,\y-0.4cm)
+            node
+            {\Large D4};
+    }
+
+\newcommand
+    {\dsix}
+    [1]
+    {
+        \def\x{0.4cm}
+        \def\y{-0.35cm}
+        \def\mult{2.7}
+        
+        % primary face
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0cm*\mult)
+            -- (\x+0.4cm*\mult,\y+0cm*\mult)
+            -- (\x+0.4cm*\mult,\y+0.4cm*\mult)
+            -- (\x+0cm*\mult,\y+0.4cm*\mult)
+            -- cycle;
+
+        % right face
+        \draw [color=black,fill=white,thick]
+            (\x+0.4cm*\mult,\y+0.4cm*\mult)
+            -- (\x+0.4cm*\mult,\y+0cm*\mult)
+            -- (\x+0.5cm*\mult,\y+0.1cm*\mult)
+            -- (\x+0.5cm*\mult,\y+0.5cm*\mult)
+            -- cycle;
+
+        % right face
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.4cm*\mult)
+            -- (\x+0.4cm*\mult,\y+0.4cm*\mult)
+            -- (\x+0.5cm*\mult,\y+0.5cm*\mult)
+            -- (\x+0.1cm*\mult,\y+0.5cm*\mult)
+            -- cycle;
+
+        \draw [color=black] (\x+0.6cm,\y+0.6cm) node {\Large D6};
+    }
+
+\newcommand
+    {\deight}
+    [1]
+    {
+        \def\x{1.1cm}
+        \def\y{0.3cm}
+        \def\mult{1.6}
+        
+        % primary face
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x+0.433cm*\mult,\y-0.25cm*\mult)
+            -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
+            -- cycle;
+        
+        % top right
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x+0.433cm*\mult,\y+0.25cm*\mult)
+            -- (\x+0.433cm*\mult,\y-0.25cm*\mult)
+            -- cycle;
+        
+        % bottom
+        \draw [color=black,fill=white,thick]
+            (\x+0.433cm*\mult,\y-0.25cm*\mult)
+            -- (\x+0cm*\mult,\y-0.5cm*\mult)
+            -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
+            -- cycle;
+        
+        % top right
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x-0.433cm*\mult,\y+0.25cm*\mult)
+            -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
+            -- cycle;
+
+        \draw [color=black] (\x+0cm,\y+0cm) node {\Large D8};
+    }
+
+\newcommand
+    {\dten}
+    [1]
+    {
+        \def\x{1.1cm}
+        \def\y{0.3cm}
+        \def\mult{1.6}
+        
+        % primary face
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
+            -- (\x-0cm*\mult,\y-0.3cm*\mult)
+            -- (\x-0.294cm*\mult,\y-0.154cm*\mult)
+            -- cycle;
+        
+        % top right
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
+            -- (\x+0.475cm*\mult,\y-0.1cm*\mult)
+            -- (\x+0.475cm*\mult,\y+0.1cm*\mult)
+            -- cycle;
+
+        % top left
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y+0.5cm*\mult)
+            -- (\x-0.294cm*\mult,\y-0.154cm*\mult)
+            -- (\x-0.475cm*\mult,\y-0.1cm*\mult)
+            -- (\x-0.475cm*\mult,\y+0.1cm*\mult)
+            -- cycle;
+
+        \draw [color=black]
+            (\x+0cm,\y+0cm)
+            node
+            {\fcolorbox{white}{white}{\Large D10}};
+        
+        % bottom right
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y-0.5cm*\mult)
+            -- (\x+0cm*\mult,\y-0.3cm*\mult)
+            -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
+            -- (\x+0.47cm*\mult,\y-0.11cm*\mult)
+            -- cycle;
+        
+        % bottom left
+        \draw [color=black,fill=white,thick]
+            (\x+0cm*\mult,\y-0.5cm*\mult)
+            -- (\x+0cm*\mult,\y-0.3cm*\mult)
+            -- (\x-0.294cm*\mult,\y-0.154cm*\mult)
+            -- (\x-0.47cm*\mult,\y-0.11cm*\mult)
+            -- cycle;
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    structures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\header}
+    [4][l]
+    {
+        \ifx l#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
+            \draw [text width=1cm,color=white] (#4,0.2) node {\headertext{#2}};
+        \end{tikzpicture}%
+        \fi%
+        \ifx r#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
+            \draw [text width=5cm,color=white] (#4,0.35) node {\headertext{#2}};
+        \end{tikzpicture}%
+        \fi%
+    }
+
+\newcommand
+    {\stat}
+    [2]
+    {
+        \def\x{0.85}
+        \def\y{1.25}
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \draw [color=mainTextColor] (2.25,1.6) node {\LARGE \textbf{#2}};
+            \draw [color=mainTextColor,thick] (0,0) rectangle (3,1.25);
+
+            \draw [text width=1cm,color=mainTextColor] (0.65, 0.25) node {\small #1};
+            \draw [color=mainTextColor,fill=mainPageColor,thick] (\x,\y) circle (7.55mm);
+            \filldraw [color=mainTextColor,fill=mainPageColor,thick]
+                (\x,\y-0.75)
+                -- (\x-0.7,\y-0.225)
+                -- (\x-0.435,\y+0.6)
+                -- (\x+0.435,\y+0.6)
+                -- (\x+0.7,\y-0.225)
+                -- cycle;
+            \draw [color=shade,fill=mainPageColor,thick] (\x,\y) circle (5.8mm);
+
+            \draw [color=mainTextColor] (2.35,1) node {-1};
+            \draw [color=mainTextColor,thick] (2.6,0.85) rectangle (2.9,1.15);
+        \end{tikzpicture}
+    }
+
+    \newcommand
+    {\selectable}
+    [3][u]
+    {
+        \begin{minipage}{0.6cm}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.5cm,0.5cm);
+                \draw [color=mainTextColor] (0.25,0.25) node {\ifx x#1 \large X \normalsize \fi};
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
+            \begin{FlushLeft}
+                \movename{#2}\\[2mm]
+                #3
+            \end{FlushLeft}
+        \end{minipage}
+    }
+
+\newcommand
+    {\tinySelectable}
+    [2][u]
+    {
+        \begin{minipage}{0.1\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.4cm,0.4cm);
+                \draw [color=mainTextColor] (0.2,0.2) node {\ifx x#1 \large x \normalsize \fi};
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{0.89\textwidth}
+            \begin{FlushLeft}
+                #2
+            \end{FlushLeft}
+        \end{minipage}
+    }
+
+\newcommand
+    {\emptySelectable}
+    [1]
+    {
+        \begin{minipage}[t]{0.12\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.5cm,0.5cm);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{0.87\textwidth}
+            ~\\
+
+            \blank{#1}\\
+
+            \blank{#1}\\
+            
+            \blank{#1}\\
+        \end{minipage}
+    }

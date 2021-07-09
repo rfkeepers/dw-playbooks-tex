@@ -1,0 +1,187 @@
+\documentclass[]{dw_playbook}
+
+% \usepackage[colorlinks=true]{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Playbook Details
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\defineplaybook{Template}
+\title{The \playbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Document Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% ----------------------------------------------------------
+% page 1
+
+\maketitle
+\begin{minipage}[t]{0.05\textwidth}
+    ~ % left margin hack
+\end{minipage}
+\begin{minipage}[t]{0.90\textwidth}
+    % the playbook content goes here
+    \begin{minipage}{\textwidth}
+        % name suggestions
+        \names{Alice, Bob, Carol, Eve, Frank, Grace, Mallory, Sybil, Trent, Victor, Walter}
+    \end{minipage}
+
+    % top section: stats, level, armor, etc
+    \begin{minipage}{0.45\textwidth}
+        \vspace{3mm}
+        \level\\
+        \armor\\
+        \hitpoints\\
+        \damage{\deight}
+    \end{minipage}
+    \begin{minipage}{0.55\textwidth}
+        \begin{minipage}[t]{\textwidth}
+            \begin{minipage}[t]{0.15\textwidth}
+                % \vspace{3mm}
+                \coin
+            \end{minipage}
+            \begin{minipage}[t]{0.85\textwidth}
+                \vspace{3mm}
+                \headertext{Name:}
+                \blank{6}
+            \end{minipage}
+        \end{minipage}
+
+        \vspace{1mm}
+        \stats
+    \end{minipage}
+
+    \vspace{0.3cm}
+    % lower left column: looks, race, etc
+    \begin{minipage}[t]{0.3\textwidth}
+        \looks
+        \looksOption{BODY}{Big, small, thick, thin, \\[2mm]\blank{5.8}}
+        \looksOption{EYES}{Happy, sad, curious, excited, \\[2mm]\blank{5.8}}
+        \looksOption{HAIR}{Styled, wild, bald, long, \\[2mm]\blank{5.8}}
+        \looksOption{CLOTHES}{Rich, practical, tatters, \\[2mm]\blank{5.8}}
+    
+        \vspace{4mm}
+        \race\\
+        \raceOption{Human}{When you \textbf{do something that humans do}, you do it like a human would.  I'm not even sure this constitutes a move.  I mean, what are you going to do, roll to put one foot in front of the other?}
+        \raceOption{Dwarf}{When you \textbf{do something that dwarves do}, you do it better than an Elf would.}
+        \emptySelectable{5}
+    \end{minipage}
+    % whitespace divider
+    \begin{minipage}[t]{2mm}
+        ~
+    \end{minipage}
+    % lower right column: starting moves
+    \begin{minipage}[t]{0.65\textwidth}
+        \startingMoves
+        \begin{multicols*}{2}
+            \subtext{You start with all of these:}\\
+
+            \selectable[x]{Lorem}{
+            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \selectable[x]{Ipsum}{
+            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            \selectable[x]{Dolor}{
+            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}\\
+            
+            \selectable[x]{Sit}{
+            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level orc domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            \selectable[x]{Amet}{
+            Aberration type calling subschool coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            \selectable[x]{Consectetur}{
+            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+        \end{multicols*}
+    \end{minipage}
+\end{minipage}
+\begin{minipage}[t]{0.05\textwidth}
+    ~ % right margin hack
+\end{minipage}
+
+% ----------------------------------------------------------
+% page 2
+
+\clearpage
+~
+
+\begin{minipage}[t]{0.05\textwidth}
+    ~ % left margin hack
+\end{minipage}
+\begin{minipage}[t]{0.9\textwidth}
+
+    % left column: bonds, alignment, gear, blanks
+    \begin{minipage}[t]{0.3\textwidth}
+        \bonds
+        \bondOption{I once saved \blankName's life, at great risk to my own well being.}\\
+        \bondOption{\blankName~still owes me money.}\\
+        \bondOption{I think \blankName~is the nicest most bestest person ever.}\\
+        
+        \vspace{2mm}
+        \blank{5.8}\\
+            
+        \blank{5.8}\\
+            
+        \blank{5.8}
+
+        \alignment
+        \alignmentOption{Good}{Pet bunnies and snuggle puppy dogs.}
+        \alignmentOption{Evil}{Cackle maliciously and steal candy from babies.}
+        \emptySelectable{5}
+
+        \gear
+        \gearOption{You carry a tiny \textbf{picture}.}
+        \\[4mm]
+        \blank{5.8}
+        \\[4mm]
+        \dungeonRations
+        \adventuringGear
+        \\[3mm]
+        \instruction{Choose your defenses:}\\
+        \gearOptionSelectable{A suit of \textbf{Plate Armor} (2 armor, worn, 2 weight)}
+        \gearOptionSelectable{A \textbf{loincloth} (0 armor, worn, 1 weight) and a \textbf{makeshift shield} (1 armor, 1 weight)}
+        \\[3mm]
+        \instruction{Choose your armament:}\\
+        \gearOptionSelectable{\textbf{Straightsword} (close, 2 weight)}
+        \gearOptionSelectable{\textbf{Wooden Club} (close, 1 weight)}
+        \gearOptionSelectable{\textbf{Worn Bow} (near, 2 weight)\\\textbf{Bundle of Arrows} (3 ammo, 1 weight)}
+    \end{minipage}
+    % whitespace divider
+    \begin{minipage}[t]{2mm}
+        ~
+    \end{minipage}
+    % right column: moves
+    \begin{minipage}[t]{0.65\textwidth}
+        \advancedMoves
+        
+        \begin{multicols*}{2}
+            \selectable{Adipiscing}{
+            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \selectable{Elit}{
+            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            \selectable{Nulla}{
+            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
+            \selectable{Consequat}{
+            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level orc domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            \selectable{Eleifend}{
+            Aberration type calling subschool coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            \selectable{Lacus}{
+            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+        \end{multicols*}
+        \sixUpMoves
+        \begin{multicols*}{2}
+            \selectable{Vel}{
+            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \selectable{Placerat}{
+            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            \selectable{Sem Pharetra}{
+            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
+            \selectable{Vitae}{
+            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+        \end{multicols*}
+    \end{minipage}
+\end{minipage}
+\begin{minipage}[t]{0.05\textwidth}
+    ~ % right margin hack
+\end{minipage}
+\end{document}
