@@ -12,9 +12,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Document Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hfuzz=55.002pt
 
 \begin{document}
-
 % ----------------------------------------------------------
 % page 1
 
@@ -30,14 +30,14 @@
     \end{minipage}
 
     % top section: stats, level, armor, etc
-    \begin{minipage}{0.45\textwidth}
+    \begin{minipage}{0.48\textwidth}
         \vspace{3mm}
         \level\\
         \armor\\
         \hitpoints\\
         \damage{\deight}
     \end{minipage}
-    \begin{minipage}{0.55\textwidth}
+    \begin{minipage}{0.52\textwidth}
         \begin{minipage}[t]{\textwidth}
             \begin{minipage}[t]{0.15\textwidth}
                 % \vspace{3mm}
@@ -46,7 +46,7 @@
             \begin{minipage}[t]{0.85\textwidth}
                 \vspace{3mm}
                 \headertext{Name:}
-                \blank{6}
+                \blank{5.9}
             \end{minipage}
         \end{minipage}
 
@@ -58,40 +58,42 @@
     % lower left column: looks, race, etc
     \begin{minipage}[t]{0.3\textwidth}
         \looks
-        \looksOption{BODY}{Big, small, thick, thin, \\[2mm]\blank{5.8}}
-        \looksOption{EYES}{Happy, sad, curious, excited, \\[2mm]\blank{5.8}}
-        \looksOption{HAIR}{Styled, wild, bald, long, \\[2mm]\blank{5.8}}
-        \looksOption{CLOTHES}{Rich, practical, tatters, \\[2mm]\blank{5.8}}
+        \looksOption{BODY}{Big, small, thick, thin, \\[1mm]\blank{5.8}}
+        \looksOption{EYES}{Happy, sad, curious, excited, \\[1mm]\blank{5.8}}
+        \looksOption{HAIR}{Styled, wild, bald, long, \\[1mm]\blank{5.8}}
+        \looksOption{CLOTHES}{Rich, practical, tatters, \\[1mm]\blank{5.8}}
     
-        \vspace{4mm}
+        \vspace{1mm}
         \race\\
-        \raceOption{Human}{When you \textbf{do something that humans do}, you do it like a human would.  I'm not even sure this constitutes a move.  I mean, what are you going to do, roll to put one foot in front of the other?}
-        \raceOption{Dwarf}{When you \textbf{do something that dwarves do}, you do it better than an Elf would.}
+        \raceOption{Human}{When you \important{do something that humans do}, you do it like a human would.  I'm not even sure this constitutes a move.  I mean, what are you going to do, roll to put one foot in front of the other?}
+        \raceOption{Dwarf}{When you \important{do something that dwarves do}, you do it better than an Elf would.}
         \emptySelectable{5}
     \end{minipage}
     % whitespace divider
-    \begin{minipage}[t]{2mm}
+    \begin{minipage}[t]{4mm}
         ~
     \end{minipage}
     % lower right column: starting moves
     \begin{minipage}[t]{0.65\textwidth}
-        \startingMoves
+        \startingMoves\\[2mm]
+        \subtext{You start with all of these:}
         \begin{multicols*}{2}
-            \subtext{You start with all of these:}\\
-
             \selectable[x]{Lorem}{
-            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. \important{Ability drained} air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \vgap
             \selectable[x]{Ipsum}{
-            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            Change \important{shape cold} immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            \vgap
             \selectable[x]{Dolor}{
-            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}\\
-            
+            Ability damaged ability modifier adventuring party aquatic subtype burrow \important{class class} feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
             \selectable[x]{Sit}{
-            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level orc domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level \important{orc} domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            \vgap
             \selectable[x]{Amet}{
-            Aberration type calling subschool coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            \important{Aberration type calling subschool} coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            \vgap
             \selectable[x]{Consectetur}{
-            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+            petrified poison spell slot Dark Souls is the best game series fite me irl \important{dodge bonus} enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane strength domain take 10 time domain trickery domain untrained.}
         \end{multicols*}
     \end{minipage}
 \end{minipage}
@@ -124,27 +126,24 @@
             
         \blank{5.8}
 
+        \vspace{1mm}
         \alignment
-        \alignmentOption{Good}{Pet bunnies and snuggle puppy dogs.}
+        \alignmentOption{Good}{Huggle bunnies and snuggle puppy dogs.}
         \alignmentOption{Evil}{Cackle maliciously and steal candy from babies.}
         \emptySelectable{5}
-
         \gear
-        \gearOption{You carry a tiny \textbf{picture}.}
-        \\[4mm]
-        \blank{5.8}
-        \\[4mm]
+        \gearOption{You carry a \important{seed} from a giant tree.}\vgap
+        \separator{5.8}
+        \\[1mm]
         \dungeonRations
-        \adventuringGear
-        \\[3mm]
-        \instruction{Choose your defenses:}\\
-        \gearOptionSelectable{A suit of \textbf{Plate Armor} (2 armor, worn, 2 weight)}
-        \gearOptionSelectable{A \textbf{loincloth} (0 armor, worn, 1 weight) and a \textbf{makeshift shield} (1 armor, 1 weight)}
-        \\[3mm]
-        \instruction{Choose your armament:}\\
-        \gearOptionSelectable{\textbf{Straightsword} (close, 2 weight)}
-        \gearOptionSelectable{\textbf{Wooden Club} (close, 1 weight)}
-        \gearOptionSelectable{\textbf{Worn Bow} (near, 2 weight)\\\textbf{Bundle of Arrows} (3 ammo, 1 weight)}
+        \adventuringGear\vgap
+        \instruction{Choose your defenses:}\vgap
+        \gearOptionSelectable{\important{Plate Armor} (2 armor, worn, 2 weight)}
+        \gearOptionSelectable{\important{Loincloth} (0 armor, worn, 1 weight)\\\important{Makeshift Shield} (1 armor, 1 weight)}\\
+        \instruction{Choose your armament:}\vgap
+        \gearOptionSelectable{\important{Straightsword} (close, 2 weight)}
+        \gearOptionSelectable{\important{Wood Club} (close, 1 weight)}
+        \gearOptionSelectable{\important{Worn Bow} (near, 2 weight)\\\important{Bundle of Arrows} (3 ammo, 1 weight)}
     \end{minipage}
     % whitespace divider
     \begin{minipage}[t]{2mm}
@@ -156,28 +155,34 @@
         
         \begin{multicols*}{2}
             \selectable{Adipiscing}{
-            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            Balance domain \important{chaos domain dispel} check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \vgap
             \selectable{Elit}{
-            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            Malkovich malkovich, \important{malkovich malkovich} malkovich... malkovich? malkovich mal-ko-vich! malkovich. malkovich. malkovich malKOvich malkovich; malkovich!? malkovich!!!!!!!!!! malkovich. mmmmmmmalkovich malkovich malkovich. malkovich (malkovich, malkovich) malkovich: malkovich... malkovich malkovich malkovich malkovich malkovich! malkovich.}
+            \vgap
             \selectable{Nulla}{
-            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
+            \important{Base attack bonus} blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
             \selectable{Consequat}{
-            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level orc domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            Ability drain armor bonus \important{chaotic subtype} competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level orc domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            \vgap
             \selectable{Eleifend}{
-            Aberration type calling subschool coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            Aberration type calling subschool \important{coup de grace} domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
+            \vgap
             \selectable{Lacus}{
-            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence \important{large massive damage} outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
         \end{multicols*}
         \sixUpMoves
         \begin{multicols*}{2}
             \selectable{Vel}{
-            Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            Balance domain chaos domain dispel check \important{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
+            \vgap
             \selectable{Placerat}{
-            Change shape cold immunity constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
+            Change shape \important{cold immunity} constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
             \selectable{Sem Pharetra}{
-            Ability damaged ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
+            \important{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
+            \vgap
             \selectable{Vitae}{
-            Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
+            Armor bonus class skill \important{dispel check dodge bonus enhancement} bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
         \end{multicols*}
     \end{minipage}
 \end{minipage}

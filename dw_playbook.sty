@@ -10,16 +10,19 @@
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{ragged2e}
+\RequirePackage[T1]{fontenc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    constants
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\definecolor{mainTextColor}{HTML}{FFFFFF}
+\definecolor{mainTextColor}{HTML}{E0E0E0}
+\definecolor{boldTextColor}{HTML}{FFFFFF}
 \definecolor{mainPageColor}{HTML}{000000}
 
 \definecolor{titleFill}{HTML}{303030}
 \definecolor{headerFill}{HTML}{505050}
+\definecolor{pale}{HTML}{EEEEEE}
 \definecolor{shade}{HTML}{CCCCCC}
 \definecolor{shadeDark}{HTML}{A0A0A0}
 
@@ -32,32 +35,45 @@
     {\renewcommand{\playbook}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    styles
+%    text styles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand
     {\standardfont}
-    {\fontsize{10}{0}\fontshape{n}\fontseries{m}\selectfont \color{mainTextColor}}
+    {\fontfamily{lato}%
+    \fontsize{9}{10}%
+    \fontshape{n}%
+    \fontseries{m}%
+    \selectfont \color{mainTextColor}}
 
 \newcommand
     {\movename}
     [1]
-    {\fontsize{12}{0}\fontshape{n}\fontseries{b}\selectfont #1 \standardfont}
+    {\textbf{\large #1}}
 
 \newcommand
     {\headertext}
     [1]
-    {\fontsize{16}{0}\fontseries{b}\selectfont #1 \standardfont}
+    {\textbf{\LARGE #1}}
 
 \newcommand
     {\subtext}
     [1]
-    {\footnotesize \color{shade} \textsl{#1} \color{mainTextColor} \normalsize}
+    {\textsl{\color{shade}\footnotesize #1}}
 
 \newcommand
     {\instruction}
     [1]
-    {\fontsize{9}{0}\fontshape{sl}\selectfont \color{shadeDark} #1\\[2mm] \standardfont}
+    {\textsl{\color{shadeDark} #1}}
+
+\newcommand
+    {\important}
+    [1]
+    {\textbf{\color{boldTextColor}#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    whitespace variations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand
     {\blank}
@@ -65,8 +81,17 @@
     {\underline{\makebox[#1cm][s]{}}}
 
 \newcommand
+    {\separator}
+    [1]
+    {{\color{shadeDark}\blank{#1}}}
+
+\newcommand
     {\blankName}
     {\underline{\makebox[3cm][s]{}}}
+
+\newcommand
+    {\vgap}
+    {\\[3mm]}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    dice icons
@@ -78,7 +103,7 @@
     {\dfour}
     [1]
     {
-        \def\x{1.05cm}
+        \def\x{1.25cm}
         \def\y{0.6cm}
         \def\mult{1.5}
 
@@ -106,7 +131,7 @@
     {\dsix}
     [1]
     {
-        \def\x{0.4cm}
+        \def\x{0.55cm}
         \def\y{-0.35cm}
         \def\mult{2.7}
         
@@ -141,7 +166,7 @@
     {\deight}
     [1]
     {
-        \def\x{1.1cm}
+        \def\x{1.2cm}
         \def\y{0.3cm}
         \def\mult{1.6}
         
@@ -180,7 +205,7 @@
     {\dten}
     [1]
     {
-        \def\x{1.1cm}
+        \def\x{1.3cm}
         \def\y{0.3cm}
         \def\mult{1.6}
         
@@ -208,10 +233,15 @@
             -- (\x-0.475cm*\mult,\y+0.1cm*\mult)
             -- cycle;
 
+        \draw [color=white,fill=white]
+            (\x-0.25cm*\mult,\y-0.05cm*\mult)
+            rectangle
+            (\x+0.26cm*\mult,\y+0.12cm*\mult);
+
         \draw [color=black]
             (\x+0cm,\y+0cm)
             node
-            {\fcolorbox{white}{white}{\Large D10}};
+            {{\Large D10}};
         
         % bottom right
         \draw [color=black,fill=white,thick]
@@ -241,13 +271,36 @@
         \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=1cm,color=white] (#4,0.2) node {\headertext{#2}};
+            \draw [text width=1cm,color=white] (#4,0.4) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=5cm,color=white] (#4,0.35) node {\headertext{#2}};
+            \draw [text width=5cm,color=white] (#4,0.4) node {\headertext{#2}};
+        \end{tikzpicture}%
+        \fi%
+    }
+
+% header-lower variant: since the text is stationed within a tikzpicture instead
+% of fbox, the vertical alignment takes the full text height into account, which
+% means descender characters shift the position upward by a tiny bit.  Easiest
+% way to deal was to just duplicate the functionality. Not my favorite, but it
+% gets us through the day.
+\newcommand
+    {\headerl}
+    [5][l]
+    {
+        \ifx l#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
+            \draw [text width=1cm,color=white] (#4,#5) node {\headertext{#2}};
+        \end{tikzpicture}%
+        \fi%
+        \ifx r#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
+            \draw [text width=5cm,color=white] (#4,#5) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
     }
@@ -259,12 +312,12 @@
         \def\x{0.85}
         \def\y{1.25}
         \begin{tikzpicture}[baseline=(current bounding box.north)]
-            \draw [color=mainTextColor] (2.25,1.6) node {\LARGE \textbf{#2}};
-            \draw [color=mainTextColor,thick] (0,0) rectangle (3,1.25);
+            \draw [color=boldTextColor] (2.25,1.6) node {\LARGE \textbf{#2}};
+            \draw [color=shadeDark,thick] (0,0) rectangle (3,1.25);
 
-            \draw [text width=1cm,color=mainTextColor] (0.65, 0.25) node {\small #1};
-            \draw [color=mainTextColor,fill=mainPageColor,thick] (\x,\y) circle (7.55mm);
-            \filldraw [color=mainTextColor,fill=mainPageColor,thick]
+            \draw [text width=1cm,color=boldTextColor] (0.65, 0.25) node {\small #1};
+            \draw [color=boldTextColor,fill=mainPageColor,thick] (\x,\y) circle (7.55mm);
+            \filldraw [color=boldTextColor,fill=mainPageColor,thick]
                 (\x,\y-0.75)
                 -- (\x-0.7,\y-0.225)
                 -- (\x-0.435,\y+0.6)
@@ -273,8 +326,8 @@
                 -- cycle;
             \draw [color=shade,fill=mainPageColor,thick] (\x,\y) circle (5.8mm);
 
-            \draw [color=mainTextColor] (2.35,1) node {-1};
-            \draw [color=mainTextColor,thick] (2.6,0.85) rectangle (2.9,1.15);
+            \draw [color=boldTextColor] (2.35,1) node {-1};
+            \draw [color=boldTextColor,thick] (2.6,0.85) rectangle (2.9,1.15);
         \end{tikzpicture}
     }
 
@@ -284,14 +337,16 @@
     {
         \begin{minipage}{0.6cm}
             \begin{tikzpicture}[baseline=(current bounding box.north)]
-                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.5cm,0.5cm);
-                \draw [color=mainTextColor] (0.25,0.25) node {\ifx x#1 \large X \normalsize \fi};
+                \draw [rounded corners,color=boldTextColor]
+                    (0,0) rectangle (0.5cm,0.5cm);
+                \draw [color=boldTextColor]
+                    (0.25,0.25) node {\ifx x#1 {\large X} \fi};
             \end{tikzpicture}
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
             \begin{FlushLeft}
                 \movename{#2}\\[2mm]
-                #3
+                {\small #3}
             \end{FlushLeft}
         \end{minipage}
     }
@@ -300,15 +355,17 @@
     {\tinySelectable}
     [2][u]
     {
-        \begin{minipage}{0.1\textwidth}
+        \begin{minipage}{0.08\textwidth}
             \begin{tikzpicture}[baseline=(current bounding box.north)]
-                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.4cm,0.4cm);
-                \draw [color=mainTextColor] (0.2,0.2) node {\ifx x#1 \large x \normalsize \fi};
+                \draw [rounded corners,color=boldTextColor]
+                    (0,0) rectangle (0.4cm,0.4cm);
+                \draw [color=boldTextColor]
+                    (0.2,0.2) node {\ifx x#1 {\large x}\fi};
             \end{tikzpicture}
         \end{minipage}
-        \begin{minipage}[t]{0.89\textwidth}
+        \begin{minipage}[t]{0.92\textwidth}
             \begin{FlushLeft}
-                #2
+                {\small #2}
             \end{FlushLeft}
         \end{minipage}
     }
@@ -319,12 +376,11 @@
     {
         \begin{minipage}[t]{0.12\textwidth}
             \begin{tikzpicture}[baseline=(current bounding box.north)]
-                \draw [rounded corners,color=mainTextColor] (0,0) rectangle (0.5cm,0.5cm);
+                \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.5cm,0.5cm);
             \end{tikzpicture}
         \end{minipage}
         \begin{minipage}[t]{0.87\textwidth}
             ~\\
-
             \blank{#1}\\
 
             \blank{#1}\\

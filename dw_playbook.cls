@@ -12,6 +12,9 @@
 \LoadClass[letterpaper]{article}
 
 \RequirePackage[utf8]{inputenc}
+% \RequirePackage[default]{lato}
+\RequirePackage{libertinus}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
 
 \RequirePackage{dw_playbook}
@@ -38,7 +41,11 @@
 
 \renewcommand
     {\normalsize}
-    {\fontsize{9}{12}\selectfont}
+    {\fontsize{9}{10}\selectfont}
+\renewcommand
+    {\Huge}
+    {\fontsize{32}{0}\selectfont}
+% \standardfont
 
 \setcounter{secnumdepth}{0}
 \geometry{
@@ -98,11 +105,8 @@
             %     .. controls (7.1,0.1) and (7.2,0) .. (7.5, 0)
             %     -- (0,0) -- (0,0.75);
             % \end{tikzpicture}
-
-            \fontsize{32}{0}\fontseries{b}%
-            \fontshape{sl}\selectfont
             \medskip
-            ~~~\@title
+            \textbf{\Huge~~~\@title}
             \smallskip
         \end{minipage}
         }
@@ -139,12 +143,12 @@
 \newcommand
     {\stats}
     {
-        \begin{minipage}[t]{0.3\textwidth}
+        \begin{minipage}[t]{0.31\textwidth}
             \str\\
 
             \int
         \end{minipage}
-        \begin{minipage}[t]{0.3\textwidth}
+        \begin{minipage}[t]{0.31\textwidth}
             \dex\\
 
             \wis
@@ -161,12 +165,12 @@
     {
         \def\x{1.7}
         \begin{tikzpicture}[baseline=(current bounding box.north)]
-            \filldraw [rotate=30,color=black,fill=shade,thick]
+            \filldraw [rotate=30,color=black,fill=pale,thick]
                 (\x+2.52,-2) circle (6.5mm and 4.5mm);
-            \filldraw [rotate=30,color=black,fill=shade,thick]
+            \filldraw [rotate=30,color=black,fill=pale,thick]
                 (\x+2.5,-1.9) circle (6.5mm and 4.5mm);
 
-            \draw [color=shadeDark] (\x+3,0.475) node {\headertext{¢}};
+            \draw [color=shade] (\x+2.87,0.475) node {\headertext{¢}};
         \end{tikzpicture}
     }
 
@@ -198,14 +202,14 @@
                 -- (\x+3.35,-0.25) -- (\x+2.85,0.05)
                 -- (\x+2.85,0.05) -- (\x+2.85,0.7);
 
-            \draw [color=shade] (\x+3.45,0.375) node {\headertext{XP}};
+            \draw [color=shade] (\x+3.375,0.375) node {\Large{XP}};
         \end{tikzpicture}
     }
 
 \newcommand
     {\armor}
     {
-        \def\x{0.25}
+        \def\x{0.45}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
             \draw [color=black,fill=white,thick]
@@ -215,7 +219,7 @@
                 to [out=270,in=165] (\x+0.75,-0.25)
                 to [out=15,in=270] cycle (\x+0.5,0.75);
 
-            \draw [text width=1cm,color=white] (6.85,0.2) node {\headertext{Armor}};
+            \draw [text width=1cm,color=white] (6.8,0.4) node {\headertext{Armor}};
         \end{tikzpicture}
     }
 
@@ -225,7 +229,7 @@
         \def\x{7.25}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
-            \draw [text width=1cm,color=white] (1,0.175) node {\headertext{Hit Points}};
+            \draw [text width=1cm,color=white] (1,0.4) node {\headertext{Hit Points}};
   
             % thanks to A.Ellett for the heart:
             % https://tex.stackexchange.com/questions/139733/can-we-make-a-love-heart-with-latex
@@ -242,7 +246,7 @@
                 arc (0:180:0.5)
                 -- cycle;
 
-            \draw [color=shade] (4.8,0.15) node {\subtext{Max (8+Constitution)}};
+            \draw [color=shade] (5,0.155) node {\subtext{Max (8+Constitution)}};
         \end{tikzpicture}
     }
 
@@ -255,7 +259,7 @@
 
             #1
 
-            \draw [text width=1cm,color=white] (6.55,0.2) node {\headertext{Damage}};
+            \draw [text width=1cm,color=white] (6.55,0.35) node {\headertext{Damage}};
         \end{tikzpicture}
     }
 
@@ -267,7 +271,7 @@
     {\looks}
     {
         \begin{minipage}[t]{\textwidth}
-            \header{Looks}{5.8}{1}
+            \header{Looks}{5.8}{1}\\[2mm]
             \subtext{Choose one from each, or write your own:}
         \end{minipage}
     }
@@ -278,22 +282,22 @@
         \begin{minipage}[t]{\textwidth}
             \vspace{3mm}
             \begin{FlushLeft}
-                \textbf{#1}: #2
+                \important{#1}: #2
             \end{FlushLeft}
         \end{minipage}
     }
 
 \newcommand
     {\race}
-    {\header{Race}{5.8}{1}\\}
+    {\header{Race}{5.8}{1}\\[2mm]}
 \newcommand
     {\raceOption}
     [2]
-    {\selectable{#1}{#2}}
+    {\selectable{#1}{#2}\\[3mm]}
 
 \newcommand
     {\alignment}
-    {\header{Alignment}{5.8}{1}\\[3mm]}
+    {\headerl{Alignment}{5.8}{1}{0.325}\\[2mm]}
 \newcommand
     {\alignmentOption}
     [2]
@@ -303,7 +307,7 @@
     {\bonds}
     {
         \begin{minipage}[t]{\textwidth}
-            \header{Bonds}{5.8}{1}
+            \header{Bonds}{5.8}{1}\\[1.5mm]
             \subtext{Fill in at least one with the name of a companion, or write your own:}
         \end{minipage}
     }
@@ -321,15 +325,15 @@
 
 \newcommand
     {\gear}
-    {\header{Gear}{5.8}{1}}
+    {\header{Gear}{5.8}{1}\\[2mm]}
 \newcommand
     {\gearOption}
     [1]
     {
         \begin{minipage}[t]{\textwidth}
-            \vspace{2mm}
+            \vspace{1mm}
             \begin{FlushLeft}
-                #1
+                \small{#1}
             \end{FlushLeft}
         \end{minipage}
     }
@@ -339,10 +343,10 @@
     {\tinySelectable{#1}\\[2mm]}
 \newcommand
     {\dungeonRations}
-    {\gearOption{\textbf{Dungeon Rations} (5 uses, ration, 1 weight)}}
+    {\gearOption{\important{Dungeon Rations} (5 uses, ration, 1 weight)}}
 \newcommand
     {\adventuringGear}
-    {\gearOption{\textbf{Adventuring Gear} (5 uses, 1 weight)}}
+    {\gearOption{\important{Adventuring Gear} (5 uses, 1 weight)}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -351,7 +355,7 @@
 
 \newcommand
     {\startingMoves}
-    {\header[r]{Starting Moves}{12.9}{11}}
+    {\headerl[r]{Starting Moves}{12.9}{11}{0.35}}
 
 \newcommand
     {\advancedMoves}
@@ -367,7 +371,7 @@
     {\sixUpMoves}
     {
         \begin{minipage}[t]{\textwidth}
-            \blank{13}\\
-            When you gain a level from 6-10, you may choose from these moves:
+            {\separator{13}}\\[1mm]
+            \subtext{When you gain a level from 6-10, you may choose from these moves:}
         \end{minipage}
     }
