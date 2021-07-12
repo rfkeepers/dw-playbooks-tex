@@ -16,15 +16,19 @@
 %    constants
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\definecolor{mainTextColor}{HTML}{E0E0E0}
-\definecolor{boldTextColor}{HTML}{FFFFFF}
-\definecolor{mainPageColor}{HTML}{000000}
-
-\definecolor{titleFill}{HTML}{303030}
-\definecolor{headerFill}{HTML}{505050}
-\definecolor{pale}{HTML}{EEEEEE}
-\definecolor{shade}{HTML}{CCCCCC}
-\definecolor{shadeDark}{HTML}{A0A0A0}
+% Light Mode Colors
+\definecolor{mainTextColor}{HTML}{323232}
+\definecolor{boldTextColor}{HTML}{000000}
+\definecolor{mainPageColor}{HTML}{FFFFFF}
+\definecolor{headerLightColor}{HTML}{444444}
+\definecolor{headerTextColor}{HTML}{000000}
+\definecolor{titleFill}{HTML}{C0C0C0}
+\definecolor{headerFill}{HTML}{C0C0C0}
+\definecolor{offWhite}{HTML}{EAEAEA}
+\definecolor{pale}{HTML}{FAFAFA}
+\definecolor{paleish}{HTML}{CACACA}
+\definecolor{shade}{HTML}{777777}
+\definecolor{shadeish}{HTML}{A0A0A0}
 
 \newcommand
     {\playbook}
@@ -64,7 +68,7 @@
 \newcommand
     {\instruction}
     [1]
-    {\textsl{\color{shadeDark} #1}}
+    {\textsl{\color{shade} #1}}
 
 \newcommand
     {\important}
@@ -83,7 +87,7 @@
 \newcommand
     {\separator}
     [1]
-    {{\color{shadeDark}\blank{#1}}}
+    {{\color{shadeish}\blank{#1}}}
 
 \newcommand
     {\blankName}
@@ -271,13 +275,13 @@
         \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=1cm,color=white] (#4,0.4) node {\headertext{#2}};
+            \draw [text width=1cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=5cm,color=white] (#4,0.4) node {\headertext{#2}};
+            \draw [text width=5cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
     }
@@ -294,13 +298,13 @@
         \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=1cm,color=white] (#4,#5) node {\headertext{#2}};
+            \draw [text width=1cm,color=headerTextColor] (#4,#5) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=5cm,color=white] (#4,#5) node {\headertext{#2}};
+            \draw [text width=5cm,color=headerTextColor] (#4,#5) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
     }
@@ -313,7 +317,7 @@
         \def\y{1.25}
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \draw [color=boldTextColor] (2.25,1.6) node {\LARGE \textbf{#2}};
-            \draw [color=shadeDark,thick] (0,0) rectangle (3,1.25);
+            \draw [color=shadeish,thick] (0,0) rectangle (3,1.25);
 
             \draw [text width=1cm,color=boldTextColor] (0.65, 0.25) node {\small #1};
             \draw [color=boldTextColor,fill=mainPageColor,thick] (\x,\y) circle (7.55mm);

@@ -32,6 +32,33 @@
 
 \DeclareOption{twocolumn}{\OptionNotUsed}
 \DeclareOption{a4paper}{\OptionNotUsed}
+\DeclareOption{darkmode}{
+    % Dark Mode Color Scheme
+    \definecolor{mainTextColorD}{HTML}{E0E0E0}
+    \colorlet{mainTextColor}{mainTextColorD}
+    \definecolor{boldTextColorD}{HTML}{FFFFFF}
+    \colorlet{boldTextColor}{boldTextColorD}
+    \definecolor{mainPageColorD}{HTML}{000000}
+    \colorlet{mainPageColor}{mainPageColorD}
+    \definecolor{headerTextColorD}{HTML}{FFFFFF}
+    \colorlet{headerTextColor}{headerTextColorD}
+    \definecolor{headerLightColorD}{HTML}{BBBBBB}
+    \colorlet{headerLightColor}{headerLightColorD}
+    \definecolor{titleFillD}{HTML}{303030}
+    \colorlet{titleFill}{titleFillD}
+    \definecolor{headerFillD}{HTML}{505050}
+    \colorlet{headerFill}{headerFillD}
+    \definecolor{offWhiteD}{HTML}{EAEAEA}
+    \colorlet{offWhite}{offWhiteD}
+    \definecolor{paleD}{HTML}{F3F3F3}
+    \colorlet{pale}{paleD}
+    \definecolor{paleishD}{HTML}{CACACA}
+    \colorlet{paleish}{paleishD}
+    \definecolor{shadeD}{HTML}{CCCCCC}
+    \colorlet{shade}{shadeD}
+    \definecolor{shadeishD}{HTML}{A0A0A0}
+    \colorlet{shadeish}{shadeishD}
+}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 
@@ -97,16 +124,8 @@
     {
         \fcolorbox{titleFill}{titleFill}{
         \begin{minipage}[t]{\textwidth}
-            % \begin{tikzpicture}
-            %     \filldraw
-            %     [ultra thick,fill=titleFill,color=titleFill]
-            %     (0,0.75)
-            %     .. controls (1.25,0) and (4,0.5) .. (7,0.1)
-            %     .. controls (7.1,0.1) and (7.2,0) .. (7.5, 0)
-            %     -- (0,0) -- (0,0.75);
-            % \end{tikzpicture}
             \medskip
-            \textbf{\Huge~~~\@title}
+            \textbf{\color{headerTextColor} \Huge~~~\@title}
             \smallskip
         \end{minipage}
         }
@@ -170,7 +189,7 @@
             \filldraw [rotate=30,color=black,fill=pale,thick]
                 (\x+2.5,-1.9) circle (6.5mm and 4.5mm);
 
-            \draw [color=shade] (\x+2.87,0.475) node {\headertext{¢}};
+            \draw [color=paleish] (\x+2.87,0.475) node {\headertext{¢}};
         \end{tikzpicture}
     }
 
@@ -184,7 +203,7 @@
         \def\x{4.4}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
-            \draw [color=white] (1.2,0.375  ) node {\headertext{Level}};
+            \draw [color=headerTextColor] (1.2,0.375  ) node {\headertext{Level}};
 
             \filldraw [color=black,fill=white,thick]
                 (\x+1.75,0.7) -- (\x+2.25,1)
@@ -202,7 +221,7 @@
                 -- (\x+3.35,-0.25) -- (\x+2.85,0.05)
                 -- (\x+2.85,0.05) -- (\x+2.85,0.7);
 
-            \draw [color=shade] (\x+3.375,0.375) node {\Large{XP}};
+            \draw [color=headerLightColor] (\x+3.365,0.365) node {\Large{XP}};
         \end{tikzpicture}
     }
 
@@ -219,7 +238,7 @@
                 to [out=270,in=165] (\x+0.75,-0.25)
                 to [out=15,in=270] cycle (\x+0.5,0.75);
 
-            \draw [text width=1cm,color=white] (6.8,0.4) node {\headertext{Armor}};
+            \draw [text width=1cm,color=headerTextColor] (6.8,0.4) node {\headertext{Armor}};
         \end{tikzpicture}
     }
 
@@ -229,7 +248,7 @@
         \def\x{7.25}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
-            \draw [text width=1cm,color=white] (1,0.4) node {\headertext{Hit Points}};
+            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\headertext{Hit Points}};
   
             % thanks to A.Ellett for the heart:
             % https://tex.stackexchange.com/questions/139733/can-we-make-a-love-heart-with-latex
@@ -239,14 +258,14 @@
                 .. (\x-1,0.65)
                 arc (180:0:0.5)
                 -- cycle;
-            \draw [color=black,fill=shade,thick]
+            \draw [color=black,fill=offWhite,thick]
                 (\x,-0.5)
                 .. controls (\x,0.15) and (\x+1,0)
                 .. (\x+1,0.65)
                 arc (0:180:0.5)
                 -- cycle;
 
-            \draw [color=shade] (5,0.155) node {\subtext{Max (8+Constitution)}};
+            \draw (5,0.155) node {\textsl{\color{headerLightColor}\footnotesize Max (8+Constitution)}};
         \end{tikzpicture}
     }
 
@@ -259,7 +278,7 @@
 
             #1
 
-            \draw [text width=1cm,color=white] (6.55,0.35) node {\headertext{Damage}};
+            \draw [text width=1cm,color=headerTextColor] (6.55,0.35) node {\headertext{Damage}};
         \end{tikzpicture}
     }
 
@@ -355,13 +374,13 @@
 
 \newcommand
     {\startingMoves}
-    {\headerl[r]{Starting Moves}{12.9}{11}{0.35}}
+    {\headerl[r]{Starting Moves}{12.9}{10.75}{0.35}}
 
 \newcommand
     {\advancedMoves}
     {
         \begin{minipage}[t]{\textwidth}
-            \header[r]{Advanced Moves}{12.9}{10.5}\\
+            \header[r]{Advanced Moves}{12.9}{10.2}\\
 
             \subtext{When you gain a level from 2-10, you may choose from these moves:}
         \end{minipage}
