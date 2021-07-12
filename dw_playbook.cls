@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dw_playbook}[2021/07/02 Dungeon World Playbook Class]
+\ProvidesClass{dw_playbook}[2021/07/02 Dungeon World Playbook Document Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    package declarations
@@ -12,7 +12,6 @@
 \LoadClass[letterpaper]{article}
 
 \RequirePackage[utf8]{inputenc}
-% \RequirePackage[default]{lato}
 \RequirePackage{libertinus}
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
@@ -25,6 +24,9 @@
 \RequirePackage{xargs}
 \RequirePackage{xcolor}
 \RequirePackage{multicol}
+
+% import me last
+\RequirePackage[colorlinks=true]{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    options
@@ -72,7 +74,6 @@
 \renewcommand
     {\Huge}
     {\fontsize{32}{0}\selectfont}
-% \standardfont
 
 \setcounter{secnumdepth}{0}
 \geometry{
@@ -114,6 +115,8 @@
     parsep=0mm,
     partopsep=0mm,
 }
+
+\hypersetup{urlcolor=cyan}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    commands
