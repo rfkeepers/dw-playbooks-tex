@@ -247,6 +247,7 @@
 
 \newcommand
     {\hitpoints}
+    [1]
     {
         \def\x{7.25}
         \begin{tikzpicture}
@@ -268,7 +269,7 @@
                 arc (0:180:0.5)
                 -- cycle;
 
-            \draw (5,0.155) node {\textsl{\color{headerLightColor}\footnotesize Max (8+Constitution)}};
+            \draw (5,0.155) node {\textsl{\color{headerLightColor}\footnotesize Max (#1+Constitution)}};
         \end{tikzpicture}
     }
 
@@ -370,6 +371,9 @@
     {\adventuringGear}
     {\gearOption{\important{Adventuring Gear} (5 uses, 1 weight)}}
 
+\newcommand
+    {\notes}
+    {\header{Notes}{5.8}{1}\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    starting and advanced moves
@@ -383,9 +387,17 @@
     {\advancedMoves}
     {
         \begin{minipage}[t]{\textwidth}
-            \header[r]{Advanced Moves}{12.9}{10.2}\\
+            \header[r]{Advanced Moves}{12.9}{11.2}\\
 
             \subtext{When you gain a level from 2-10, you may choose from these moves:}
+        \end{minipage}
+    }
+
+\newcommand
+    {\advancedMovesCont}
+    {
+        \begin{minipage}[t]{\textwidth}
+            \header[r]{Advanced Moves (cont.)}{12.9}{9.2}\\
         \end{minipage}
     }
 

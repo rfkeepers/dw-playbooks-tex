@@ -63,9 +63,24 @@
     {\textsl{\color{shade} #1}}
 
 \newcommand
+    {\requires}
+    [1]
+    {\instruction{Requires: #1}\vsgap}
+
+\newcommand
+    {\replaces}
+    [1]
+    {\instruction{Replaces: #1}\vsgap}
+
+\newcommand
     {\important}
     [1]
     {\textbf{\color{boldTextColor}#1}}
+
+\newcommand
+    {\tag}
+    [1]
+    {\textsl{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    whitespace variations
@@ -88,6 +103,10 @@
 \newcommand
     {\vgap}
     {\\[3mm]}
+
+\newcommand
+    {\vsgap}
+    {\\[1mm]}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    dice icons
@@ -273,7 +292,7 @@
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=5cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
+            \draw [text width=7cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
         \end{tikzpicture}%
         \fi%
     }
@@ -341,7 +360,7 @@
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
             \begin{FlushLeft}
-                \movename{#2}\\[2mm]
+                \movename{#2}\\[1mm]
                 {\small #3}
             \end{FlushLeft}
         \end{minipage}
@@ -362,6 +381,23 @@
         \begin{minipage}[t]{0.92\textwidth}
             \begin{FlushLeft}
                 {\small #2}
+            \end{FlushLeft}
+        \end{minipage}
+    }
+
+\newcommand
+    {\opt}
+    [1]
+    {
+        \begin{minipage}{0.05\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [color=headerFill,fill=headerFill]
+                    (0.2cm,0.2cm) circle (0.05cm);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{0.93\textwidth}
+            \begin{FlushLeft}
+                {\small #1}
             \end{FlushLeft}
         \end{minipage}
     }

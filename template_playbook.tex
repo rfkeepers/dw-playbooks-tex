@@ -32,7 +32,7 @@
         \vspace{3mm}
         \level\\
         \armor\\
-        \hitpoints\\
+        \hitpoints{8}\\
         \damage{\deight}
     \end{minipage}
     \begin{minipage}{0.52\textwidth}
@@ -85,12 +85,22 @@
             \selectable[x]{Dolor}{
             Ability damaged ability modifier adventuring party aquatic subtype burrow \important{class class} feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
             \selectable[x]{Sit}{
-            Ability drain armor bonus chaotic subtype competence bonus cross-class skill destruction domain diminutive eladrin subtype electrum gargantuan negative level \important{orc} domain pinned plane of shadow platinum piece rend reptilian subtype round scent skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
+            \important{Orc?}  Choose one:
+            \vsgap
+            \opt{plane of shadow scent}
+            \vsgap
+            \opt{platinum piece}
+            \vsgap
+            \opt{reptilian subtype}
+            \vgap
+            skill points small special quality spell strength sun domain thirst touch spell transitive plane unarmed attack vulnerability to energy.}
             \vgap
             \selectable[x]{Amet}{
             \important{Aberration type calling subschool} coup de grace domain spell entangled ethereal plane fear cone improved grab initiative count light weapon living luck domain melee mentalism domain monstrous humanoid type morale bonus orc domain paladin petrified ranged attack rounding scribe shield bonus spell level square subtype threaten tyranny domain.}
             \vgap
-            \selectable[x]{Consectetur}{
+            \instruction{It's dangerous to go alone, take this:}
+            \vgap
+            \selectable{Consectetur}{
             petrified poison spell slot Dark Souls is the best game series fite me irl \important{dodge bonus} enhancement bonus fighter fire domain initiative count intelligence large massive damage outer plane strength domain take 10 time domain trickery domain untrained.}
         \end{multicols*}
     \end{minipage}
@@ -127,18 +137,23 @@
         \vspace{1mm}
         \alignment
         \alignmentOption{Good}{Huggle bunnies and snuggle puppy dogs.}
+        \vgap
         \alignmentOption{Evil}{Cackle maliciously and steal candy from babies.}
+        \vgap
         \emptySelectable{5}
         \gear
-        \gearOption{You carry a \important{seed} from a giant tree.}\vgap
+        \gearOption{You carry a \important{seed} from a giant tree.}
+        \vgap
         \separator{5.8}
         \\[1mm]
         \dungeonRations
         \adventuringGear\vgap
-        \instruction{Choose your defenses:}\vgap
+        \instruction{Choose your defenses:}
+        \vgap
         \gearOptionSelectable{\important{Plate Armor} (2 armor, worn, 2 weight)}
         \gearOptionSelectable{\important{Loincloth} (0 armor, worn, 1 weight)\\\important{Makeshift Shield} (1 armor, 1 weight)}\\
-        \instruction{Choose your armament:}\vgap
+        \instruction{Choose your armament:}
+        \vgap
         \gearOptionSelectable{\important{Straightsword} (close, 2 weight)}
         \gearOptionSelectable{\important{Wood Club} (close, 1 weight)}
         \gearOptionSelectable{\important{Worn Bow} (near, 2 weight)\\\important{Bundle of Arrows} (3 ammo, 1 weight)}
@@ -174,9 +189,9 @@
             \selectable{Vel}{
             Balance domain chaos domain dispel check \important{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
             \vgap
-            \selectable{Placerat}{
+            \selectable{Placerat}{\requires{Elit}
             Change shape \important{cold immunity} constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.}
-            \selectable{Sem Pharetra}{
+            \selectable{Sem Pharetra}{\replaces{Lorem}
             \important{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.}
             \vgap
             \selectable{Vitae}{
