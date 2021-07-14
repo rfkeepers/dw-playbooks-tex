@@ -5,8 +5,11 @@
 %    Playbook Details
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\defineplaybook{Monk}
+\setPlaybook{Monk}
 \title{The \playbook}
+
+\setDamage{\dsix}
+\setMinHitPoints{8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Document Layout
@@ -14,136 +17,81 @@
 
 \begin{document}
 % ----------------------------------------------------------
-% page 1
-
-\maketitle
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % left margin hack
-\end{minipage}
-\begin{minipage}[t]{0.90\textwidth}
-    % the playbook content goes here
-    \begin{minipage}{\textwidth}
-        % name suggestions
+\pageOne
+    {
         \names{Amida, Botan, Hirni, Anka, Cho, Ren, Ja, Gan, Iwao, Maki, Kasem, Yukiko, Thi, Phirun, Siyu, Zhen, Seiko}
-    \end{minipage}
-
-    % top section: stats, level, armor, etc
-    \begin{minipage}{0.48\textwidth}
-        \vspace{3mm}
-        \level\\
-        \armor\\
-        \hitpoints{10}\\
-        \damage{\deight}
-    \end{minipage}
-    \begin{minipage}{0.52\textwidth}
-        \begin{minipage}[t]{\textwidth}
-            \begin{minipage}[t]{0.15\textwidth}
-                % \vspace{3mm}
-                \coin
-            \end{minipage}
-            \begin{minipage}[t]{0.85\textwidth}
-                \vspace{3mm}
-                \headertext{Name:}
-                \blank{5.9}
-            \end{minipage}
-        \end{minipage}
-
-        \vspace{1mm}
-        \stats
-    \end{minipage}
-
-    \vspace{0.3cm}
-    % lower left column: looks, race, etc
-    \begin{minipage}[t]{0.3\textwidth}
+    }
+    {
         \looks
         \looksOption{FACE}{Intense, passive, jovial, \\[1mm]\blank{5.8}}
         \looksOption{HAIR}{Long ponytail, bushy, bald, \\[1mm]\blank{5.8}}
         \looksOption{SKIN}{Tattooed, scarred, pure and unmarred, \\[1mm]\blank{5.8}}
         \looksOption{BODY}{Sinewy, stocky, flabby, \\[1mm]\blank{5.8}}
-    
+
         \vspace{1mm}
         \race\\
-        \raceOption{Human}{You’ve visited many temples across the land. When you \important{encounter a religion}, the GM will tell you something not commonly known about them}
-        \raceOption{Dwarf}{Your work brings you peace. When you spend time doing strenuous manual labor, it counts as a form of Meditation.}
+        \raceOption{Human}
+            {You’ve visited many temples across the land. When you \important{encounter a religion}, the GM will tell you something not commonly known about them.}
+        \raceOption{Dwarf}
+            {Your work brings you peace. When you spend time doing strenuous manual labor, it counts as a form of Meditation.}
         \emptySelectable{5}
-    \end{minipage}
-    % whitespace divider
-    \begin{minipage}[t]{4mm}
-        ~
-    \end{minipage}
-    % lower right column: starting moves
-    \begin{minipage}[t]{0.65\textwidth}
-        \startingMoves\\[2mm]
-        \subtext{You start with all of these:}
-        \begin{multicols*}{2}
-            \selectable[x]{Hard Work For A Long Time}
-                {You’ve spent your life remaking your body.  You broke bones, seared skin, split muscle, then mended them all.  Over and over you’ve done this until your skin thickened and your skeleton hardened.  Blows no longer shatter your bones and claws cannot rend your flesh, for your body cannot be marred so easily.
+    }
+    {
+        \selectable[x]{Hard Work For A Long Time}
+            {You’ve spent your life remaking your body.  You broke bones, seared skin, split muscle, then mended them all.  Over and over you’ve done this until your skin thickened and your skeleton hardened.  Blows no longer shatter your bones and claws cannot rend your flesh, for your body cannot be marred so easily.
 
-                You can use your body to \important{Hack and Slash} as effectively as any weapon.  A Hack and Slash made in this manner has the reach \tag{hand}.}
-            \vgap
-            \instruction{Choose one:}
-            \vgap
-            \selectable{Bladed Bones}
-                {When you wield no weapons, \important{Hack and Slash} gains the following tags: \tag{precise}, \tag{piercing +1}.  All armor you wear gains the \tag{clumsy} tag.}
-            \vgap
-            \selectable{Wooded Limbs}
-                {When you wear no armor or shield, you have 1 armor.  When both feet are firmly set on the ground, ignore the \tag{forceful} tag on attacks from large or smaller creatures.}
-            \vgap
-            \selectable[x]{Meditate}
+            You can use your body to \important{Hack and Slash} as effectively as any weapon.  A Hack and Slash made in this manner has the reach \tag{hand}.}
+        \gap
+        \instruction{Choose one:}
+        \gap
+        \selectable{Bladed Bones}
+            {When you wield no weapons, \important{Hack and Slash} gains the following tags: \tag{precise}, \tag{piercing +1}.  All armor you wear gains the \tag{clumsy} tag.}
+        \gap
+        \selectable{Wooded Limbs}
+            {When you wear no armor or shield, you have 1 armor.  When both feet are firmly set on the ground, ignore the \tag{forceful} tag on attacks from large or smaller creatures.}
+        \gap
+        \selectable[x]{Meditate}
             {When you have time and a calm place to \important{relax and meditate}, lose all hold and choose one:
-            \vsgap
+            \gapSm
             \opt{Ask the GM one question from Discern Realities.}
-            \vsgap
+            \gapSm
             \opt{Spout Lore as if you rolled 7-9.}
-            \vsgap
+            \gapSm
             \opt{Gain 1 hold.  When you would consume a ration you may spend this hold to be sustained by the energy of the universe, and some dew.}
-            \vgap}
+            \gap}
             \selectable[x]{Pilgrimage}
             {When you leave a civilized settlement and \important{dedicate your travel} to personal growth.
-            \vsgap
+            \gapSm
             \instruction{Choose a goal for your pilgrimage:}
-            \vsgap
+            \gapSm
             \opt{Embrace a unique part of the world.}
-            \vsgap
+            \gapSm
             \opt{Experience inner peace and tranquility.}
-            \vsgap
+            \gapSm
             \opt{Learn from new philosophies.}
-            \vsgap
+            \gapSm
             \opt{Expand your capabilities as a martial artist.}
-            \vsgap
+            \gapSm
             \opt{Prove the superiority of your body.}
-            \vgap
-            If you willingly pass up the opportunity for growth, your pilgrimage fails.  The GM will warn you if you are about to pass on such an opportunity before it escapes you.  When you return to civilization, if your Pilgrimage was successful mark 1 XP and take +1 forward to any \important{Carouse} where you teach your learnings to all during the celebration.
-            }
-            \vgap
-            \selectable[x]{Martial Stances}
-                {When you \important{begin combat} you take a stance and remain in a stance until combat ends.  Changing or leaving stances requires a moment of concentration which leaves you open and unprotected.
-                \vsgap
-                \opt{\important{Ox}: When you Defy Danger using STR or CON add +1 to the roll.}
-                \vsgap
-                \opt{\important{Tiger}: When you Hack and Slash and roll 10+ you deal additional damage equal to half your level (round up).}
-                \vsgap
-                \opt{\important{Monkey}: When you spend a hold on Defend, you deal damage equal to half your level (round up).}}
-        \end{multicols*}
-    \end{minipage}
-\end{minipage}
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % right margin hack
-\end{minipage}
+            \gap
+            If you willingly pass up the opportunity for growth, your pilgrimage fails.  The GM will warn you if you are about to pass on such an opportunity before it escapes you.  When you return to civilization, if your Pilgrimage was successful mark 1 XP and take +1 forward to any \important{Carouse} where you teach your learnings to all during the celebration.}
+        \gap
+        \selectable[x]{Martial Stances}
+            {When you \important{begin combat} you take a stance and remain in a stance until combat ends.  Changing or leaving stances requires a moment of concentration which leaves you open and unprotected.
+            \gapSm
+            \opt{\important{Ox}: When you Defy Danger using STR or CON add +1 to the roll.}
+            \gapSm
+            \opt{\important{Tiger}: When you Hack and Slash and roll 10+ you deal additional damage equal to half your level (round up).}
+            \gapSm
+            \opt{\important{Monkey}: When you spend a hold on Defend, you deal damage equal to half your level (round up).}}
+    }
 
 % ----------------------------------------------------------
-% page 2
-
 \clearpage
 ~
 
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % left margin hack
-\end{minipage}
-\begin{minipage}[t]{0.9\textwidth}
-
-    % left column: bonds, alignment, gear, blanks
-    \begin{minipage}[t]{0.3\textwidth}
+\pageTwo
+    {
         \bonds
         \bondOption{\blankName~has lessons to teach, and I will be their student.}\\
         \bondOption{\blankName~provides trials to test my mind and body.}\\
@@ -159,191 +107,137 @@
 
         \vspace{1mm}
         \alignment
-        \alignmentOption{Lawful}{ Restore an imbalance in the world around you.}
-        \vgap
+        \alignmentOption{Lawful}{Restore an imbalance in the world around you.}
+        \gap
         \alignmentOption{Good}{Use your worldly experience to teach a person.}
-        \vgap
+        \gap
         \alignmentOption{Neutral}{Put the needs of your pilgrimage above your own.}
 
         \emptySelectable{5}
         \gear
         \dungeonRations
         \adventuringGear
-        \vgap
+        \gap
         \instruction{Choose your clothing:}
-        \vgap
-        \gearOptionSelectable{\important{Sturdy Traveling lothes} (worn, 0 weight)}
-        \gearOptionSelectable{\important{Leather Armor} (1 armor, worn, 1 weight)}\\
+        \gap
+        \gearOptionSelectable{\important{Sturdy Traveling lothes} (\tag{worn}, 0 weight)}
+        \gearOptionSelectable{\important{Leather Armor} (1 armor, \tag{worn}, 1 weight)}\\
         \instruction{Choose one:}
-        \vgap
-        \gearOptionSelectable{\important{Bandages} (3 uses, slow, 0 weight)}
+        \gap
+        \bandages
         \gearOptionSelectable{\important{Walking Staff} (close, two-handed, 1 weight)}
         \gearOptionSelectable{\important{Halfling Pipeleaf} (6 uses, 0 weight)}
-    \end{minipage}
-    % whitespace divider
-    \begin{minipage}[t]{2mm}
-        ~
-    \end{minipage}
-    % right column: moves
-    \begin{minipage}[t]{0.65\textwidth}
-        \advancedMoves
-        
-        \begin{multicols*}{2}
-            \selectable{Eye of the Storm}
+    }
+    {
+        \selectable{Eye of the Storm}
             {When an ally \important{asks your advice} in a charged or chaotic situation, tell them what you honestly believe is the best course of action.  If they do it, you both take +1 forward.  You can only do this once per meditation.}
-            \vgap
-            \selectable{Zen Archer}
-                {You may apply your stance when you \important{Volley}.}
-            \vgap
-            \selectable{Philosopher}
-                {When visiting a civilized settlement you request to meet the wisest local. This person will meet with you if you share your pilgrimage with them.  If you turn down their hospitality, your pilgrimage fails.}
-            \vgap
-            \selectable{Martial Student}
-                {Choose a stance from the list below and add it to your available stances:
-                \vsgap
-                \opt{\important{Dunkard}: gain +1 armor versus damage you take from Hack and Slash or Defend.}
-                \vsgap
-                \opt{\important{Serpent}: Hack and Slash attacks with the \tag{hand} tag are now \tag{close} instead.}
-                \vsgap
-                \opt{\important{Fox}: When you Defy Danger using DEX or INT and roll 6, treat it as a 10+.}}
-            \vgap
-            \selectable{Be Water}
-                {When you \important{begin combat}, take one flow.  You may spend your flow at any time to switch stances immediately and without repercussion.  Lose all flow at the end of battle.}
-            \vgap
-            \selectable{Discipline}
-                {When you \important{Meditate} you may choose to:
-                \vsgap
-                \opt{Take 2 hold.  You may spend a hold to momentarily ignore a debility.}}
-            \selectable{Edify}
-                {Once, after you return from a successful Pilgrimage, you may \important{Parley} without leverage by recounting your newly acquired wisdom.}
-            \vgap
-            \selectable{Temple Initiate}
-                {When you \important{Meditate} you may choose to:
-                \vsgap
-                \opt{Pick a non-ongoing Cleric spell whose level is one lower than your level or less.  To cast the spell, roll+WIS.  On a 7+ you cast the spell and then return it to the rightful Deity.  On a 6 or less, the spell is forcefully reclaimed by its Deity. All spells are forgotten when you meditate.}}
-            \vgap
-            \selectable{Battle of the Mind}
-                {When you \important{Defy Danger} with a physical action and roll a 12+, you may immediately meditate.}
-            \vgap
-            \selectable{Knight Errant}
-                {When you dedicate yourself to a Pilgrimage, choose one of the following boons:
-                \vsgap
-                \opt{An unwavering sense of direction to \blank{2}.}
-                \vsgap
-                \opt{Senses that pierce lies.}
-                \vsgap
-                \opt{A voice that transcends language.}
-                \vsgap
-                The GM will then choose one of the vows from the Paladin’s Quest.  If you break your vow, your pilgrimage fails.
-                \vsgap
-                Also, take one advanced move from the Paladin class at your level except \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.  Any moves that apply to Quests also apply to your Pilgrimage.}
-        \end{multicols*}
-        \sixUpMoves
-        \begin{multicols*}{2}
-            \selectable{Clear Your Mind}
+        \gap
+        \selectable{Zen Archer}
+            {You may apply your stance when you \important{Volley}.}
+        \gap
+        \selectable{Philosopher}
+            {When visiting a civilized settlement you request to meet the wisest local. This person will meet with you if you share your pilgrimage with them.  If you turn down their hospitality, your pilgrimage fails.}
+        \gap
+        \selectable{Martial Student}
+            {Choose a stance from the list below and add it to your available stances:
+            \gapSm
+            \opt{\important{Dunkard}: gain +1 armor versus damage you take from Hack and Slash or Defend.}
+            \gapSm
+            \opt{\important{Serpent}: Hack and Slash attacks with the \tag{hand} tag are now \tag{close} instead.}
+            \gapSm
+            \opt{\important{Fox}: When you Defy Danger using DEX or INT and roll 6, treat it as a 10+.}}
+        \gap
+        \selectable{Be Water}
+            {When you \important{begin combat}, take one flow.  You may spend your flow at any time to switch stances immediately and without repercussion.  Lose all flow at the end of battle.}
+        \gap
+        \selectable{Discipline}
+            {When you \important{Meditate} you may choose to:
+            \gapSm
+            \opt{Take 2 hold.  You may spend a hold to momentarily ignore a debility.}}
+        \selectable{Edify}
+            {Once, after you return from a successful Pilgrimage, you may \important{Parley} without leverage by recounting your newly acquired wisdom.}
+        \gap
+        \selectable{Temple Initiate}
+            {When you \important{Meditate} you may choose to:
+            \gapSm
+            \opt{Pick a non-ongoing Cleric spell whose level is one lower than your level or less.  To cast the spell, roll+WIS.  On a 7+ you cast the spell and then return it to the rightful Deity.  On a 6 or less, the spell is forcefully reclaimed by its Deity. All spells are forgotten when you meditate.}}
+        \gap
+        \selectable{Battle of the Mind}
+            {When you \important{Defy Danger} with a physical action and roll a 12+, you may immediately meditate.}
+        \gap
+        \selectable{Knight Errant}
+            {When you dedicate yourself to a Pilgrimage, choose one of the following boons:
+            \gapSm
+            \opt{An unwavering sense of direction to \blank{2}.}
+            \gapSm
+            \opt{Senses that pierce lies.}
+            \gapSm
+            \opt{A voice that transcends language.}
+            \gapSm
+            The GM will then choose one of the vows from the Paladin’s Quest.  If you break your vow, your pilgrimage fails.
+            \gapSm
+            Also, take one advanced move from the Paladin class at your level except \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.  Any moves that apply to Quests also apply to your Pilgrimage.}
+    }
+    {
+        \selectable{Clear Your Mind}
             {When you \important{meditate} you may choose to:
-            \vsgap
-                \opt{Hold one use of the Cleric spell \important{True Seeing}.  Do not roll to cast the spell.  The effect lasts for one minute, you suffer no penalties during the effect.}}
-            \vgap
-            \selectable{Battle of the Fist}
-                {\requires{Battle of the Mind}
-                When you \important{Hack and Slash} or \important{Volley} and roll a 12+, you may immediately meditate.}
-                \selectable{One Kick Practiced\\10,000 Times}
-                {When you wield no weapons, on a 10+ \important{Hack and Slash} deals b[2d8] damage.
-                \vsgap
-                \opt{\important{Bladed Bones}: You no longer add the \tag{clumsy} tag to armor.}
-                \vsgap
-                \opt{\important{Wooded Limbs}: You ignore the \tag{clumsy} tag on armor. When you wear no shield, gain +1 armor.}}
-            \vgap
-            \selectable{Formless, Shapeless}
-                {\requires{Be Water}
-                When you \important{begin combat}, choose two stances.  Both stances are active.  You may only leave or change one stance at a time.}
-            \end{multicols*}
-    \end{minipage}
-\end{minipage}
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % right margin hack
-\end{minipage}
+        \gapSm
+            \opt{Hold one use of the Cleric spell \important{True Seeing}.  Do not roll to cast the spell.  The effect lasts for one minute, you suffer no penalties during the effect.}}
+        \gap
+        \selectable{Battle of the Fist}
+            {\requires{Battle of the Mind}
+            When you \important{Hack and Slash} or \important{Volley} and roll a 12+, you may immediately meditate.}
+            \selectable{One Kick Practiced\\10,000 Times}
+            {When you wield no weapons, on a 10+ \important{Hack and Slash} deals b[2d8] damage.
+            \gapSm
+            \opt{\important{Bladed Bones}: You no longer add the \tag{clumsy} tag to armor.}
+            \gapSm
+            \opt{\important{Wooded Limbs}: You ignore the \tag{clumsy} tag on armor. When you wear no shield, gain +1 armor.}}
+        \gap
+        \selectable{Formless, Shapeless}
+            {\requires{Be Water}
+            When you \important{begin combat}, choose two stances.  Both stances are active.  You may only leave or change one stance at a time.}
+    }
 
 % ----------------------------------------------------------
-% page 3
-
 \clearpage
 ~
 
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % left margin hack
-\end{minipage}
-\begin{minipage}[t]{0.9\textwidth}
-
-    % left column: filler lines
-    \begin{minipage}[t]{0.3\textwidth}
-        \notes\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}\vgap
-        \blank{5.8}
-
-    \end{minipage}
-    % whitespace divider
-    \begin{minipage}[t]{2mm}
-        ~
-    \end{minipage}
-    % right column: moves
-    \begin{minipage}[t]{0.65\textwidth}
+\pageThree
+    {
         \advancedMovesCont
-
-        \begin{multicols*}{2}
-            \selectable{Temple Priest}
-                {\requires{Temple Initiate}
-                When you \important{mediate} and choose Temple Initiate's option, select a spell and additionally gain either \important{Cure Moderate Wounds} or all Rotes.  If you roll a 6 or less when casting any spell, all are forcefully reclaimed.}
-            \vgap
-            \selectable{Martial Master}
-                {\requires{Martial Student}
-                Select an additional stance from the Martial Student list, or one of the following, and add it to your available stances.
-                \vsgap
-                \opt{\important{Demon}: Hack and Slash gains the \tag{messy} tag.}
-                \vsgap
-                \opt{\important{Dragon}: Magic attacks against you cannot \tag{ignore armor}.}
-                \vsgap
-                \opt{\important{Ogre}: Hack and Slash gains the \tag{forceful} tag.}}
-            \vgap
-            \selectable{Champion Errant}
-                {\requires{Knight Errant}
-                You gain one of the following Paladin moves:
-                \vsgap
-                \opt{Evidence of Faith (ignore the requirements)}
-                \vsgap
-                \opt{Lay on Hands}
-                \vsgap
-                In addition, take one advanced move from the paladin class, except for: \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.}
-            \vgap
-            \selectable{Death Is Also a Seeker}
-                {If you are currently on a pilgrimage when you \important{Take Your Last Breath}, on a 9 or lower Death will choose a new pilgrimage for you.  If you rolled 7-9, this pilgrimage is for your own personal growth.  If you rolled 6 or lower, this pilgrimage is for Death, and he will require you return to him with the learning you’ve gained.  This replaces your current pilgrimage.  If you fail this pilgrimage you are marked as Death’s own and you’ll cross the threshold soon.  The GM will tell you when}
-        \end{multicols*}
-    \end{minipage}
-\end{minipage}
-\begin{minipage}[t]{0.05\textwidth}
-    ~ % right margin hack
-\end{minipage}
+    }
+    {
+        \selectable{Temple Priest}
+            {\requires{Temple Initiate}
+            When you \important{mediate} and choose Temple Initiate's option, select a spell and additionally gain either \important{Cure Moderate Wounds} or all Rotes.  If you roll a 6 or less when casting any spell, all are forcefully reclaimed.}
+        \gap
+        \selectable{Martial Master}
+            {\requires{Martial Student}
+            Select an additional stance from the Martial Student list, or one of the following, and add it to your available stances.
+            \gapSm
+            \opt{\important{Demon}: Hack and Slash gains the \tag{messy} tag.}
+            \gapSm
+            \opt{\important{Dragon}: Magic attacks against you cannot \tag{ignore armor}.}
+            \gapSm
+            \opt{\important{Ogre}: Hack and Slash gains the \tag{forceful} tag.}}
+        \gap
+        \selectable{Champion Errant}
+            {\requires{Knight Errant}
+            You gain one of the following Paladin moves:
+            \gapSm
+            \opt{Evidence of Faith (ignore the requirements)}
+            \gapSm
+            \opt{Lay on Hands}
+            \gapSm
+            In addition, take one advanced move from the paladin class, except for: \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.}
+        \gap
+        \selectable{Death Is Also a Seeker}
+            {If you are currently on a pilgrimage when you \important{Take Your Last Breath}, on a 9 or lower Death will choose a new pilgrimage for you.  If you rolled 7-9, this pilgrimage is for your own personal growth.  If you rolled 6 or lower, this pilgrimage is for Death, and he will require you return to him with the learning you’ve gained.  This replaces your current pilgrimage.  If you fail this pilgrimage you are marked as Death’s own and you’ll cross the threshold soon.  The GM will tell you when}
+    }
+    {
+        ~
+    }
 
 % ----------------------------------------------------------
 % Hey there fellow playbook creator!  Thanks for trying out this latex project.  Formatting documents is a tough gig, and even with the tools arranged here I'm sure you'll go through a few headaches.  Feel free to reach out if you've hit a wall.
@@ -353,20 +247,12 @@
 % Thanks again, and happy designing!
 
 \clearpage
+~
 
-\begin{minipage}[t]{0.1\textwidth}
-    ~ % left margin hack
-\end{minipage}
-\begin{minipage}[t]{0.8\textwidth}
-    ~\vgap % resource references
-
-    The \LaTeX~template for this playbook, and other playbooks made with this resource, can be found at:\\\url{https://innumerable-engines.net/dwplaybooks}
-    ~\vgap
-
-    Dungeon World is designed by Sage LaTorra and Adam Koebel and can be found at:\\\url{https://dungeon-world.com}
-\end{minipage}
-\begin{minipage}[t]{0.1\textwidth}
-    ~ % right margin hack
-\end{minipage}
-
+\resourceLinks
+    {
+        % link to your stuff here!
+        % ex:
+        % More awesome playbooks can be found at at:\\\url{https://itch.io/myOtherCreations}
+    }
 \end{document}

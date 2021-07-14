@@ -50,7 +50,7 @@
     \colorlet{titleFill}{titleFillD}
     \definecolor{headerFillD}{HTML}{505050}
     \colorlet{headerFill}{headerFillD}
-    \definecolor{offWhiteD}{HTML}{EAEAEA}
+    \definecolor{offWhiteD}{HTML}{E0E0E0}
     \colorlet{offWhite}{offWhiteD}
     \definecolor{paleD}{HTML}{F3F3F3}
     \colorlet{pale}{paleD}
@@ -119,6 +119,28 @@
 \hypersetup{urlcolor=cyan}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    playbook properties
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\playbook}{Playbook_Name}
+\newcommand
+    {\setPlaybook}
+    [1]
+    {\renewcommand{\playbook}{#1}}
+
+\newcommand{\damagedie}{\dten}
+\newcommand
+    {\setDamage}
+    [1]
+    {\renewcommand{\damagedie}{#1}}
+
+\newcommand{\hpbase}{6}
+\newcommand
+    {\setMinHitPoints}
+    [1]
+    {\renewcommand{\hpbase}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -165,12 +187,12 @@
 \newcommand
     {\stats}
     {
-        \begin{minipage}[t]{0.31\textwidth}
+        \begin{minipage}[t]{0.323\textwidth}
             \str\\
 
             \int
         \end{minipage}
-        \begin{minipage}[t]{0.31\textwidth}
+        \begin{minipage}[t]{0.323\textwidth}
             \dex\\
 
             \wis
@@ -364,12 +386,26 @@
     {\gearOptionSelectable}
     [1]
     {\tinySelectable{#1}\\[2mm]}
+
+\newcommand
+    {\gearOptionMaybeSelectable}
+    [2]
+    {
+        \ifx u#1 \gearOption{#2}\fi%
+        \ifx s#1 \gearOptionSelectable{#2}\fi%
+    }
 \newcommand
     {\dungeonRations}
-    {\gearOption{\important{Dungeon Rations} (5 uses, ration, 1 weight)}}
+    [1][u]
+    {\gearOptionMaybeSelectable{#1}{\important{Dungeon Rations} (5 uses, ration, 1 weight)}}
 \newcommand
     {\adventuringGear}
-    {\gearOption{\important{Adventuring Gear} (5 uses, 1 weight)}}
+    [1][u]
+    {\gearOptionMaybeSelectable{#1}{\important{Adventuring Gear} (5 uses, 1 weight)}}
+\newcommand
+    {\bandages}
+    [1][u]
+    {\gearOptionMaybeSelectable{#1}{\important{Bandages} (3 uses, slow, 0 weight)}}
 
 \newcommand
     {\notes}
@@ -407,5 +443,175 @@
         \begin{minipage}[t]{\textwidth}
             {\separator{13}}\\[1mm]
             \subtext{When you gain a level from 6-10, you may choose from these moves:}
+        \end{minipage}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    page layouts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\pageOne}[3]
+    {\maketitle
+    \begin{minipage}[t]{0.05\textwidth}
+        ~ % left margin hack
+    \end{minipage}
+    \begin{minipage}[t]{0.90\textwidth}
+        % the playbook content goes here
+        \begin{minipage}{\textwidth}
+            #1
+        \end{minipage}
+
+        % top section: stats, level, armor, etc
+        \begin{minipage}{0.465\textwidth}
+            \vspace{3mm}
+            \level\\
+            \armor\\
+            \hitpoints{\hpbase}\\
+            \damage{\damagedie}
+        \end{minipage}
+        \begin{minipage}{0.52\textwidth}
+            \begin{minipage}[t]{\textwidth}
+                \begin{minipage}[t]{0.15\textwidth}
+                    \coin
+                \end{minipage}
+                \begin{minipage}[t]{0.85\textwidth}
+                    \vspace{3mm}
+                    \headertext{Name:}
+                    \blank{5.9}
+                \end{minipage}
+            \end{minipage}
+
+            \vspace{1mm}
+            \stats
+        \end{minipage}
+
+        \vspace{0.3cm}
+        % lower left column: looks, race, etc
+        \begin{minipage}[t]{0.3\textwidth}
+            #2
+        \end{minipage}
+        % whitespace divider
+        \begin{minipage}[t]{4mm}
+            ~
+        \end{minipage}
+        % lower right column: starting moves
+        \begin{minipage}[t]{0.65\textwidth}
+            \startingMoves\\[2mm]
+            \begin{multicols*}{2}
+                #3
+            \end{multicols*}
+        \end{minipage}
+    \end{minipage}
+    \begin{minipage}[t]{0.05\textwidth}
+        ~ % right margin hack
+    \end{minipage}}
+
+\newcommand
+    {\pageTwo}[3]
+    {
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % left margin hack
+        \end{minipage}
+        \begin{minipage}[t]{0.9\textwidth}
+        
+            % left column: bonds, alignment, gear, blanks
+            \begin{minipage}[t]{0.3\textwidth}
+                #1
+            \end{minipage}
+            % whitespace divider
+            \begin{minipage}[t]{4mm}
+                ~
+            \end{minipage}
+            % right column: moves
+            \begin{minipage}[t]{0.65\textwidth}
+                \advancedMoves
+            
+                \begin{multicols*}{2}
+                    #2
+                \end{multicols*}
+                \sixUpMoves
+                \begin{multicols*}{2}
+                    #3
+                \end{multicols*}
+            \end{minipage}
+        \end{minipage}
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % right margin hack
+        \end{minipage}}
+
+\newcommand
+    {\pageThree}[3]
+    {
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % left margin hack
+        \end{minipage}
+        \begin{minipage}[t]{0.9\textwidth}
+        
+            % left column: filler lines
+            \begin{minipage}[t]{0.3\textwidth}
+                \notes\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}
+        
+            \end{minipage}
+            % whitespace divider
+            \begin{minipage}[t]{4mm}
+                ~
+            \end{minipage}
+            % right column: moves
+            \begin{minipage}[t]{0.65\textwidth}
+                #1
+        
+                \begin{multicols*}{2}
+                    #2
+                \end{multicols*}
+                
+                #3
+            \end{minipage}
+        \end{minipage}
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % right margin hack
+        \end{minipage}}
+
+\newcommand
+    {\resourceLinks}[1]
+    {
+        \begin{minipage}[t]{0.1\textwidth}
+            ~ % left margin hack
+        \end{minipage}
+        \begin{minipage}[t]{0.8\textwidth}
+            ~\gap
+
+            The \LaTeX~template for this playbook, and other playbooks made with this resource, can be found at:\\\url{https://innumerable-engines.net/dwplaybooks}
+            ~\gap
+
+            Dungeon World is designed by Sage LaTorra and Adam Koebel and can be found at:\\\url{https://dungeon-world.com}
+            ~\gap
+
+            #1
+        \end{minipage}
+        \begin{minipage}[t]{0.1\textwidth}
+            ~ % right margin hack
         \end{minipage}
     }
