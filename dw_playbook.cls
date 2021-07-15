@@ -397,7 +397,7 @@
 \newcommand
     {\dungeonRations}
     [1][u]
-    {\gearOptionMaybeSelectable{#1}{\important{Dungeon Rations} (5 uses, ration, 1 weight)}}
+    {\gearOptionMaybeSelectable{#1}{\important{Dungeon Rations} (5 uses, \tag{ration}, 1 weight)}}
 \newcommand
     {\adventuringGear}
     [1][u]
