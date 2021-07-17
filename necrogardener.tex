@@ -12,21 +12,23 @@
 \setMinHitPoints{6}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    Document Layout
+%    Page Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 % ----------------------------------------------------------
 \pageOne
+    % any text that appears betweeen the top banner and the stats
     {
         \names{Hasil, Patricia, Hank, Kimberly, Iggy, Jimbo, Chuck, Bettie, Peg, Sarah, Darlene, Ethel, Walter, Earl, Leonard, Oswald}
     }
+    % left-hand column (looks, race)
     {
         \looks
-        \looksOption{EYES}{Blood red, Vivid green, or Yellow puss.}
-        \looksOption{HAIR}{Waxy, Stuffed under a wide-brimmed hat, or Falling out.}
-        \looksOption{BREATH}{Bitter cold, Hot and humid, or Like fresh compost.}
-        \looksOption{BODY}{Smooth and pallid, Plump, or Mossy and possibly disintegrating.}
+        \looksOption{EYES}{Blood red, Vivid green, or Yellow puss}
+        \looksOption{HAIR}{Waxy, Stuffed under a wide-brimmed hat, or Falling out}
+        \looksOption{BREATH}{Bitter cold, Hot and humid, or Like fresh compost}
+        \looksOption{BODY}{Smooth and pallid, Plump, or Mossy and possibly disintegrating}
 
         \vspace{1mm}
         \race\\
@@ -37,6 +39,7 @@
         \raceOption{Elf}
             {When you \important{loose your beetles and maggots into a recently dead creature} they consume the body and leave pure, black soil in their wake.  Larger creatures take longer for your bugs to break down, but create more soil as a result.}
     }
+    % Starting Moves
     {
         \move[x]{Grow Golem}
             {While you have a bit of downtime (\important{Make Camp}, \important{Recover}, \important{Bolster}, or other sort of idle time), you may plant a tooth, beak, claw, or bone in some soil to see what grows.  In six hours your seed will produce a small, grotesque plant bearing a single engorged fruit.  Peeling back the fruit’s flesh will birth a tiny golem made from bone, roots, clay, and fungus, who follows you around like a faithful pet.
@@ -76,6 +79,7 @@
 ~
 
 \pageTwo
+    % left-hand column (bonds, alignment, gear)
     {
         \bonds
         \bondOption{\blankName~has tasted the fruits I grow and enjoys their flavor.}\\
@@ -94,29 +98,30 @@
         \alignment
         \alignmentOption{Lawful}{Make a plan and stick to it.  Weed out any unexpected addition, independent of its benefit.}
         \gap
-        \alignmentOption{Chaotic}{Permit an unsavory creature to live as long as it doesn’t intentionally harm you.}
-
+        \alignmentOption{Chaotic}{Permit an unsavory creature to live as long as it doesn’t intentionally harm you.}\gapSm
         \diyMove{5}
+
         \gear
         \adventuringGear
         \gearOption{\important{Bag of Pure, Black Soil} (1 use, 1 weight)}
         \gearOption{An iron \important{Ritual Trowel} (\tag{hand}, 1 weight)}
-        \gapSm
+        \gap
         \instruction{Choose your Armament:}
         \gapSm
-        \gearOption{\important{Sickle} (\tag{close}, 1 weight)}
-        \gearOption{\important{Sharpened Shovel} (\tag{close}, \tag{two-handed}, 1 weight)}
-        \gapSm
+        \gearOptionSelectable{\important{Sickle} (\tag{close}, 1 weight)}
+        \gearOptionSelectable{\important{Sharpened Shovel} (\tag{close}, \tag{two-handed}, 1 weight)}
+        \gap
         \instruction{Choose your Clothing:}
         \gapSm
-        \gearOption{\important{Decaying Leather} (0 armor, \tag{worn}, 1 weight)}
-        \gearOption{\important{Sturdy Cottons} (0 armor, \tag{worn}, 1 weight)}
-        \gapSm
+        \gearOptionSelectable{\important{Decaying Leather} (0 armor, \tag{worn}, 1 weight)}
+        \gearOptionSelectable{\important{Sturdy Cottons} (0 armor, \tag{worn}, 1 weight)}
+        \gap
         \instruction{Choose one:}
-        \gapSm
-        \gearOption{\important{6 coins}}
-        \gearOption{\important{Maggot-ridden Hardtack} (\tag{ration}, \tag{spoiled}, 5 uses, 1 weight)}
+        \gap
+        \gearOptionSelectable{\important{6 coins}}
+        \gearOptionSelectable{\important{Maggot-ridden Hardtack} (\tag{ration}, \tag{spoiled}, 5 uses, 1 weight)}
     }
+    % Advanced Moves (2-10)
     {
         \move{Bloodmeal}
             {When you \important{work blood, entrails, and bone into the soil} around the roots of a mature plant, it explodes in growths of rich and fleshy fruits positively bursting with raw meat.  Within an hour the plant will produce enough to heartily fill the stomachs of six, then over the course of the next day the entire plant will rot and die.}
@@ -151,6 +156,7 @@
         \move{Multiclass Dabbler}
             {Get one move from another class. Treat your level as one lower for choosing the move.}
     }
+    % Advanced Moves (6-10)
     {
         \move{Pinch Back The Growth}
             {With a little daily care and attention you can extend the growth of your golem plant.  Every day you \important{tend to the same plant} it grows larger, as does the golem it produces.  The plant reaches its full potential somewhere between 4 to 7 days, being about the height of an apple tree and bearing a fruit the size of a small bear.
@@ -167,10 +173,15 @@
 \clearpage
 ~
 
+% the third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
 \pageThree
+    % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
+    % two-column section for listing moves
     {
         \move{Forbidden Fruit}
             {When you use blacksoil to \important{grow a delicious fruit that is plump with knowledge}, you may eat the fruit to gain the forbidden knowledge, or you may try to convince another character to consume it.  But remember, some knowledge is better avoided, for your own sake.
@@ -204,6 +215,8 @@
         \move{Multiclass Master}
             {Get one move from another class. Treat your level as one lower for choosing the move.}
     }
+    % and/or a single-column section if you want to use the third page for
+    % something with a different layout than before
     {
         ~
     }

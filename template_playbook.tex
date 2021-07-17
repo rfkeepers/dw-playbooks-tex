@@ -12,22 +12,24 @@
 \setMinHitPoints{8}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    Document Layout
+%    Page Layout
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 % ----------------------------------------------------------
 
 \pageOne
+    % any text that appears betweeen the top banner and the stats
     {
         \names{Alice, Bob, Carol, Eve, Frank, Grace, Mallory, Sybil, Trent, Victor, Walter}
     }
+    % left-hand column (looks, race)
     {
         \looks
-        \looksOption{BODY}{Big, small, thick, thin, \\[1mm]\blank{5.8}}
-        \looksOption{EYES}{Happy, sad, curious, excited, \\[1mm]\blank{5.8}}
-        \looksOption{HAIR}{Styled, wild, bald, long, \\[1mm]\blank{5.8}}
-        \looksOption{CLOTHES}{Rich, practical, tatters, \\[1mm]\blank{5.8}}
+        \looksOption{BODY}{Big, Small, Thick, Thin}
+        \looksOption{EYES}{Happy, Sad, Curious, Excited}
+        \looksOption{HAIR}{Styled, Wild, Bald, Long}
+        \looksOption{CLOTHES}{Rich, Practical, Tatters}
     
         \vspace{1mm}
         \race\\
@@ -35,6 +37,7 @@
         \raceOption{Dwarf}{When you \important{do something that dwarves do}, you do it better than an Elf would.}
         \diyMove{5}
     }
+    % Starting Moves
     {
         \move[x]{Lorem}{
             Balance domain chaos domain dispel check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. \important{Ability drained} air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
@@ -69,6 +72,7 @@
 ~
 
 \pageTwo
+    % left-hand column (bonds, alignment, gear)
     {
         \bonds
         \bondOption{I once saved \blankName's life, at great risk to my own well being.}\\
@@ -106,6 +110,7 @@
         \gearOptionSelectable{\important{Wood Club} (close, 1 weight)}
         \gearOptionSelectable{\important{Worn Bow} (near, 2 weight)\\\important{Bundle of Arrows} (3 ammo, 1 weight)}
     }
+    % Advanced Moves (2-10)
     {
         \move{Adipiscing}{
             Balance domain \important{chaos domain dispel} check effective character level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
@@ -124,6 +129,7 @@
         \move{Lacus}{
             Armor bonus class skill dispel check dodge bonus enhancement bonus fighter fire domain initiative count intelligence \important{large massive damage} outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
     }
+    % Advanced Moves (6-10)
     {
         \move{Vel}{
             Balance domain chaos domain dispel check \important{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.}
@@ -144,11 +150,23 @@
 \clearpage
 ~
 
+% the third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
 \pageThree
-    {\advancedMovesCont}
+    % full-width section for an optional title bar.
+    {
+        \advancedMovesCont
+    }
+    % two-column section for listing moves
     {
     \move{Abundance}{
         When you \important{write more moves than can fit on two pages}, add the last of them to this page.  Or maybe write fewer moves.  Or smaller moves.}
+    }
+    % and/or a single-column section if you want to use the third page for
+    % something with a different layout than before
+    {
+        ~
     }
 % ----------------------------------------------------------
 % Hey there fellow playbook creator!  Thanks for trying out this latex project.  Formatting documents is a tough gig, and even with the tools arranged here I'm sure you'll go through a few headaches.  Feel free to reach out if you've hit a wall.

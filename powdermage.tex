@@ -18,15 +18,17 @@
 \begin{document}
 % ----------------------------------------------------------
 \pageOne
+    % any text that appears betweeen the top banner and the stats
     {
         \names{Olivia, Jack, Oscar, Benjamin, Ava, Lilly, Finley, Reuben, Emily, Isabel, Mia, Ollie, Ezra, Roman, Poppy, Florence, Holly}
     }
+    % left-hand column (looks, race)
     {
         \looks
-        \looksOption{EYES}{Goggled, Quick, Ponderous, \\[1mm]\blank{5.8}}
-        \looksOption{HAIR}{Singed, Slicked, Ignored, \\[1mm]\blank{5.8}}
-        \looksOption{HANDS}{Nimble, Scarred, Steady, \\[1mm]\blank{5.8}}
-        \looksOption{CLOTHES}{Practical, Business Oriented, Blacksmith’s Leathers, \\[1mm]\blank{5.8}}
+        \looksOption{EYES}{Goggled, Quick, or Ponderous}
+        \looksOption{HAIR}{Singed, Slicked, or Ignored}
+        \looksOption{HANDS}{Nimble, Scarred, or Steady}
+        \looksOption{CLOTHES}{Practical, Business oriented, or Blacksmith’s leathers}
 
         \vspace{1mm}
         \race\\
@@ -41,6 +43,7 @@
         \move[x]{Need a Light?}
             {When you \important{snap your fingers}, a small flame appears at the tip of your thumb.  You, personally, cannot be harmed by this flame.}
     }
+    % Starting Moves
     {
         \move[x]{Blunderbuss}
             {You have a custom-made flintlock gun entirely designed, tested, and assembled by you.  Your blunderbuss has the tags \tag{reach}, \tag{near}, \tag{reload}, \tag{two-handed}, and \tag{loud}.  If anyone besides yourself attempts to use your gun, they deal with the tags \tag{dangerous} and \tag{awkward}.  
@@ -77,6 +80,7 @@
 ~
 
 \pageTwo
+    % left-hand column (bonds, alignment, gear)
     {
         \bonds
         \bondOption{\blankName~is too uptight, I should teach them something about excitement.}\\
@@ -97,9 +101,9 @@
         \gap
         \alignmentOption{Lawful}{Keep someone volatile in check.}
         \gap
-        \alignmentOption{Chaotic}{Strike sparks just to see what catches fire.}
-
+        \alignmentOption{Chaotic}{Strike sparks just to see what catches fire.}\gapSm
         \diyMove{5}
+
         \gear
         \gearOption{You carry your \important{Blunderbuss} (\tag{reach}, \tag{near}, \tag{reload}, \tag{two-handed}, \tag{loud}, 1 weight)} 
         \gearOption{An \important{Arcane Grenade} (0 weight)}
@@ -114,6 +118,7 @@
         \adventuringGear[s]
         \gearOptionSelectable{\important{15 coins}}
     }
+    % Advanced Moves (2-10)
     {
         \move{Invert the Mechanical\\and the Arcane}
             {Replace your grenade options in Thou Shalt Count to Three with the following:
@@ -155,6 +160,7 @@
         \move{Remote Detonator}
             {When you create an arcane grenade, you also weave a spell onto a mundane item such as a match, a spare fuse, or some flash paper, thereby pairing it to the grenade.  When the two are \tag{near} each other, you can detonate the grenade by setting its paired item on fire.}
     }
+    % Advanced Moves (6-10)
     {
         \move{Attune}
             {When you \important{attune your blunderbuss} to a place of great elemental energy, remove any current attunement and add whatever element dominates this location to your blunderbuss’ tags.  The attunement lasts until it is replaced or intentionally removed.}
@@ -166,10 +172,15 @@
 \clearpage
 ~
 
+% the third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
 \pageThree
+    % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
+    % two-column section for listing moves
     {
         \move{Between Help And Harm}
             {\replaces{There is a Fine Line}
@@ -217,6 +228,8 @@
             {\requires{Useful in a Pinch}
             Reinforce your blunderbuss with protective plating.  You gain +1 armor whenever you wear or hold it.  It doesn’t cover much of your body at any time, but whenever it makes sense you may use your blunderbuss as a shield without any worry of it getting damaged.}
     }
+    % and/or a single-column section if you want to use the third page for
+    % something with a different layout than before
     {
         ~
     }

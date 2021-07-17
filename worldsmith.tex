@@ -18,15 +18,17 @@
 \begin{document}
 % ----------------------------------------------------------
 \pageOne
+    % any text that appears betweeen the top banner and the stats
     {
         \names{Jeo, Shiny, Mosen, Honor, Controey, Lany, Soldre, Thirtey, Maaey, Tog, Tatslaad, Lir, Vacite}
     }
+    % left-hand column (looks, race)
     {
         \looks
-        \looksOption{EYES}{Lake blue, Ember orange, Evergreen, \\[1mm]\blank{5.8}}
-        \looksOption{HAIR}{Loam, Charred Iron, Stormcloud, \\[1mm]\blank{5.8}}
-        \looksOption{LAUGH}{Full bellied, Soft chuckle, Snorting, \\[1mm]\blank{5.8}}
-        \looksOption{ARMOR}{Ornate, Utilitarian, as Irregular as its element, \\[1mm]\blank{5.8}}
+        \looksOption{EYES}{Lake blue, Ember orange, or Evergreen}
+        \looksOption{HAIR}{Loam, Charred iron, or Stormcloud}
+        \looksOption{LAUGH}{Full bellied, Soft chuckle, or Snorting}
+        \looksOption{ARMOR}{Ornate, Utilitarian, or as Irregular as its element}
     
         \vspace{1mm}
         \race\\
@@ -36,6 +38,7 @@
             {When you \important{forge an elemental weapon}, in addition to the other benefits add +1 damage and the tag \tag{intimidating}.  Increases to +2 at level 6.}
         \diyMove{5}
     }
+    % Starting Moves
     {
         \move[x]{An Elemental Craft}
             {While other smiths spend their time learning to work metal, you learned to work the elements themselves.  You can safely craft items and equipment with your bare hands (or with tools) by manipulating water, fire, and stone.  Descriptions of the items you can make, and their properties, can be found in the \important{Elemental Forging} section.}
@@ -67,6 +70,7 @@
 ~
 
 \pageTwo
+    % left-hand column (bonds, alignment, gear)
     {
         \bonds
         \bondOption{\blankName~has used my work and knows its value.}\\
@@ -87,9 +91,9 @@
         \gap
         \alignmentOption{Neutral}{Ignore a customer’s motives or alignment.}
         \gap
-        \alignmentOption{Chaotic}{Make use of a precious resource without waiting for an optimal moment.}
-
+        \alignmentOption{Chaotic}{Make use of a precious resource without waiting for an optimal moment.}\gapSm
         \diyMove{5}
+
         \gear
         \gearOption{\important{Elemental Armor} (1 armor, \tag{worn}, 2 weight)}
         \dungeonRations
@@ -105,6 +109,7 @@
         \adventuringGear[s]
         \gearOptionSelectable{\important{Bag of Books} (5 uses, 2 weight)}
     }
+    % Advanced Moves (2-10)
     {
         \move{Earthen Sculptor}
             {When you touch stone or wood with bare skin you can mold it as if it were clay.  So long as you maintain contact, even a soft press will sink your fingers through the medium.  When you lose contact, the object returns to its natural stability, but remains in the shape that you sculpted.}
@@ -137,6 +142,7 @@
         \move{Embersmith}
             {When you use the glowing embers of a recent fire to craft weapons or armor, the item you create combines the tags and benefits of both Fire and Wood.}
     }
+    % Advanced Moves (6-10)
     {
         \move{Master Armorer}
             {Your elemental armor has 3 armor, and your elemental shields begin with +5 additional durability.}
@@ -159,6 +165,9 @@
 \clearpage
 ~
 
+% the third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
 \pageThree
     {
         \advancedMovesCont
@@ -207,11 +216,13 @@
 ~
 
 \pageThree
+    % full-width section for an optional title bar.
     {
         \begin{minipage}[t]{\textwidth}
             \header[r]{Elemental Forging}{12.9}{10.7}\\
         \end{minipage}
     }
+    % two-column section for listing moves
     {
         \move{Craft Armor}
             {When you take a couple days to transmute a raw element into woven cloth or thick plating, you fashion it into a set of clothing or armor.  This elemental suit has the tags 1 armor, \tag{worn}, 2 weight.  The resulting material cannot be mended if damaged; your only option is to start over and make another suit.
@@ -243,6 +254,8 @@
             \gapSm
             \opt{\important{Water}: can be \tag{worn} while wielding a \tag{two-handed} weapon.}}
     }
+    % and/or a single-column section if you want to use the third page for
+    % something with a different layout than before
     {
         ~
     }

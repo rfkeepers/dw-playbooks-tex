@@ -18,15 +18,17 @@
 \begin{document}
 % ----------------------------------------------------------
 \pageOne
+    % any text that appears betweeen the top banner and the stats
     {
         \names{Amida, Botan, Hirni, Anka, Cho, Ren, Ja, Gan, Iwao, Maki, Kasem, Yukiko, Thi, Phirun, Siyu, Zhen, Seiko}
     }
+    % left-hand column (looks, race)
     {
         \looks
-        \looksOption{FACE}{Intense, passive, jovial, \\[1mm]\blank{5.8}}
-        \looksOption{HAIR}{Long ponytail, bushy, bald, \\[1mm]\blank{5.8}}
-        \looksOption{SKIN}{Tattooed, scarred, pure and unmarred, \\[1mm]\blank{5.8}}
-        \looksOption{BODY}{Sinewy, stocky, flabby, \\[1mm]\blank{5.8}}
+        \looksOption{FACE}{Intense, Passive, or Jovial}
+        \looksOption{HAIR}{Long ponytail, Bushy, or Bald}
+        \looksOption{SKIN}{Tattooed, Scarred, or Pure and unmarred}
+        \looksOption{BODY}{Sinewy, Stocky, or Flabby}
 
         \vspace{1mm}
         \race\\
@@ -36,6 +38,7 @@
             {Your work brings you peace. When you spend time doing strenuous manual labor, it counts as a form of Meditation.}
         \diyMove{5}
     }
+    % Starting Moves
     {
         \move[x]{Hard Work For A Long Time}
             {You’ve spent your life remaking your body.  You broke bones, seared skin, split muscle, then mended them all.  Over and over you’ve done this until your skin thickened and your skeleton hardened.  Blows no longer shatter your bones and claws cannot rend your flesh, for your body cannot be marred so easily.
@@ -91,6 +94,7 @@
 ~
 
 \pageTwo
+    % left-hand column (bonds, alignment, gear)
     {
         \bonds
         \bondOption{\blankName~has lessons to teach, and I will be their student.}\\
@@ -111,9 +115,9 @@
         \gap
         \alignmentOption{Good}{Use your worldly experience to teach a person.}
         \gap
-        \alignmentOption{Neutral}{Put the needs of your pilgrimage above your own.}
-
+        \alignmentOption{Neutral}{Put the needs of your pilgrimage above your own.}\gapSm
         \diyMove{5}
+
         \gear
         \dungeonRations
         \adventuringGear
@@ -128,6 +132,7 @@
         \gearOptionSelectable{\important{Walking Staff} (close, two-handed, 1 weight)}
         \gearOptionSelectable{\important{Halfling Pipeleaf} (6 uses, 0 weight)}
     }
+    % Advanced Moves (2-10)
     {
         \move{Eye of the Storm}
             {When an ally \important{asks your advice} in a charged or chaotic situation, tell them what you honestly believe is the best course of action.  If they do it, you both take +1 forward.  You can only do this once per meditation.}
@@ -178,6 +183,7 @@
             \gapSm
             Also, take one advanced move from the Paladin class at your level except \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.  Any moves that apply to Quests also apply to your Pilgrimage.}
     }
+    % Advanced Moves (6-10)
     {
         \move{Clear Your Mind}
             {When you \important{meditate} you may choose to:
@@ -203,10 +209,15 @@
 \clearpage
 ~
 
+% the third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
 \pageThree
+    % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
+    % two-column section for listing moves
     {
         \move{Temple Priest}
             {\requires{Temple Initiate}
@@ -235,6 +246,8 @@
         \move{Death Is Also a Seeker}
             {If you are currently on a pilgrimage when you \important{Take Your Last Breath}, on a 9 or lower Death will choose a new pilgrimage for you.  If you rolled 7-9, this pilgrimage is for your own personal growth.  If you rolled 6 or lower, this pilgrimage is for Death, and he will require you return to him with the learning you’ve gained.  This replaces your current pilgrimage.  If you fail this pilgrimage you are marked as Death’s own and you’ll cross the threshold soon.  The GM will tell you when}
     }
+    % and/or a single-column section if you want to use the third page for
+    % something with a different layout than before
     {
         ~
     }
