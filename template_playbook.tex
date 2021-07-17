@@ -51,6 +51,7 @@
 
 \setDamage{\deight}
 \setMinHitPoints{8}
+\setMinLoad{7}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Page Layout
@@ -131,12 +132,12 @@
         \alignment
         \alignmentOption{Good}{Huggle bunnies and snuggle puppy dogs.}
         \gap
-        \alignmentOption{Evil}{Cackle maliciously and steal candy from babies.}
-        \gap
+        \alignmentOption{Evil}{Cackle maliciously and steal candy from babies.}\gap
         \diyMove{5}
+        \load\gap
         \gear
         \gearOption{You carry a \important{seed} from a giant tree.}
-        \gap
+        \gapSm
         \separator{5.8}
         \gapSm
         \dungeonRations
@@ -183,9 +184,6 @@
         \move{Vitae}{
             Armor bonus class skill \important{dispel check dodge bonus enhancement} bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.}
     }
-    {
-        ~
-    }
 
 % ----------------------------------------------------------
 \clearpage
@@ -199,15 +197,22 @@
     {
         \advancedMovesCont
     }
-    % two-column section for listing moves
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
     \move{Abundance}{
         When you \important{write more moves than can fit on two pages}, add the last of them to this page.  Or maybe write fewer moves.  Or smaller moves.}
     }
-    % and/or a single-column section if you want to use the third page for
-    % something with a different layout than before
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
-        ~
+        \separator{12.7}
+        \gap
+        \movename{Addendum}
+        \gap
+        If you find that your playbook needs an additional section, but you don't want it to use the previous two-column style that the moves use, this final section is the best place to handle that layout.
     }
 % ----------------------------------------------------------
 % Hey there fellow playbook creator!  Thanks for trying out this latex project.  Formatting documents is a tough gig, and even with the tools arranged here I'm sure you'll go through a few headaches.  Feel free to reach out if you've hit a wall.

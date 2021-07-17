@@ -4,9 +4,7 @@
 \ProvidesPackage{dw_playbook}[2021/07/02 Dungeon World Playbook Styles Package]
 
 % imports
-\RequirePackage{enumitem}
 \RequirePackage{titlesec}
-\RequirePackage{xargs}
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{ragged2e}
@@ -17,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Light Mode Colors
-\definecolor{mainTextColor}{HTML}{323232}
+\definecolor{mainTextColor}{HTML}{424242}
 \definecolor{boldTextColor}{HTML}{000000}
 \definecolor{mainPageColor}{HTML}{FFFFFF}
 \definecolor{headerLightColor}{HTML}{444444}
@@ -37,7 +35,7 @@
 \newcommand
     {\movename}
     [1]
-    {\textbf{\large #1}}
+    {\textbf{\color{boldTextColor} \large #1}}
 
 \newcommand
     {\headertext}
@@ -351,10 +349,10 @@
             \end{tikzpicture}
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 \movename{#2}\\[1mm]
                 {\small #3}
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 
@@ -371,9 +369,9 @@
             \end{tikzpicture}
         \end{minipage}
         \begin{minipage}[t]{0.92\textwidth}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 {\small #2}
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 
@@ -388,9 +386,9 @@
             \end{tikzpicture}
         \end{minipage}
         \begin{minipage}[t]{0.93\textwidth}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 {\small #1}
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 

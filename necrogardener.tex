@@ -25,7 +25,7 @@
     % left-hand column (looks, race)
     {
         \looks
-        \looksOption{EYES}{Blood red, Vivid green, or Yellow puss}
+        \looksOption{EYES}{Blood red, Vivid green, or Yellow pus}
         \looksOption{HAIR}{Waxy, Stuffed under a wide-brimmed hat, or Falling out}
         \looksOption{BREATH}{Bitter cold, Hot and humid, or Like fresh compost}
         \looksOption{BODY}{Smooth and pallid, Plump, or Mossy and possibly disintegrating}
@@ -65,11 +65,11 @@
             \gapSm
             \opt{The best you can do is a lesser version, unreliable and weak.}
             \gapSm
-            \opt{You and your allies will risk danger from \blank{3}.}
+            \opt{You and your allies will risk danger from \blank{2.5}.}
             \gapSm
-            \opt{First you must enrich the soil by fertilizing it with \blank{3}.}
+            \opt{First you must enrich the soil by fertilizing it with \blank{2.5}.}
             \gapSm
-            \opt{The growth will drain away all \blank{3} nearby.}
+            \opt{The growth will drain away all \blank{2.5} nearby.}
             \gapSm
             \opt{It’ll require a lot of resources.}}
     }
@@ -98,28 +98,24 @@
         \alignment
         \alignmentOption{Lawful}{Make a plan and stick to it.  Weed out any unexpected addition, independent of its benefit.}
         \gap
-        \alignmentOption{Chaotic}{Permit an unsavory creature to live as long as it doesn’t intentionally harm you.}\gapSm
+        \alignmentOption{Chaotic}{Permit an unsavory creature to live as long as it doesn’t intentionally harm you.}\gap
         \diyMove{5}
-
+        \load\gap
         \gear
         \adventuringGear
         \gearOption{\important{Bag of Pure, Black Soil} (1 use, 1 weight)}
         \gearOption{An iron \important{Ritual Trowel} (\tag{hand}, 1 weight)}
-        \gap
-        \instruction{Choose your Armament:}
+        \gearOption{\important{Maggot-ridden Hardtack} (\tag{ration}, \tag{spoiled},\\5 uses, 1 weight)}
         \gapSm
+        \instruction{Choose your Armament:}
+        \gap
         \gearOptionSelectable{\important{Sickle} (\tag{close}, 1 weight)}
         \gearOptionSelectable{\important{Sharpened Shovel} (\tag{close}, \tag{two-handed}, 1 weight)}
-        \gap
-        \instruction{Choose your Clothing:}
         \gapSm
-        \gearOptionSelectable{\important{Decaying Leather} (0 armor, \tag{worn}, 1 weight)}
-        \gearOptionSelectable{\important{Sturdy Cottons} (0 armor, \tag{worn}, 1 weight)}
+        \instruction{Choose your Clothing:}
         \gap
-        \instruction{Choose one:}
-        \gap
-        \gearOptionSelectable{\important{6 coins}}
-        \gearOptionSelectable{\important{Maggot-ridden Hardtack} (\tag{ration}, \tag{spoiled}, 5 uses, 1 weight)}
+        \gearOptionSelectable{\important{Decaying Leather} (0 armor, \tag{worn},\\1 weight)}
+        \gearOptionSelectable{\important{Sturdy Cottons} (0 armor, \tag{worn},\\1 weight)}
     }
     % Advanced Moves (2-10)
     {
@@ -173,15 +169,18 @@
 \clearpage
 ~
 
-% the third page has empty lines for notes on the left-hand column, and I don't
-% leave you any options for changing that up.  Everything you can configure here
-% goes into the right hand column.
+% the third page's left hand column is preformatted with a notes section holding
+% a bunch of empty lines.  None of the content sections apply to that column.
+% Instead, everything you can configure here goes into the right-hand side.
 \pageThree
     % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
-    % two-column section for listing moves
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
         \move{Forbidden Fruit}
             {When you use blacksoil to \important{grow a delicious fruit that is plump with knowledge}, you may eat the fruit to gain the forbidden knowledge, or you may try to convince another character to consume it.  But remember, some knowledge is better avoided, for your own sake.
@@ -215,8 +214,8 @@
         \move{Multiclass Master}
             {Get one move from another class. Treat your level as one lower for choosing the move.}
     }
-    % and/or a single-column section if you want to use the third page for
-    % something with a different layout than before
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
         ~
     }

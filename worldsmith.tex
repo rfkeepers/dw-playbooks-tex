@@ -1,4 +1,4 @@
-\documentclass[darkmode]{dw_playbook}
+\documentclass[]{dw_playbook}
 % bright white computer screen hurting your eyes?  Specify [darkmode] to invert the color scheme.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,13 +165,18 @@
 \clearpage
 ~
 
-% the third page has empty lines for notes on the left-hand column, and I don't
-% leave you any options for changing that up.  Everything you can configure here
-% goes into the right hand column.
+% the third page's left hand column is preformatted with a notes section holding
+% a bunch of empty lines.  None of the content sections apply to that column.
+% Instead, everything you can configure here goes into the right-hand side.
 \pageThree
+    % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
         \move{Distill Lightning}
             {When you manage to \important{capture lightning in a bottle}, roll+INT to transmute the electricity into a refined oil with the tags \tag{crackling}, \tag{electric}.  On a miss the oil gains the tag \tag{volatile}.  Lightning oil sparks and crackles when shaken, and the vial is likely to give anyone who touches it a static shock.  Working lightning oil onto any item bestows the same tags to the item for a couple of hours.
@@ -207,6 +212,8 @@
             \gapSm
             \opt{Reduce your damage by 1d4.  The target’s next attack is reduced by 1d6 damage.}}
     }
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
         ~
     }
@@ -215,47 +222,56 @@
 \clearpage
 ~
 
-\pageThree
+% the third page's left hand column is preformatted with a notes section holding
+% a bunch of empty lines.  None of the content sections apply to that column.
+% Instead, everything you can configure here goes into the right-hand side.
+\pageThree[s]
     % full-width section for an optional title bar.
     {
         \begin{minipage}[t]{\textwidth}
             \header[r]{Elemental Forging}{12.9}{10.7}\\
         \end{minipage}
     }
-    % two-column section for listing moves
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
-        \move{Craft Armor}
-            {When you take a couple days to transmute a raw element into woven cloth or thick plating, you fashion it into a set of clothing or armor.  This elemental suit has the tags 1 armor, \tag{worn}, 2 weight.  The resulting material cannot be mended if damaged; your only option is to start over and make another suit.
+        \instruction{You }
+        \gap
+        \move[x]{Craft Armor}
+            {When you take a couple days to \important{transmute a raw element into woven cloth or thick plating}, you fashion it into a set of clothing or armor.  This elemental suit has the tags 1 armor, \tag{worn}, 2 weight.  The resulting material cannot be mended if damaged; your only option is to start over and make another suit.
             \gap
             When you take damage from an element that matching your suit’s element, that damage cannot \tag{ignore armor}.}
         \gap
-        \move{Forge Weapon}
+        \move[x]{Forge Weapon}
             {When you \important{shape and harden a raw element into a weapon}, create a melee weapon with the design of your choosing and the range \tag{hand} or \tag{close}.
             \gap
             The construction must be simple and solid; no hinges or mechanisms.  Elemental weapons begin with 2 weight and 10 durability.  Every time an elemental weapon deals damage, reduce its durability by 1.  When the durability hits 0, the weapon breaks.
             \gap
             Each weapon gains a special set of tags based on the element used to create it.  Outside the tags provided by their element, these weapons may not innately gain the tags \tag{precise}, \tag{piercing}, \tag{messy}, \tag{forceful}, or + damage.
-            \gapSm
+            \gap
             \opt{\important{Fire}: +1 damage, \tag{painful}.}
             \gapSm
             \opt{\important{Stone}: +1 armor, \tag{imposing}.}
             \gapSm
             \opt{\important{Water}: +1 piercing, \tag{discreet}.}}
-        \move{Forge Shield}
+        \gap
+        \move[x]{Forge Shield}
             {When you \important{shape and harden a raw element into a shield}, create a shield with the design of your choosing.  The construction must be simple and solid; no hinges or mechanisms.  Elemental shields begin with +1 armor, \tag{worn}, 1 weight, and begins with 5 durability.
             \gap
             Every time the shield is used to reduce damage or defend against a strike, reduce its durability by 1.  When the durability hits 0, the shield breaks.  Based on the element you used to create the weapon, add the following effects.
             \gap
             Based on the element you used to create the shield, add the following effects.
-            \gapSm
+            \gap
             \opt{\important{Fire}: blocking \tag{fire} damage restores 1 durability instead of reducing it.}
             \gapSm
             \opt{\important{Stone}: +1 armor.}
             \gapSm
             \opt{\important{Water}: can be \tag{worn} while wielding a \tag{two-handed} weapon.}}
     }
-    % and/or a single-column section if you want to use the third page for
-    % something with a different layout than before
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
         ~
     }

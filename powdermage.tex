@@ -101,9 +101,9 @@
         \gap
         \alignmentOption{Lawful}{Keep someone volatile in check.}
         \gap
-        \alignmentOption{Chaotic}{Strike sparks just to see what catches fire.}\gapSm
+        \alignmentOption{Chaotic}{Strike sparks just to see what catches fire.}\gap
         \diyMove{5}
-
+        \load\gap
         \gear
         \gearOption{You carry your \important{Blunderbuss} (\tag{reach}, \tag{near}, \tag{reload}, \tag{two-handed}, \tag{loud}, 1 weight)} 
         \gearOption{An \important{Arcane Grenade} (0 weight)}
@@ -172,15 +172,18 @@
 \clearpage
 ~
 
-% the third page has empty lines for notes on the left-hand column, and I don't
-% leave you any options for changing that up.  Everything you can configure here
-% goes into the right hand column.
+% the third page's left hand column is preformatted with a notes section holding
+% a bunch of empty lines.  None of the content sections apply to that column.
+% Instead, everything you can configure here goes into the right-hand side.
 \pageThree
     % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
-    % two-column section for listing moves
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
         \move{Between Help And Harm}
             {\replaces{There is a Fine Line}
@@ -228,8 +231,8 @@
             {\requires{Useful in a Pinch}
             Reinforce your blunderbuss with protective plating.  You gain +1 armor whenever you wear or hold it.  It doesn’t cover much of your body at any time, but whenever it makes sense you may use your blunderbuss as a shield without any worry of it getting damaged.}
     }
-    % and/or a single-column section if you want to use the third page for
-    % something with a different layout than before
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
         ~
     }

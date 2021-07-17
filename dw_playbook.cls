@@ -18,10 +18,8 @@
 
 \RequirePackage{dw_playbook}
 
-\RequirePackage{enumitem}
 \RequirePackage{geometry}
 \RequirePackage{tikz}
-\RequirePackage{xargs}
 \RequirePackage{xcolor}
 \RequirePackage{multicol}
 
@@ -108,14 +106,6 @@
 \setlength{\parskip}{0pt}
 \setlength{\columnsep}{5mm}
 
-\setlist{
-    leftmargin=0mm,
-    rightmargin=0mm,
-    itemsep=0mm,
-    parsep=0mm,
-    partopsep=0mm,
-}
-
 \hypersetup{urlcolor=cyan}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,6 +129,12 @@
     {\setMinHitPoints}
     [1]
     {\renewcommand{\hpbase}{#1}}
+
+\newcommand{\loadbase}{6}
+\newcommand
+    {\setMinLoad}
+    [1]
+    {\renewcommand{\loadbase}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    commands
@@ -246,7 +242,7 @@
                 -- (\x+3.35,-0.25) -- (\x+2.85,0.05)
                 -- (\x+2.85,0.05) -- (\x+2.85,0.7);
 
-            \draw [color=headerLightColor] (\x+3.365,0.365) node {\Large{XP}};
+            \draw [color=headerLightColor] (\x+3.365,0.365) node {\Large{\color{paleish} XP}};
         \end{tikzpicture}
     }
 
@@ -326,9 +322,9 @@
     {
         \begin{minipage}[t]{\textwidth}
             \vspace{3mm}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 \important{#1}: #2
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 
@@ -362,9 +358,9 @@
     {
         \begin{minipage}[t]{\textwidth}
             \vspace{2mm}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 #1
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 
@@ -377,9 +373,9 @@
     {
         \begin{minipage}[t]{\textwidth}
             \vspace{1mm}
-            \begin{FlushLeft}
+            \begin{flushleft}
                 \small{#1}
-            \end{FlushLeft}
+            \end{flushleft}
         \end{minipage}
     }
 \newcommand
@@ -410,6 +406,30 @@
 \newcommand
     {\notes}
     {\header{Notes}{5.8}{1}\\}
+
+\newcommand
+    {\load}
+    {
+        \def\x{2.4}
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (5.8,0.75);
+
+            \filldraw [color=black,fill=white,thick]
+                (\x+2,0.9) -- (\x+2.85,0.9)
+                -- (\x+3.1,-0.2) -- (\x+1.75,-0.2)
+                -- cycle;
+
+            \filldraw [color=black,fill=white,thick]
+                (\x+2.1,0.9) -- (\x+2.2,1)
+                -- (\x+2.65,1) -- (\x+2.75,0.9)
+                -- (\x+2.65,0.9) -- (\x+2.55,0.925)
+                -- (\x+2.3,0.925) -- (\x+2.2,0.9)
+                -- cycle;
+
+            \draw (\x+0.9,0.155) node {\textsl{\color{headerLightColor}\footnotesize Max (\loadbase+STR)}};
+            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\headertext{Load}};
+        \end{tikzpicture}
+    }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    starting and advanced moves
@@ -541,7 +561,7 @@
         \end{minipage}}
 
 \newcommand
-    {\pageThree}[3]
+    {\pageThree}[4][m]
     {
         \begin{minipage}[t]{0.05\textwidth}
             ~ % left margin hack
@@ -581,13 +601,13 @@
             \end{minipage}
             % right column: moves
             \begin{minipage}[t]{0.65\textwidth}
-                #1
+                #2
         
-                \begin{multicols*}{2}
-                    #2
-                \end{multicols*}
+                \ifx m#1\begin{multicols*}{2}\fi
+                    #3
+                \ifx m#1\end{multicols*}\fi
                 
-                #3
+                #4
             \end{minipage}
         \end{minipage}
         \begin{minipage}[t]{0.05\textwidth}

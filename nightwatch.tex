@@ -93,14 +93,13 @@
         \gap
         \alignmentOption{Lawful}{Pursue justice above all other virtues.}
         \gap
-        \alignmentOption{Evil}{Go to any lengths to stop evil.}\gapSm
+        \alignmentOption{Evil}{Go to any lengths to stop evil.}\gap
         \diyMove{5}
-
+        \load\gap
         \gear
         \adventuringGear
         \gearOption{\important{Leather Armor} (1 armor, \tag{worn}, 1 weight)}
-        \gearOption{\important{Arm-mounted Grappling Bow} (\tag{worn}, 1 weight)}
-        \gap
+        \gearOption{\important{Arm-mounted Grappling Bow} (\tag{worn},\\1 weight)}\gap\\
         \instruction{Choose your armament:}
         \gap
         \gearOptionSelectable{\important{Short Sword} (\tag{close}, 1 weight)}
@@ -161,15 +160,18 @@
 \clearpage
 ~
 
-% the third page has empty lines for notes on the left-hand column, and I don't
-% leave you any options for changing that up.  Everything you can configure here
-% goes into the right hand column.
+% the third page's left hand column is preformatted with a notes section holding
+% a bunch of empty lines.  None of the content sections apply to that column.
+% Instead, everything you can configure here goes into the right-hand side.
 \pageThree
     % full-width section for an optional title bar.
     {
         \advancedMovesCont
     }
-    % two-column section for listing moves
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
     {
         \move{Warden}
             {When you \important{return to a civilized place where an ally has an Outstanding Warrant}, and you make a show of leading that character around as if they are your prisoner, you both roll+CHA and use the best result  On a 10+, word has spread both about their capture and your presence as their captor, and everyone believes the situation is under control.  On a 7-9, word of your deeds have spread, but the GM chooses a complication:
@@ -206,8 +208,8 @@
             \gap
             Treat your sidekick as a playable character in your control.  They do not choose a playbook, gain experience, or level up.}
     }
-    % and/or a single-column section if you want to use the third page for
-    % something with a different layout than before
+    % a final, single-column section in case you wanted to add both moves and some
+    % other arbitrarily formatted content at the bottom of the page.
     {
         ~
     }
