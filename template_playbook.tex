@@ -2,6 +2,47 @@
 % bright white computer screen hurting your eyes?  Specify [darkmode] to invert the color scheme.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    How to use this.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 
+%   1.  You need Latex 2e installed.
+%       If you already know latex you can skip ahead.  These instructions are
+%       to help the playbook designers with no prior latex experience to find
+%       their way around.
+%
+%   2.  This .tex document is what will build your playbook's pdf.  As a test
+%       run, you should be able to create a pdf out of the template without
+%       any issues.  If you run into problems before making changes, you might
+%       need to fix your latex install before you do anything else.
+%
+%   3.  I've designed the playbook.cls to hide away as many of the gritty
+%       details and chaff as is possible.  That means you get to plug in the
+%       useful content without needing to tinker around with the outcome.
+%       So long as your stuff is reasonabily similar in size to what you see,
+%       it should all come out properly.
+%
+%   4.  In addition to hiding most details in the .cls file, the typesetting
+%       commands should, I hope, naturally explain their design purpose. For
+%       example: to write a move you use "\move{title}{details}".  To add an
+%       option you use "\opt{details}" Blank lines are "\blank{length}", etc.
+%
+%       If you're new to Latex, this is all just formatting.  It's not really
+%       functional.  IE: \looks is just the header, \looksOption makes the
+%       text fit under that header.  It won't break anything if you use one
+%       without the other.  Then again, if you want to hack into the design
+%       that deeply you should jump into the .cls file and poke around  there.
+%
+%   5.  The one thing you do need to be cautious about is whitespace.  You'll
+%       see a lot of \\ and \gap and \gapSm throughout the document.  Why?
+%       Well, typesetting is a fickle process, and a lot of times it was easier
+%       to achieve the correct layout by controlling it in the playbook, rather
+%       than building that space into the other commands.  If you feel like
+%       the text isn't lining up as well as you'd expect, go back and look at
+%       how it was used here in the template.
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Playbook Details
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -97,7 +138,7 @@
         \gearOption{You carry a \important{seed} from a giant tree.}
         \gap
         \separator{5.8}
-        \\[1mm]
+        \gapSm
         \dungeonRations
         \adventuringGear\gap
         \instruction{Choose your defenses:}
