@@ -34,29 +34,29 @@
             {When you \important{take damage} and the damage (after armor) is equal or less than your total armor, do not reduce your elemental shield’s durability.}
         \raceOption{Orc}
             {When you \important{forge an elemental weapon}, in addition to the other benefits add +1 damage and the tag \tag{intimidating}.  Increases to +2 at level 6.}
-        \emptySelectable{5}
+        \diyMove{5}
     }
     {
-        \selectable[x]{An Elemental Craft}
+        \move[x]{An Elemental Craft}
             {While other smiths spend their time learning to work metal, you learned to work the elements themselves.  You can safely craft items and equipment with your bare hands (or with tools) by manipulating water, fire, and stone.  Descriptions of the items you can make, and their properties, can be found in the \important{Elemental Forging} section.}
         \gap
-        \selectable[x]{Mend}
+        \move[x]{Mend}
             {You can use your skill with An Elemental Craft to make simple repairs to ordinary objects. When you \important{repair something broken} for an NPC, roll+CHA.  On a 10+ they feel indebted to you and will return a favor asked of them.  On a 7-9, they’re willing to part with some intel, provide a bit of shelter, or tip some resources your way.}
         \gap
-        \selectable[x]{Steal Your Thunder}
+        \move[x]{Steal Your Thunder}
             {When you \important{Hack and Slash}, you may choose one of the following on a hit:
             \gapSm
             \opt{Deal 1d4 additional damage.  The next ally to attack the target rolls an additional 1d6 and subtracts that from their damage.}
             \gapSm
             \opt{Reduce your damage by 1d6.  The target’s next attack is reduced by 1d4 damage.}}
-        \selectable[x]{Eye For Armor}
+        \move[x]{Eye For Armor}
             {When you \important{study an armored opponent} roll+INT.  On a hit the GM will tell you how much defense they have.
             \gap
             When you \important{study a piece of armor} roll+INT.  On a 7-9 the GM will tell you something interesting, but not necessarily useful, about its construction or design.  On a 10+ they will tell you a useful detail about its construction or design.
             \gap
             Both moves can be used at the same time as a single action.}
         \gap
-        \selectable[x]{Distill Flame}
+        \move[x]{Distill Flame}
             {When you \important{wick flame} into a viscous oil with the tags \tag{glowing}, \tag{hot}, roll+INT.  On a miss, add the tag \tag{volatile}.  Working flame oil onto any item bestows its tags to the item for a couple of hours.
             \gap
             Flame oil must be stored in specially treated glass vials.  Ordinary containers are prone to melting or shattering.  The vials required are not uncommon, but cost 25 coin a piece.}
@@ -89,7 +89,7 @@
         \gap
         \alignmentOption{Chaotic}{Make use of a precious resource without waiting for an optimal moment.}
 
-        \emptySelectable{5}
+        \diyMove{5}
         \gear
         \gearOption{\important{Elemental Armor} (1 armor, \tag{worn}, 2 weight)}
         \dungeonRations
@@ -106,51 +106,51 @@
         \gearOptionSelectable{\important{Bag of Books} (5 uses, 2 weight)}
     }
     {
-        \selectable{Earthen Sculptor}
+        \move{Earthen Sculptor}
             {When you touch stone or wood with bare skin you can mold it as if it were clay.  So long as you maintain contact, even a soft press will sink your fingers through the medium.  When you lose contact, the object returns to its natural stability, but remains in the shape that you sculpted.}
         \gap
-        \selectable{Firewater}
+        \move{Firewater}
             {When you \important{add a pinch of corrupting additive to a vial of fire oil}, the oil loses its original properties and becomes a \tag{poison} with the tags \tag{dangerous}, \tag{applied}.
             \gap
             The target of the poison feels euphoric and spirited; the sensation loosens their tongue and inspires them to take action without worry of the consequences.
             \gap
             If the oil contains the \tag{volatile} tag, in addition to the other effects the target feels heated and unsettled and is unlikely to keep themselves in check.}
         \gap
-        \selectable{Leave No Trace}
+        \move{Leave No Trace}
             {You leave no footprints in the soil, nor do you break plants or branches along the ground.  You can walk through still water without causing so much as a ripple.  Even old dust long settled on stone floors won’t stir underneath you.  When you \important{Defy Danger} to keep your stance or footing, roll twice and take the better result.}
-        \selectable{Ice Cold}
+        \move{Ice Cold}
             {When you craft or forge an elemental item with water, you may freeze the water as you work it.  The item keeps the same bonuses as other items made with water, but will be considered an ice element instead.}
         \gap
-        \selectable{Elemental Fortitude}
+        \move{Elemental Fortitude}
             {When you take damage of a type that matches the element of your armor, first reduce the damage by half, then apply armor.}
         \gap
-        \selectable{Guild Members}
+        \move{Guild Members}
             {When you \important{put the word out to local craft workers} about something you need or want, but cannot make on your own, roll+CHA.  On a 10+ someone is able to make it, just for you.  On a 7-9 someone is able to make it, but they’ll need a special payment up front.}
         \gap
-        \selectable{WoodWorker}
+        \move{WoodWorker}
             {You may \important{Craft Armor}, \important{Forge Weapons}, and \important{Forge Shields} using wood as the base element.  Weapons and shields have the following properties:
             \gapSm
             \opt{\important{Weapon}: \tag{silent}, wood weapons can have the range \tag{reach}.}
             \gapSm
             \opt{\important{Shield}: -1 weight.}}
         \gap
-        \selectable{Embersmith}
+        \move{Embersmith}
             {When you use the glowing embers of a recent fire to craft weapons or armor, the item you create combines the tags and benefits of both Fire and Wood.}
     }
     {
-        \selectable{Master Armorer}
+        \move{Master Armorer}
             {Your elemental armor has 3 armor, and your elemental shields begin with +5 additional durability.}
         \gap
-        \selectable{Master Weaponsmith}
+        \move{Master Weaponsmith}
             {The element-specific bonuses on your elemental weapons are doubled}
         \gap
-        \selectable{Penultimate Work}
+        \move{Penultimate Work}
             {When you pour yourself- heart and soul, blood and tears- into crafting a perfect elemental weapon or shield, it no longer has finite durability and will no longer get damaged under ordinary use.  However, you may not craft with that element again until the thing you made is utterly destroyed.}
-        \selectable{Sunny Delights}
+        \move{Sunny Delights}
             {\replaces{Estus}
             You may drink a vial of flame oil to heal 2d6+INT.  If the oil contains the \tag{volatile} tag, heal 1d12+INT instead.  Ignore any poisonous effects from \important{Firewater}.}
         \gap
-        \selectable{Ironwood}
+        \move{Ironwood}
             {\requires{Earthen Sculptor}
             When you mold wood and stone you may take extra time to mix the two together until it forms a single compound.  When finished, the resulting material is nearly unbreakable, but is also permanently set and cannot be sculpted again, and its weight has doubled (0 weight becomes 1 weight).}
     }
@@ -164,18 +164,18 @@
         \advancedMovesCont
     }
     {
-        \selectable{Distill Lightning}
+        \move{Distill Lightning}
             {When you manage to \important{capture lightning in a bottle}, roll+INT to transmute the electricity into a refined oil with the tags \tag{crackling}, \tag{electric}.  On a miss the oil gains the tag \tag{volatile}.  Lightning oil sparks and crackles when shaken, and the vial is likely to give anyone who touches it a static shock.  Working lightning oil onto any item bestows the same tags to the item for a couple of hours.
             \gap
             If you’ve taken \important{Estus}, you may drink lightning oil to gain +1 forward.  Or if the oil is \tag{volatile}, you quickly take two actions in the time it would normally take you to make one.
             \gap
             If you’ve taken \important{Firewater}, the poison causes the target’s muscles to spasm and seize for a couple of moments.  If the oil is \tag{volatile}, the target flails uncontrollably for the duration.}
         \gap
-        \selectable{Repel}
+        \move{Repel}
             {When you \important{expend the last durability} on your shield it explodes outwards at the attacker in a \tag{forceful} blast.
             \gap
             Whenever you spend a point of your shield’s durability, you may willingly spend all remaining durability to force the effect.  Roll damage, and for every 2 additional durability spent, add +1 damage}
-        \selectable{Forge Greatshield}
+        \move{Forge Greatshield}
             {When you \important{shape and harden a raw element into an enormous shield}, you create a greatshield with a design of your choosing.  The construction must be simple and solid; no hinges or mechanisms.  Elemental greatshields begin with +3 armor, \tag{worn}, 4 weight and begins with 8 durability.
             \gap
             Every time the shield is used to reduce damage or defend against a strike, reduce its durability by 1.  When the durability hits 0, the shield breaks apart.  This greatshield is immune to damage matching the element you used to create it: when you take damage matching the element of your greatshield, reduce the damage to 0.
@@ -190,7 +190,7 @@
             \gapSm
             \opt{\important{Wood}: the shield can be used as a weapon with the tags \tag{two-handed}, \tag{close}.  Dealing damage with the shield reduces the durability by 1.}}
         \gap
-        \selectable{Lightning and the Thunder}
+        \move{Lightning and the Thunder}
             {\replaces{Steal Your Thunder}
             When you \important{Hack and Slash}, on a hit you may choose to do one of the following:
             \gapSm
@@ -213,12 +213,12 @@
         \end{minipage}
     }
     {
-        \selectable{Craft Armor}
+        \move{Craft Armor}
             {When you take a couple days to transmute a raw element into woven cloth or thick plating, you fashion it into a set of clothing or armor.  This elemental suit has the tags 1 armor, \tag{worn}, 2 weight.  The resulting material cannot be mended if damaged; your only option is to start over and make another suit.
             \gap
             When you take damage from an element that matching your suit’s element, that damage cannot \tag{ignore armor}.}
         \gap
-        \selectable{Forge Weapon}
+        \move{Forge Weapon}
             {When you \important{shape and harden a raw element into a weapon}, create a melee weapon with the design of your choosing and the range \tag{hand} or \tag{close}.
             \gap
             The construction must be simple and solid; no hinges or mechanisms.  Elemental weapons begin with 2 weight and 10 durability.  Every time an elemental weapon deals damage, reduce its durability by 1.  When the durability hits 0, the weapon breaks.
@@ -230,7 +230,7 @@
             \opt{\important{Stone}: +1 armor, \tag{imposing}.}
             \gapSm
             \opt{\important{Water}: +1 piercing, \tag{discreet}.}}
-        \selectable{Forge Shield}
+        \move{Forge Shield}
             {When you \important{shape and harden a raw element into a shield}, create a shield with the design of your choosing.  The construction must be simple and solid; no hinges or mechanisms.  Elemental shields begin with +1 armor, \tag{worn}, 1 weight, and begins with 5 durability.
             \gap
             Every time the shield is used to reduce damage or defend against a strike, reduce its durability by 1.  When the durability hits 0, the shield breaks.  Based on the element you used to create the weapon, add the following effects.

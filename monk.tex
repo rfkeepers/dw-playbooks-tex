@@ -34,23 +34,23 @@
             {You’ve visited many temples across the land. When you \important{encounter a religion}, the GM will tell you something not commonly known about them.}
         \raceOption{Dwarf}
             {Your work brings you peace. When you spend time doing strenuous manual labor, it counts as a form of Meditation.}
-        \emptySelectable{5}
+        \diyMove{5}
     }
     {
-        \selectable[x]{Hard Work For A Long Time}
+        \move[x]{Hard Work For A Long Time}
             {You’ve spent your life remaking your body.  You broke bones, seared skin, split muscle, then mended them all.  Over and over you’ve done this until your skin thickened and your skeleton hardened.  Blows no longer shatter your bones and claws cannot rend your flesh, for your body cannot be marred so easily.
 
             You can use your body to \important{Hack and Slash} as effectively as any weapon.  A Hack and Slash made in this manner has the reach \tag{hand}.}
         \gap
         \instruction{Choose one:}
         \gap
-        \selectable{Bladed Bones}
+        \move{Bladed Bones}
             {When you wield no weapons, \important{Hack and Slash} gains the following tags: \tag{precise}, \tag{piercing +1}.  All armor you wear gains the \tag{clumsy} tag.}
         \gap
-        \selectable{Wooded Limbs}
+        \move{Wooded Limbs}
             {When you wear no armor or shield, you have 1 armor.  When both feet are firmly set on the ground, ignore the \tag{forceful} tag on attacks from large or smaller creatures.}
         \gap
-        \selectable[x]{Meditate}
+        \move[x]{Meditate}
             {When you have time and a calm place to \important{relax and meditate}, lose all hold and choose one:
             \gapSm
             \opt{Ask the GM one question from Discern Realities.}
@@ -59,7 +59,7 @@
             \gapSm
             \opt{Gain 1 hold.  When you would consume a ration you may spend this hold to be sustained by the energy of the universe, and some dew.}
             \gap}
-            \selectable[x]{Pilgrimage}
+            \move[x]{Pilgrimage}
             {When you leave a civilized settlement and \important{dedicate your travel} to personal growth.
             \gapSm
             \instruction{Choose a goal for your pilgrimage:}
@@ -76,7 +76,7 @@
             \gap
             If you willingly pass up the opportunity for growth, your pilgrimage fails.  The GM will warn you if you are about to pass on such an opportunity before it escapes you.  When you return to civilization, if your Pilgrimage was successful mark 1 XP and take +1 forward to any \important{Carouse} where you teach your learnings to all during the celebration.}
         \gap
-        \selectable[x]{Martial Stances}
+        \move[x]{Martial Stances}
             {When you \important{begin combat} you take a stance and remain in a stance until combat ends.  Changing or leaving stances requires a moment of concentration which leaves you open and unprotected.
             \gapSm
             \opt{\important{Ox}: When you Defy Danger using STR or CON add +1 to the roll.}
@@ -113,7 +113,7 @@
         \gap
         \alignmentOption{Neutral}{Put the needs of your pilgrimage above your own.}
 
-        \emptySelectable{5}
+        \diyMove{5}
         \gear
         \dungeonRations
         \adventuringGear
@@ -129,16 +129,16 @@
         \gearOptionSelectable{\important{Halfling Pipeleaf} (6 uses, 0 weight)}
     }
     {
-        \selectable{Eye of the Storm}
+        \move{Eye of the Storm}
             {When an ally \important{asks your advice} in a charged or chaotic situation, tell them what you honestly believe is the best course of action.  If they do it, you both take +1 forward.  You can only do this once per meditation.}
         \gap
-        \selectable{Zen Archer}
+        \move{Zen Archer}
             {You may apply your stance when you \important{Volley}.}
         \gap
-        \selectable{Philosopher}
+        \move{Philosopher}
             {When visiting a civilized settlement you request to meet the wisest local. This person will meet with you if you share your pilgrimage with them.  If you turn down their hospitality, your pilgrimage fails.}
         \gap
-        \selectable{Martial Student}
+        \move{Martial Student}
             {Choose a stance from the list below and add it to your available stances:
             \gapSm
             \opt{\important{Dunkard}: gain +1 armor versus damage you take from Hack and Slash or Defend.}
@@ -147,25 +147,25 @@
             \gapSm
             \opt{\important{Fox}: When you Defy Danger using DEX or INT and roll 6, treat it as a 10+.}}
         \gap
-        \selectable{Be Water}
+        \move{Be Water}
             {When you \important{begin combat}, take one flow.  You may spend your flow at any time to switch stances immediately and without repercussion.  Lose all flow at the end of battle.}
         \gap
-        \selectable{Discipline}
+        \move{Discipline}
             {When you \important{Meditate} you may choose to:
             \gapSm
             \opt{Take 2 hold.  You may spend a hold to momentarily ignore a debility.}}
-        \selectable{Edify}
+        \move{Edify}
             {Once, after you return from a successful Pilgrimage, you may \important{Parley} without leverage by recounting your newly acquired wisdom.}
         \gap
-        \selectable{Temple Initiate}
+        \move{Temple Initiate}
             {When you \important{Meditate} you may choose to:
             \gapSm
             \opt{Pick a non-ongoing Cleric spell whose level is one lower than your level or less.  To cast the spell, roll+WIS.  On a 7+ you cast the spell and then return it to the rightful Deity.  On a 6 or less, the spell is forcefully reclaimed by its Deity. All spells are forgotten when you meditate.}}
         \gap
-        \selectable{Battle of the Mind}
+        \move{Battle of the Mind}
             {When you \important{Defy Danger} with a physical action and roll a 12+, you may immediately meditate.}
         \gap
-        \selectable{Knight Errant}
+        \move{Knight Errant}
             {When you dedicate yourself to a Pilgrimage, choose one of the following boons:
             \gapSm
             \opt{An unwavering sense of direction to \blank{2}.}
@@ -179,22 +179,22 @@
             Also, take one advanced move from the Paladin class at your level except \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.  Any moves that apply to Quests also apply to your Pilgrimage.}
     }
     {
-        \selectable{Clear Your Mind}
+        \move{Clear Your Mind}
             {When you \important{meditate} you may choose to:
         \gapSm
             \opt{Hold one use of the Cleric spell \important{True Seeing}.  Do not roll to cast the spell.  The effect lasts for one minute, you suffer no penalties during the effect.}}
         \gap
-        \selectable{Battle of the Fist}
+        \move{Battle of the Fist}
             {\requires{Battle of the Mind}
             When you \important{Hack and Slash} or \important{Volley} and roll a 12+, you may immediately meditate.}
-            \selectable{One Kick Practiced\\10,000 Times}
+            \move{One Kick Practiced\\10,000 Times}
             {When you wield no weapons, on a 10+ \important{Hack and Slash} deals b[2d8] damage.
             \gapSm
             \opt{\important{Bladed Bones}: You no longer add the \tag{clumsy} tag to armor.}
             \gapSm
             \opt{\important{Wooded Limbs}: You ignore the \tag{clumsy} tag on armor. When you wear no shield, gain +1 armor.}}
         \gap
-        \selectable{Formless, Shapeless}
+        \move{Formless, Shapeless}
             {\requires{Be Water}
             When you \important{begin combat}, choose two stances.  Both stances are active.  You may only leave or change one stance at a time.}
     }
@@ -208,11 +208,11 @@
         \advancedMovesCont
     }
     {
-        \selectable{Temple Priest}
+        \move{Temple Priest}
             {\requires{Temple Initiate}
             When you \important{mediate} and choose Temple Initiate's option, select a spell and additionally gain either \important{Cure Moderate Wounds} or all Rotes.  If you roll a 6 or less when casting any spell, all are forcefully reclaimed.}
         \gap
-        \selectable{Martial Master}
+        \move{Martial Master}
             {\requires{Martial Student}
             Select an additional stance from the Martial Student list, or one of the following, and add it to your available stances.
             \gapSm
@@ -222,7 +222,7 @@
             \gapSm
             \opt{\important{Ogre}: Hack and Slash gains the \tag{forceful} tag.}}
         \gap
-        \selectable{Champion Errant}
+        \move{Champion Errant}
             {\requires{Knight Errant}
             You gain one of the following Paladin moves:
             \gapSm
@@ -232,7 +232,7 @@
             \gapSm
             In addition, take one advanced move from the paladin class, except for: \important{Divine Favor}, \important{Exterminatus}, or \important{Perfect Knight}.}
         \gap
-        \selectable{Death Is Also a Seeker}
+        \move{Death Is Also a Seeker}
             {If you are currently on a pilgrimage when you \important{Take Your Last Breath}, on a 9 or lower Death will choose a new pilgrimage for you.  If you rolled 7-9, this pilgrimage is for your own personal growth.  If you rolled 6 or lower, this pilgrimage is for Death, and he will require you return to him with the learning you’ve gained.  This replaces your current pilgrimage.  If you fail this pilgrimage you are marked as Death’s own and you’ll cross the threshold soon.  The GM will tell you when}
     }
     {

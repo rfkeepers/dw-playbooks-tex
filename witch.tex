@@ -34,17 +34,17 @@
             {When you \important{claim a civilized settlement as an old home}, tell the GM what frightful legend the locals still whisper about you.  You have no outstanding warrant, but you will be recognized by the people there.}
         \raceOption{Halfling}
             {When your kin chased you out, the wilds took you in and taught you how feral creatures sup and dine.  You have the Druid move \important{By Nature Sustained}.}
-        \emptySelectable{5}
+        \diyMove{5}
     }
     {
-        \selectable[x]{Crossroads at Midnight}
+        \move[x]{Crossroads at Midnight}
             {All power is earned: books and tutors, flesh and toil.  When an old and nameless thing called out from the dark, you answered.  A deal was struck. You gained power, and you gave up something in return...
             \gap
             Your source gave you a pet Familiar.  What type of creature is it? Your familiar should be larger than your hand, but no larger than a fox.
             \gap
             Your familiar is loyal, though not necessarily obedient (you are not it’s true master, after all).  It cannot communicate with you in any intelligent tongue, yet it possesses a demonic intelligence far beyond natural creatures of its kind. Familiars are resilient and seem to evade even the most imminent death.}
         \gap
-        \selectable[x]{Apothecary}
+        \move[x]{Apothecary}
             {When you have \important{time a safe place to work}, you may gather materials and brew one of the following:
             \gapSm
             \opt{Antitoxin}
@@ -53,12 +53,12 @@
             \gapSm
             \opt{Weak Healing Potion (restores 1d8 hp).}}
         \gap
-        \selectable[x]{Diviniation}
+        \move[x]{Diviniation}
             {When you spend a few minutes \important{brewing tea and reading the leaves}, you steal visions from your dreams and find them steeping in the cup. Roll+WIS to Discern Realities about a location far away from you.  No other visions appear until after you sleep for some hours.}
-        \selectable[x]{In the Devil's Name}
+        \move[x]{In the Devil's Name}
             {When you \important{slaughter an animal} in ritual sacrifice and dedicate the ritual to the thing that gave you power, you may ask it for guidance.  It will tell you what it would have you do.  Take +1 forward when you attempt to fulfill its want.}
         \gap
-        \selectable[x]{Hex}
+        \move[x]{Hex}
             {When you \important{utter a curse} upon a nearby living creature, roll+CHA.  On a hit, afflict your target with one curse from the list below, lasting until the next sunrise.  On a 7-9, the hexed creature knows you did it.  On a miss, you are caught in the act: everyone knows what you’ve done and will spread your reputation.  Only one curse can afflict a creature at any time.
             \gapSm
             \opt{They grow an animal’s features (such as a tail, ears, or scales).}
@@ -107,7 +107,7 @@
         \gap
         \alignmentOption{Chaotic}{Sow terror among the fearful.}
 
-        \emptySelectable{5}
+        \diyMove{5}
         \gear
         \gearOption{\important{Ritual Knife} (\tag{hand}, 1 weight)}
         \gearOption{\important{Sack of Tea Leaves} (7 uses, 0 weight)}
@@ -123,44 +123,44 @@
         \adventuringGear[s]
     }
     {
-        \selectable{Poppet}
+        \move{Poppet}
             {When you enclose a piece of a living creature’s body (fluid, flesh, or hair) into a wax or clay effigy modeled in their likeness, the effigy is bonded to the creature.  When you hold the poppet, you always know to which direction that creature lies.  If you are near that creature while holding the poppet, it will faintly hear and feel the things you do to it.  To all other people the effigy is simply a lifeless figurine.}
         \gap
-        \selectable{A Bad Trip}
+        \move{A Bad Trip}
             {Add the following to your list of curses:
             \gapSm
             \opt{They experience a specific, vivid hallucination.}}
         \gap
-        \selectable{Haruspex}
+        \move{Haruspex}
             {When you \important{study the entrails of a recently slain creature} as a method of divination, take +1 forward to Discern Realities.  In addition to the normal questions, you may also ask:
             \gapSm
             \opt{What lies in waiting for me?}}
         \gap
-        \selectable{Blood Magic}
+        \move{Blood Magic}
             {When you \important{drain a living creature’s blood into a ritual container} (about 8 oz), take +1 ongoing for all moves against their species so long as you carry that blood with you.  For human blood, the +1 ongoing only applies to blood-related kin.}
         \gap
-        \selectable{Toil and Trouble}
+        \move{Toil and Trouble}
             {When you \important{brew a Weak Healing Potion}, roll+INT.  On a 10+, you make a regular Healing Potion instead.}
-        \selectable{Sticks and Stones}
+        \move{Sticks and Stones}
             {Add the following to your list of curses:
             \gapSm
             \opt{They are wracked with pain.  Deal 1d4 damage (\tag{ignores armor}).}}
         \gap
-        \selectable{Herbalism}
+        \move{Herbalism}
             {When your party undertakes a perilous journey through wilderness, if you do not take a job, roll+INT.  On a 7-9 you gain one use of Apothecary.  On a 10+ you gain three uses.}
         \gap
-        \selectable{Skinchanger}
+        \move{Skinchanger}
             {You gain the Druid ability \important{Shapeshifter}.  Do not roll when you take an animal form, and do not count any hold.  You become trapped within the body of the shape you take, all benefits and limitations included, until the next sunrise.
             \gap
             You gain the Druid ability \important{Born of the Soil}.  Do not choose a tell.  Instead, when you Shapeshift your animal form takes on unnatural features: feathers, antlers, or teeth on the wrong animal; a third eye; misshapen limbs; garbled human screams instead of roars; etc.  This does not change the benefits of the form, only the aesthetics.
             \gap
             Finally, take one non-multiclass Druid move (except \important{Shed}).}
         \gap
-        \selectable{My Lucifer is Lonely}
+        \move{My Lucifer is Lonely}
             {You gain the Evil or Chaotic alignment in addition to your current one.  You may earn 1 XP for each of your alignments per session.  When someone tries to read your alignment, you may respond with either one as the answer.}
     }
     {
-        \selectable{Fire Burn and\\Cauldron Bubble}
+        \move{Fire Burn and\\Cauldron Bubble}
             {When you have time to gather materials and a safe place to work, describe the effects of a beneficial or protective potion you’d like to make.  The GM will tell you that you can create it, but with one or more caveats:
             \gapSm
             \opt{It will only work under specific circumstances.}
@@ -171,11 +171,11 @@
             \gapSm
             \opt{It’ll have nasty side effects.}}
         \gap
-        \selectable{Shed}
+        \move{Shed}
             {\requires{Skinchanger}
             When shapeshifted, instead of waiting until sunrise you may take 1d6 damage to shed your skin and return to your normal form.  Additionally, take one non-multiclass Druid move (except \important{Shed}).}
         \gap
-        \selectable{Flesh Shaper}
+        \move{Flesh Shaper}
             {Add the following to your list of curses:
             \gapSm
             \opt{Transform them into an animal roughly their same size.  The transformation takes minutes to complete.}}
@@ -190,7 +190,7 @@
         \advancedMovesCont
     }
     {
-        \selectable{Killing Curse}
+        \move{Killing Curse}
             {\replaces{Sticks and Stones}
             Add the following to your list of curses:
             \gapSm
@@ -198,14 +198,14 @@
             \gapSm
             \opt{Their body violently rejects all manner of medicine and healing.}}
         \gap
-        \selectable{Friend}
+        \move{Friend}
             {Add the following to your list of curses:
             \gapSm
             \opt{They are friendly and generous towards you, no matter your history together.}
             \gap
             For this hex only, if the result of your roll would cause the creature to know you cursed them, the revelation is delayed until sunrise the following morning.}
         \gap
-        \selectable{Master of Poppets}
+        \move{Master of Poppets}
             {\requires{Poppet}
             When you \important{make a poppet}, gain three hold.  When you are \important{near} the creature bound to the poppet you may spend one hold to:
             \gapSm
@@ -213,7 +213,7 @@
             \gapSm
             \opt{Coat the poppet in a poultice or potion.  This heals the creature as if you had applied the poultice or potion to them directly.}}
         \gap
-        \selectable{A Gift From The Devil}
+        \move{A Gift From The Devil}
             {When you perform a ritual and \important{sacrifice something important} to the thing that gave you power, you may ask it for a gift.  If it deems the sacrifice sufficient, your familiar will deliver what you asked for.}
     }
     {

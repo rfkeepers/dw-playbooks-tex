@@ -338,7 +338,7 @@
 \newcommand
     {\raceOption}
     [2]
-    {\selectable{#1}{#2}\\[3mm]}
+    {\move{#1}{#2}\\[3mm]}
 
 \newcommand
     {\alignment}
@@ -346,7 +346,7 @@
 \newcommand
     {\alignmentOption}
     [2]
-    {\selectable{#1}{#2}}
+    {\move{#1}{#2}}
 
 \newcommand
     {\bonds}
@@ -385,7 +385,7 @@
 \newcommand
     {\gearOptionSelectable}
     [1]
-    {\tinySelectable{#1}\\[2mm]}
+    {\select{#1}\\[2mm]}
 
 \newcommand
     {\gearOptionMaybeSelectable}
