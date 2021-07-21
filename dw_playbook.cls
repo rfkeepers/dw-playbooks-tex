@@ -305,7 +305,7 @@
     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%    looks, race, alignment, bonds, gear
+%    looks, race, alignment, bonds, gear (also background, drives, flags)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand
@@ -345,6 +345,22 @@
     {\move{#1}{#2}}
 
 \newcommand
+    {\drives}
+    {\header{Drives}{5.8}{1}\\[2mm]}
+\newcommand
+    {\drivesOption}
+    [2]
+    {\move{#1}{#2}}
+
+\newcommand
+    {\background}
+    {\headerl{Background}{5.8}{1}{0.325}\\[2mm]}
+\newcommand
+    {\backgroundOption}
+    [2]
+    {\move{#1}{#2}}
+
+\newcommand
     {\bonds}
     {
         \begin{minipage}[t]{\textwidth}
@@ -363,6 +379,38 @@
             \end{flushleft}
         \end{minipage}
     }
+
+\newcommand
+    {\flags}
+    [1][two]
+    {
+        \begin{minipage}[t]{\textwidth}
+            \headerl{Flags}{5.8}{1}{0.325}\\[1.5mm]
+            \subtext{Choose #1:}
+        \end{minipage}
+    }
+\newcommand
+    {\flagsOption}
+    [2]
+    {
+        \begin{minipage}[t]{\textwidth}
+            \vspace{2mm}
+            \begin{flushleft}
+                #1 - #2
+            \end{flushleft}
+        \end{minipage}
+    }
+\newcommand
+    {\emptyFlagsOption}
+    {
+        \begin{minipage}[t]{\textwidth}
+            \vspace{3mm}
+            \begin{flushleft}
+                {\blank{1.5}~~-~~\blank{3.7}}
+            \end{flushleft}
+        \end{minipage}
+    }
+    
 
 \newcommand
     {\gear}
@@ -414,12 +462,12 @@
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (5.8,0.75);
 
-            \filldraw [color=black,fill=white,thick]
+            \filldraw [color=black,fill=pale,thick]
                 (\x+2,0.9) -- (\x+2.85,0.9)
                 -- (\x+3.1,-0.2) -- (\x+1.75,-0.2)
                 -- cycle;
 
-            \filldraw [color=black,fill=white,thick]
+            \filldraw [color=black,fill=pale,thick]
                 (\x+2.1,0.9) -- (\x+2.2,1)
                 -- (\x+2.65,1) -- (\x+2.75,0.9)
                 -- (\x+2.65,0.9) -- (\x+2.55,0.925)
