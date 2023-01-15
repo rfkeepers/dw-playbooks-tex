@@ -506,6 +506,16 @@
     }
 
 \newcommand
+    {\advancedMovesContWithSubtext}
+    {
+        \begin{minipage}[t]{\textwidth}
+            \header[r]{Advanced Moves}{12.9}{11.2}\\
+
+            \subtext{When you gain a level from 6-10, you may choose from these moves:}
+        \end{minipage}
+    }
+
+\newcommand
     {\sixUpMoves}
     {
         \begin{minipage}[t]{\textwidth}
@@ -609,7 +619,90 @@
         \end{minipage}}
 
 \newcommand
-    {\pageThree}[4][m]
+    {\pageTwoShort}[2]
+    {
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % left margin hack
+        \end{minipage}
+        \begin{minipage}[t]{0.9\textwidth}
+        
+            % left column: bonds, alignment, gear, blanks
+            \begin{minipage}[t]{0.3\textwidth}
+                #1
+            \end{minipage}
+            % whitespace divider
+            \begin{minipage}[t]{4mm}
+                ~
+            \end{minipage}
+            % right column: moves
+            \begin{minipage}[t]{0.65\textwidth}
+                \advancedMoves
+            
+                \begin{multicols*}{2}
+                    #2
+                \end{multicols*}
+            \end{minipage}
+        \end{minipage}
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % right margin hack
+        \end{minipage}}
+
+        \newcommand
+            {\pageThree}[4][m]
+            {
+                \begin{minipage}[t]{0.05\textwidth}
+                    ~ % left margin hack
+                \end{minipage}
+                \begin{minipage}[t]{0.9\textwidth}
+                
+                    % left column: filler lines
+                    \begin{minipage}[t]{0.3\textwidth}
+                        \notes\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}\gap
+                        \blank{5.8}
+                
+                    \end{minipage}
+                    % whitespace divider
+                    \begin{minipage}[t]{4mm}
+                        ~
+                    \end{minipage}
+                    % right column: moves
+                    \begin{minipage}[t]{0.65\textwidth}
+                        #2
+                
+                        \ifx m#1\begin{multicols*}{2}\fi
+                            #3
+                        \ifx m#1\end{multicols*}\fi
+                        
+                        #4
+                    \end{minipage}
+                \end{minipage}
+                \begin{minipage}[t]{0.05\textwidth}
+                    ~ % right margin hack
+                \end{minipage}}
+
+\newcommand
+    {\pageThreeShort}[3][m]
     {
         \begin{minipage}[t]{0.05\textwidth}
             ~ % left margin hack
@@ -650,12 +743,9 @@
             % right column: moves
             \begin{minipage}[t]{0.65\textwidth}
                 #2
-        
-                \ifx m#1\begin{multicols*}{2}\fi
+                \begin{multicols*}{2}
                     #3
-                \ifx m#1\end{multicols*}\fi
-                
-                #4
+                \end{multicols*}
             \end{minipage}
         \end{minipage}
         \begin{minipage}[t]{0.05\textwidth}
