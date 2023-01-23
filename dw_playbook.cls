@@ -358,7 +358,7 @@
 \newcommand
     {\backgroundOption}
     [2]
-    {\move{#1}{#2}}
+    {\move{#1}{#2}\\[3mm]}
 
 \newcommand
     {\bonds}
@@ -647,59 +647,59 @@
             ~ % right margin hack
         \end{minipage}}
 
-        \newcommand
-            {\pageThree}[4][m]
-            {
-                \begin{minipage}[t]{0.05\textwidth}
-                    ~ % left margin hack
-                \end{minipage}
-                \begin{minipage}[t]{0.9\textwidth}
+\newcommand
+    {\pageThree}[4][m]
+    {
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % left margin hack
+        \end{minipage}
+        \begin{minipage}[t]{0.9\textwidth}
+        
+            % left column: filler lines
+            \begin{minipage}[t]{0.3\textwidth}
+                \notes\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}\gap
+                \blank{5.8}
+        
+            \end{minipage}
+            % whitespace divider
+            \begin{minipage}[t]{4mm}
+                ~
+            \end{minipage}
+            % right column: moves
+            \begin{minipage}[t]{0.65\textwidth}
+                #2
+        
+                \ifx m#1\begin{multicols*}{2}\fi
+                    #3
+                \ifx m#1\end{multicols*}\fi
                 
-                    % left column: filler lines
-                    \begin{minipage}[t]{0.3\textwidth}
-                        \notes\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}\gap
-                        \blank{5.8}
-                
-                    \end{minipage}
-                    % whitespace divider
-                    \begin{minipage}[t]{4mm}
-                        ~
-                    \end{minipage}
-                    % right column: moves
-                    \begin{minipage}[t]{0.65\textwidth}
-                        #2
-                
-                        \ifx m#1\begin{multicols*}{2}\fi
-                            #3
-                        \ifx m#1\end{multicols*}\fi
-                        
-                        #4
-                    \end{minipage}
-                \end{minipage}
-                \begin{minipage}[t]{0.05\textwidth}
-                    ~ % right margin hack
-                \end{minipage}}
+                #4
+            \end{minipage}
+        \end{minipage}
+        \begin{minipage}[t]{0.05\textwidth}
+            ~ % right margin hack
+        \end{minipage}}
 
 \newcommand
     {\pageThreeShort}[3][m]
@@ -765,6 +765,9 @@
             ~\gap
 
             Dungeon World is designed by Sage LaTorra and Adam Koebel and can be found at:\\\url{https://dungeon-world.com}
+            ~\gap
+
+            This playbook is licensed underCreative Commons Zero v1.0 Universal:\\\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt}.
             ~\gap
 
             #1
