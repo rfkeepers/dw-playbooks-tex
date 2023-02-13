@@ -767,7 +767,7 @@
             Dungeon World is designed by Sage LaTorra and Adam Koebel and can be found at:\\\url{https://dungeon-world.com}
             ~\gap
 
-            This playbook is licensed underCreative Commons Zero v1.0 Universal:\\\url{https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt}.
+            This playbook is licensed under Creative Commons BY-SA v4.0:\\\url{https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt}.
             ~\gap
 
             #1
