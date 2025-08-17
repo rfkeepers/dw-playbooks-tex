@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ProvidesPackage{dw_playbook}[2021/07/02 Dungeon World Playbook Styles Package]
+\ProvidesPackage{dw1_playbook}[2021/07/02 Dungeon World Playbook Styles Package]
 
 % imports
 \RequirePackage{titlesec}
@@ -38,7 +38,7 @@
     {\textbf{\color{boldTextColor} \large #1}}
 
 \newcommand
-    {\headertext}
+    {\hugetext}
     [1]
     {\textbf{\LARGE #1}}
 
@@ -281,13 +281,13 @@
         \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=1cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
+            \draw [text width=1cm,color=headerTextColor] (#4,0.4) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=7cm,color=headerTextColor] (#4,0.4) node {\headertext{#2}};
+            \draw [text width=7cm,color=headerTextColor] (#4,0.4) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
     }
@@ -304,13 +304,13 @@
         \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=1cm,color=headerTextColor] (#4,#5) node {\headertext{#2}};
+            \draw [text width=1cm,color=headerTextColor] (#4,#5) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (#3,0.75);
-            \draw [text width=5cm,color=headerTextColor] (#4,#5) node {\headertext{#2}};
+            \draw [text width=5cm,color=headerTextColor] (#4,#5) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
     }

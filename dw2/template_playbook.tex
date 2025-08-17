@@ -1,0 +1,271 @@
+\documentclass[darkmode]{dw2_playbook}
+% bright white computer screen hurting your eyes?  Specify [darkmode] to invert the color scheme.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    How to use this.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%   Hi, hello, welcome!  This is the template for building your own playbook
+%   with my dockerized playbook builder.  I've put in a lot of effort to make
+%   this creation an easy process, and to provide you with prebuilt tools to
+%   use. The comments throughout the file should guide you where you need to
+%   go. If you have any questions, please feel free to reach out to me via
+%   email or discord.
+%
+%   1.  This .tex document is what will build your playbook's pdf.  As a test
+%       run, you should be able to create a pdf out of the template without
+%       any issues.  See the `just` commands in the repository for guidance.
+%
+%   2.  The content of this template is designed to provide as many examples
+%       of options and possibilities as I could think of.  Hopefully that's
+%       enough to set you up for success! So long as your stuff is reasonably
+%       within the fit of the page, it should all come out properly.  Fitting
+%       things in the provided space can be a tall order sometimes, so good luck!
+%
+%   3.  The one thing you do need to be cautious about is whitespace.  You'll
+%       see a lot of \\ and \gap and \gapSm throughout the document.  Why?
+%       Well, typesetting is a fickle process, and a lot of times it was easier
+%       to achieve the correct layout by controlling it in the playbook, rather
+%       than building that space into the other commands.  If you feel like
+%       the text isn't lining up as well as you'd expect, go back and look at
+%       how it was used here in the template.
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Playbook Details
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Name your Playbook
+\setPlaybook{Template}
+% In case you want it to say something other than "The PlaybookName"
+% you can change this here.  Ex; {\playbook} -> "PlaybookName"
+\title{The \playbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Page Layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+% ----------------------------------------------------------
+
+% front page of the layout: stats, supplies, exp, and so on.
+\pageOne
+  % playbook subtitle; replace with a tilde (~) if you don't want one.
+  {
+      Make your own playbooks with LaTeX
+  }
+  % ancestry
+  {
+      What do you look like? How does your ancestry affect your biology, behavior, and communication? How does your ancestry influence your understanding and expression of tabletop gaming?
+  }
+  % culture
+  {
+      What was the place of the ttrpg gamers in the culture you grew up in? What idiosyncratic story tropes or homebrew rules did you inherit, reject, or reinterpret?
+  }
+  % background
+  {
+      How was your life before ttrpg games? Did you already play games, whether board or video?  Were you into performing arts?
+  }
+  % drives
+  {
+      \drive{Fame}
+        {
+          You're famous to the point of being recognized by everyone at the local game store. Only a few of the many stories circulating about you have grains of truth. \important{Resolve this} by falling from grace or adopting a new identity.
+        }
+      \drive{Love}
+        {
+          You're in love with someone forbidden to you. \important{Resolve this} by overcoming all obstacles with your love or getting your heart broken.
+        }
+      \drive{Status}
+        {
+          You're a member of a prestigious gaming table. \important{Resolve this} by joining a different group or getting too busy for it.
+        }
+      \diyDrive
+  }
+  % early leveling options
+  {
+      \taketwo{Gain an a new career advancement}
+      \take{Multiclass — Gain an Advanced Hobby from another obsession}
+      \taketwo{+1 to any Stat (max. +2)}
+      \take{+1 to two different Defiances}
+      \take{Acquire a computer, tablet, or gadget of your profession}
+      \take{Unlock another type of local ethnic grocer}
+      \take{Gain a new Hobby that is definitely not another Obsession}
+      \take{Mark something off your bucket list}
+  }
+  % level 6+ options
+  {
+      \takethree{Get a 2\% salary increase}
+      \taketwo{Multiclass — Take over your friends hobby}
+      \take{+1 to any Stat (max. +2)}
+      \take{+1 to any Stat (max. +3)}
+      \take{Acquire an Award, Inheritence, or Lottery}
+      \taketwo{Gain another Hobby that, sure, this is straight up Obsession}
+      \takemove
+          {
+            Star of the Table
+          }
+          {
+            Your words and moves can radically transform the minds and souls of those around you. When you offer to gm for a group of local folks, you are guaranteed a full table of attentive players.
+          }
+  }
+  % supplies
+  % add [x] if you start with it.
+  {
+      \supply[x]{Roleplaying}{}
+      \supply[x]{Hobby}{(unique)}
+      \supply{Emotional Safety}{}
+      \supply{Drinking}{}
+  }
+
+% ----------------------------------------------------------
+\clearpage
+~
+
+\pageTwo
+    % Feature description.
+    {
+      You're intensely interested in a few particular games. They often inspire your hobbies and frequently appear in your evenings.
+    }
+    % Features!
+    {
+        \feature{Dungeons and Dragons}
+          {
+You may spend 1 Obsession to declare something that just happened as originating from dnd. State what the original rules were and gain ADV on your next roll.
+        }
+        \feature{Dungeon World}
+          {
+Once per scene, you may roll 2d6 to Defy Danger instead of spending a Defiance.  On a\sixminus, prepare for the worst.
+          }
+        \feature{Dark Souls 2}
+          {
+Gain 1 Astute Defiance. When you Defy Consequences with Astute—and then tell one or more PCs why your choce was the best—add 1 Affinity to the pool.
+          }
+        \feature{Blades in the Dark}
+          {
+After you improve your position by incorporating Spouted Headcannon, you may ask the GM question about the subject as if you rolled a\tenplus to Recall Knowledge.
+          }
+        \feature{Apocalypse World}
+          {
+You can use your art to communicate with any sapient being regardless of communication barriers.
+          }
+        \feature{Monster Hunter}
+          {
+When you closely watch a threat as you Engage them, you can spend 1 Obsession to ask the gm a question as if you rolled a\tenplus to Sense Motive.
+          }
+        \feature{The Resistance}
+          {
+When you insult or provoke someone while Engaging them as a Threat, you may roll+Compelling instead of +Forceful.
+          }
+        \feature{Hades}
+          {
+When you express your feelings to an npc, you may spend one Obsession to give them a condition, or to recover from a condition.
+          }
+    }
+    % Starting Moves
+    % Add [x] to a move to mark it as automatically selected.
+    {
+        \move[x]{All the World's a Fandom}
+        {
+          You entertain others with a particular skill. Is it voice acting, cosplay, rules knowledge, or something else? When you entertain an audience, lose all Inspiration and roll +Compelling. On a\tenplus, gain 3 Entertainment. On a\sevennine, only 2. On a\sixminus, you feel the entertainment was awful; gain 1 Inspiration, but mark a condition.
+          \gap
+          You can spend Inspiration, 1-for-1, for any of the following benefits. When affecting a PC or NPC, they must have been a member of your audience.
+          \gap
+          \option{Aid a friend without spending Money}
+          \option{Treat an acquaintance as if you both have Bonds with each other for a scene}
+          \option{Cause an acquaintance  to try to speak with you privately}
+          \option{Cause a friend to give you a meaningful gift}
+        }
+        \gap
+        \move[x]{Spout Headcannon}
+        {
+          When you first encounter someone or something that you’ve heard leaks, rumors, or previews about (your call), tell the GM something interesting you’ve heard about it. The GM will tell you what else you’ve heard that complicates things. The next time you Entertain, if you incorporate what you’ve heard about (or the complication), roll with ADV.
+        }
+    }
+    % Advanced Moves
+    % You don't need a \gap after every move.
+    % Just add them in as needed.
+    {
+        \move{Vel}
+        {
+            \takeeither{Gazeebo}{Gozorbo}
+            Balance domain chaos domain dispel check \important{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.
+          }
+        \gap
+        \move{Placerat}
+        {
+          \requires{Elit}
+          Change shape \important{cold immunity} constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.
+        }
+        \move{Sem Pharetra}
+        {
+          \replaces{Lorem}
+          \important{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.
+        }
+        \gap
+        \move{Vitae}
+        {
+            Armor bonus class skill \important{dispel check dodge bonus enhancement} bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.
+        }
+    }
+
+% ----------------------------------------------------------
+\clearpage
+~
+
+% The third page has empty lines for notes on the left-hand column, and I don't
+% leave you any options for changing that up.  Everything you can configure here
+% goes into the right hand column.
+%
+% The second block of content is arranged as a double-column layout (for moves).
+% The third block of content is single-column.
+% If you want the second block to be single-column instead, add [s] to the command
+% like so: \pageThree[s]
+\pageThree
+    % title bar.  replace with a tilde (~) if you don't want one.
+    {
+        Notes \& Advanced Moves
+    }
+    {
+        \advancedMovesCont
+    }
+    % An additional moves section.  If you want to do some kind of formatting here
+    % that doesn't use the standard two-column moves layout, go up to the pagethree
+    % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
+    % in single-column mode.
+    {
+    \move{Abundance}
+      {
+        When you \important{write more moves than can fit on two pages}, add the last of them to this page.  Or maybe write fewer moves.  Or smaller moves.
+      }
+    }
+    % a final, single-column section in case you wanted to add both moves and some
+    % other single-column formatted content at the bottom of the page.
+    % If your playbook needs an additional section, but you don't want it to use the
+    % previous two-column style that the moves use, this final section is the best
+    % place to handle that layout.
+    {
+      ~ % space to make the build happy when unused.
+    }
+% ----------------------------------------------------------
+% Thanks for using this tool, fellow playbook creator!  Formatting documents
+% is a tough gig, and even with the tools arranged here I'm sure you'll go
+% through a few headaches.  Feel free to reach out if you've hit a wall.
+
+% I'm only going to ask you for one thing: please keep this final page intact.
+% Help other players and designers find this resource as well.  While you're
+% at it, if you're making your own playbook you probably have a drivethru or
+% itch.io account, if not your own website, right?  Add a link to it here!
+
+% Thanks again, and happy designing!
+
+\clearpage
+~
+
+\resourceLinksPage
+    {
+        % link to your stuff here!
+        % ex:
+        % More awesome playbooks can be found at at:\\\url{https://itch.io/myOtherCreations}
+    }
+\end{document}

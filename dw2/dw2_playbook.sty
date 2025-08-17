@@ -1,0 +1,444 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProvidesPackage{dw2_playbook}[2021/07/02 Dungeon World Playbook Styles Package]
+
+% imports
+\RequirePackage{titlesec}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{ragged2e}
+\RequirePackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    constants
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Light Mode Colors
+\definecolor{mainTextColor}{HTML}{424242}
+\definecolor{boldTextColor}{HTML}{000000}
+\definecolor{mainPageColor}{HTML}{FFFFFF}
+\definecolor{headerLightColor}{HTML}{444444}
+\definecolor{headerTextColor}{HTML}{000000}
+\definecolor{titleFill}{HTML}{C0C0C0}
+\definecolor{headerFill}{HTML}{C0C0C0}
+\definecolor{offWhite}{HTML}{EAEAEA}
+\definecolor{pale}{HTML}{FAFAFA}
+\definecolor{paleish}{HTML}{CACACA}
+\definecolor{shade}{HTML}{777777}
+\definecolor{shadeish}{HTML}{A0A0A0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    text styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\movename}
+    [1]
+    {\textbf{\color{boldTextColor} \large #1}}
+
+\newcommand
+    {\hugetext}
+    [1]
+    {\textbf{\LARGE #1}}
+
+\newcommand
+    {\subtext}
+    [1]
+    {\raggedright\textsl{\color{shade}\footnotesize#1}}
+
+\newcommand
+    {\instruction}
+    [1]
+    {\raggedright\textsl{\color{shade}#1}}
+
+\newcommand
+    {\requires}
+    [1]
+    {\instruction{Requires: #1}\gapSm}
+
+\newcommand
+    {\replaces}
+    [1]
+    {\instruction{Replaces: #1}\gapSm}
+
+\newcommand
+    {\notboth}
+    [1]
+    {\instruction{You cannot take #1 if you take this move.}\gapSm}
+
+\newcommand
+    {\important}
+    [1]
+    {\textbf{\color{boldTextColor}#1}}
+
+\newcommand
+    {\tag}
+    [1]
+    {\textsl{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    whitespace variations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\blank}
+    [1]
+    {\underline{\makebox[#1cm][s]{}}}
+
+\newcommand
+    {\blankw}
+    {\underline{\makebox[\textwidth][s]{}}}
+
+\newcommand
+    {\separator}
+    [1]
+    {{\color{shadeish}\blank{#1}}}
+
+\newcommand
+    {\blankName}
+    {\underline{\makebox[3cm][s]{}}}
+
+\newcommand
+    {\gap}
+    {\\[3mm]}
+
+\newcommand
+    {\gapSm}
+    {\\[1mm]}
+
+\newcommand
+    {\vbreak}
+    {
+      \begin{minipage}[t]{4mm}
+        ~
+    \end{minipage}}
+\newcommand
+    {\vbreakSz}
+    [1]
+    {
+      \begin{minipage}[t]{#1}
+        ~
+      \end{minipage}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    layouts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\margin}
+    [1]
+    {
+      \begin{minipage}[t]{#1\textwidth}
+        ~
+      \end{minipage}
+    }
+
+\newcommand
+    {\marginw}
+    [1]
+    {
+      \begin{minipage}[t]{#1}
+        ~
+      \end{minipage}
+    }
+
+\newcommand
+    {\margined}
+    [1]
+    {
+      \margin{0.04}
+        \begin{minipage}[t]{0.91\textwidth}
+          #1
+        \end{minipage}
+      \margin{0.04}
+    }
+
+\newcommand
+    {\marginedless}
+    [1]
+    {
+      \margin{0.01}
+        \begin{minipage}[t]{\dimexpr\textwidth-0.02cm\relax}
+          #1
+        \end{minipage}
+      \margin{0.01}
+    }
+
+\newcommand
+    {\margincol}
+    [3][0.05cm]
+    {
+      \marginw{#1}
+      \begin{minipage}[t]{\dimexpr\textwidth-#2\relax}
+        #3
+      \end{minipage}
+    }
+
+\newcommand
+    {\threecol}
+    [6]
+    {
+        \def\l{\dimexpr#1\textwidth - 6mm\relax}
+        \def\c{\dimexpr#2\textwidth - 2mm\relax}
+        \def\r{\dimexpr#3\textwidth - 6mm\relax}
+        \begin{minipage}[t]{\l}
+            #4
+        \end{minipage}
+        \vbreak
+        \begin{minipage}[t]{\c}
+            #5
+        \end{minipage}
+        \vbreak
+        \begin{minipage}[t]{\r}
+            #6
+        \end{minipage}
+    }
+
+\newcommand
+    {\twocol}
+    [4]
+    {
+        \def\l{\dimexpr#1\textwidth - 3mm\relax}
+        \def\r{\dimexpr#2\textwidth - 3mm\relax}
+        \begin{minipage}[t]{\l}
+            #3
+        \end{minipage}
+        \vbreak
+        \begin{minipage}[t]{\r}
+            #4
+        \end{minipage}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    structures
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand
+    {\header}
+    [2][l]
+    {
+      \ifx l#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]%
+            \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
+            \draw [text width=1cm,color=headerTextColor] (0.75,0.4) node {\hugetext{#2}};
+        \end{tikzpicture}%
+        \fi%
+        \ifx r#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]%
+            \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
+            \node[anchor=east, color=headerTextColor] at (\textwidth-5mm,0.4) {\hugetext{#2}};
+        \end{tikzpicture}%
+        \fi%
+    }
+
+% header-lower variant: since the text is stationed within a tikzpicture instead
+% of fbox, the vertical alignment takes the full text height into account, which
+% means descender characters shift the position upward by a tiny bit.  Easiest
+% way to deal was to just duplicate the functionality. Not my favorite, but it
+% gets us through the day.
+\newcommand
+    {\headerl}
+    [2][l]
+    {
+      \ifx l#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
+            \draw [text width=1cm,color=headerTextColor] (0.75,0.325) node {\hugetext{#2}};
+        \end{tikzpicture}%
+        \fi%
+        \ifx r#1%
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
+            \node[anchor=east, color=headerTextColor] at (\textwidth-5mm,0.325) {\hugetext{#2}};
+        \end{tikzpicture}%
+        \fi
+    }
+
+\newcommand
+    {\titledesc}
+    [3][l]
+    {
+      \header[#1]{#2}\\[2mm]
+      \marginedless{\raggedright #3\\[2mm]}
+    }
+\newcommand
+    {\titledescl}
+    [3][l]
+    {
+      \headerl[#1]{#2}\\[2mm]
+      \marginedless{\raggedright #3\\[2mm]}
+    }
+
+\newcommand
+    {\move}
+    [3][u]
+    {
+      \begin{minipage}{0.6cm}
+          \ifx n#1
+          \else
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=boldTextColor]
+                    (0,0) rectangle (0.5cm,0.5cm);
+                \draw [color=boldTextColor]
+                    (0.25,0.25) node {\ifx x#1 {\large X} \fi};
+            \end{tikzpicture}
+          \fi
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
+            \begin{flushleft}
+                \movename{#2}\\[1mm]
+                {\small #3}
+            \end{flushleft}
+        \end{minipage}
+    }
+
+\newcommand
+    {\takemove}
+    [2]
+    {
+        \take{\important{#1}}
+        \begin{minipage}{0.65cm}
+          ~
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\linewidth-3cm\relax}
+            {\raggedright\small #2}
+        \end{minipage}
+    }
+
+\newcommand
+    {\feature}
+    [2]
+    {
+        \vspace{2mm}
+
+        \take{\important{#1}}
+        \begin{minipage}{0.45cm}
+          ~
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\linewidth-0.6cm\relax}
+            {\raggedright\small #2}
+        \end{minipage}
+    }
+
+\newcommand
+    {\select}
+    [2][u]
+    {
+      \begin{minipage}{0.08\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+                \draw [color=boldTextColor] (0.2,0.2) node {\ifx x#1 {\large x}\fi};
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{0.92\textwidth}
+            \begin{flushleft}
+                {\small #2}
+            \end{flushleft}
+        \end{minipage}
+    }
+
+\newcommand
+    {\take}
+    [2][u]
+    {
+      \parbox{\textwidth}{
+        \begin{minipage}{0.5cm}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+                \draw [color=boldTextColor] (0.2,0.2) node {\ifx x#1 {\large x}\fi};
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\textwidth - 0.5cm\relax}
+            \begin{flushleft}
+                {\small #2}
+            \end{flushleft}
+        \end{minipage}
+      }
+    }
+
+\newcommand
+    {\takemini}
+    [1]
+    {
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+            \node [anchor=west] at (0.4,0.2) {\small #1};
+        \end{tikzpicture}
+    }
+
+\newcommand
+    {\takeeither}
+    [2]
+    {
+      \parbox{\textwidth}{
+        \vspace{1mm}\takemini{#1}\takemini{#2}\\\vspace{1mm}
+      }
+    }
+
+\newcommand
+    {\singletake}
+    [2][u]
+    {
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+            \draw [color=boldTextColor] (0.2,0.2) node {\ifx x#1 {\large x}\fi};
+            \draw [color=boldTextColor,anchor=west] (0.4,0.17) node {\raggedright\small #2};
+        \end{tikzpicture}
+    }
+
+\newcommand
+    {\taketwo}
+    [1]
+    {
+      \parbox{\textwidth}{
+      \begin{minipage}{0.9cm}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+                \draw [rounded corners,color=boldTextColor] (0.45cm,0) rectangle (0.85cm,0.4cm);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\textwidth - 0.9cm\relax}
+            \begin{flushleft}
+                {\small #1}
+            \end{flushleft}
+        \end{minipage}
+      }
+    }
+
+\newcommand
+    {\takethree}
+    [1]
+    {
+      \parbox{\textwidth}{
+      \begin{minipage}{1.3cm}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
+                \draw [rounded corners,color=boldTextColor] (0.45cm,0) rectangle (0.85cm,0.4cm);
+                \draw [rounded corners,color=boldTextColor] (0.9cm,0) rectangle (1.3cm,0.4cm);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\textwidth - 1.3cm\relax}
+            \begin{flushleft}
+                {\small #1}
+            \end{flushleft}
+        \end{minipage}
+      }
+    }
+
+\newcommand
+    {\option}
+    [1]
+    {
+      \begin{minipage}{0.05\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.north)]
+                \draw [color=headerFill,fill=headerFill] (0.2cm,0.2cm) circle (0.05cm);
+            \end{tikzpicture}
+        \end{minipage}
+        \begin{minipage}[t]{0.93\textwidth}
+            \begin{flushleft}
+                {\small #1}
+            \end{flushleft}
+        \end{minipage}
+    }
