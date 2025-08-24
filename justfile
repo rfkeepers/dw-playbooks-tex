@@ -6,7 +6,7 @@ IMAGE_NAME := "ghcr.io/ryankeepers/dw-playbooks-tex:latest"
 default:
     just -l
 
-# Generate a DW playbook PDF from a tex file.
+# Generate a DW playbook PDF from a tex file using Docker.
 # Usage: just gen <version> <mode> <input.tex> <output.pdf>
 # - version: 1 or 2 (for DW 1 or DW 2)
 # - mode: l or d (for light or dark mode)
@@ -14,7 +14,7 @@ default:
 # - output.pdf: output PDF file
 [group('PDF Generation')]
 gen version mode texfile output_pdf:
-    ./gen-pdf.sh {{version}} {{mode}} {{texfile}} {{output_pdf}}
+    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} {{version}} {{mode}} {{texfile}} {{output_pdf}}
 
 # Build the Docker image locally
 [group('docker')]

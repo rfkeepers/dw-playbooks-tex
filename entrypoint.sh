@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# DW Playbook PDF Generator
-# Usage: ./gen-pdf.sh <dw version> <mode> <input.tex> <output.pdf>
+# DW Playbook PDF Generator - Docker Entrypoint
+# Usage: docker run --rm -v "$(pwd):/tex" image:tag <dw version> <mode> <input.tex> <output.pdf>
 # - dw version: 1 or 2
 # - mode: l or d (for light or dark mode)
 # - input.tex: source tex file
 # - output.pdf: output PDF file
 
-IMAGE_NAME="ghcr.io/ryankeepers/dw-playbooks-tex:latest"
-
 # Check if correct number of arguments provided
 if [ $# -ne 4 ]; then
   echo "❌ Error: Invalid number of arguments"
-  echo "Usage: $0 <version> <mode> <input.tex> <output.pdf>"
+  echo "Usage: docker run --rm -v \"\$(pwd):/tex\" IMAGE <version> <mode> <input.tex> <output.pdf>"
   echo "  version: 1 or 2 (for DW 1 or DW 2)"
   echo "  mode: l or d (for light or dark mode)"
   echo "  input.tex: source tex file"
@@ -48,22 +46,18 @@ mode_text=$([ "$mode" = "l" ] && echo "light" || echo "dark")
 
 echo "Building DW${version} PDF from $texfile -> $output_pdf ($mode_text mode)..."
 
-echo "Pulling latest image..."
-docker pull "$IMAGE_NAME" 2>/dev/null || echo "Using local image..."
-
 echo "Ensuring tex file uses $class_name class..."
-if ! grep -q "\\documentclass.*$class_name" "$texfile"; then
-  echo "⚠️  Warning: $texfile should use \\documentclass{$class_name}"
+if ! grep -q "\\\\documentclass.*$class_name" "$texfile"; then
+  echo "⚠️  Warning: $texfile should use \\\\documentclass{$class_name}"
 fi
 
 # Generate PDF
 if [ "$mode" = "d" ]; then
   echo "Running pdflatex with dark mode..."
-  echo "docker run --rm -v \"$(pwd):/tex\" \"$IMAGE_NAME\" pdflatex -interaction=nonstopmode -file-line-error \"\def\DARKMODE{1} \input{$texfile}\" 2>&1"
-  docker run --rm -v "$(pwd):/tex" "$IMAGE_NAME" pdflatex -interaction=nonstopmode -file-line-error "\def\DARKMODE{1} \input{$texfile}" 2>&1
+  pdflatex -interaction=nonstopmode -file-line-error "\\def\\DARKMODE{1} \\input{$texfile}" 2>&1
 else
   echo "Running pdflatex..."
-  docker run --rm -v "$(pwd):/tex" "$IMAGE_NAME" pdflatex -interaction=nonstopmode -file-line-error "$texfile" 2>&1
+  pdflatex -interaction=nonstopmode -file-line-error "$texfile" 2>&1
 fi
 
 # Move the generated PDF to the target location
@@ -77,4 +71,4 @@ else
 fi
 
 # Clean auxiliary files
-rm -f "*.aux" "*.log" "*.out" "*.fls" "*.fdb_latexmk" "*.toc" "*.nav" "*.snm"
+rm -f *.aux *.log *.out *.fls *.fdb_latexmk *.toc *.nav *.snm
