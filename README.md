@@ -8,7 +8,7 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 
 ### 1. **Install prerequisites:**
 
-- [Docker](https://docs.docker.com/get-docker/) or equivalent (try orbstack?)
+- [Docker](https://docs.docker.com/get-docker/) or equivalent (orbstack, podman, etc)
 - (local runs only) [Just](https://github.com/casey/just#installation)
 
 ### 2. **Download the runner:**
@@ -22,7 +22,7 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 
    ```bash
     # copy the playbook template for dw2 to my_playbook.tex
-    ./dw-pdf template 2 my_playbook.tex
+    ./dw-pdf playbook dw2 template my_playbook.tex
    ```
 
    Edit the file to your little heart's content, and then...
@@ -31,16 +31,25 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 
    ```bash
     # generates a pdf from a dw2 playbook in Light mode.
-    ./dw-pdf 2 l my_playbook.tex my_finished_playbook.pdf
+    ./dw-pdf playbook dw2 light my_playbook.tex my_finished_playbook.pdf
    ```
 
 ## Working locally (Traditional LaTeX... not recommended)
 
-Want to use these files with a local LaTeX installation? All you need is LaTeX 2e installed and ready to compile your work. Once the language is installed, grab the three files listed below (no other images or fonts involved), put them into a folder, tell them to compile, and that's it. If everything goes well, the Template should compile neatly into a pdf, and that's your signal to start ripping out the boilerplate and plugging in your own content.
+Want to use these files with a local LaTeX installation? All you need
+is LaTeX 2e installed and ready to compile your work. Once you have the language
+installed, grab the three files (sty, cls, tex), tell them to compile, and
+that's about it. It may ask you to install packages as needed.  If everything
+goes well, the Template should compile neatly into a pdf, and that's your
+signal to start ripping out the boilerplate and plugging in your own content.
 
-This is all open source, so you don't need to ask me for permission to use or modify any of it.  Get it and go crazy.  All I ask is that you retain the link on the last page so that others can find the resource as well.
+This is all open source, so you don't need to ask me for permission to use
+or modify any of it.  Get it and go crazy.  All I ask is that you retain the
+link on the last page so that others can find the resource as well.
 
-It's always fun to see what people make with these things, or hear how the process went.  Show me what you've worked on, or give me suggestions or feedback [via email](mailto:keepers@innumerable-engines.net).
+It's always fun to see what people make with these things, or hear how the
+process went.  Show me what you've worked on, or give me suggestions or
+feedback [via email](mailto:keepers@innumerable-engines.net).
 
 Happy typesetting!
 
