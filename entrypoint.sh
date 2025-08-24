@@ -3,32 +3,48 @@ set -euo pipefail
 
 # DW Playbook PDF Generator - Docker Entrypoint
 # Usage:
-#   Copy template: docker run --rm -v "$(pwd):/tex" image:tag <thing> <version> template <output.tex>
-#   Generate PDF: docker run --rm -v "$(pwd):/tex" image:tag <thing> <version> <colorscheme> <input.tex> <output.pdf>
+#   Copy template: docker run --rm -v "$(pwd):/tex" image:tag [-v|--verbose] <thing> <version> template <output.tex>
+#   Generate PDF: docker run --rm -v "$(pwd):/tex" image:tag [-v|--verbose] <thing> <version> <colorscheme> <input.tex> <output.pdf>
+
+# Parse verbose flag
+VERBOSE="false"
+if [[ $# -gt 0 ]] && { [[ "$1" == "-v" ]] || [[ "$1" == "--verbose" ]]; }; then
+  VERBOSE="true"
+  shift # Remove the verbose flag from arguments
+fi
 
 # Function to normalize thing parameter
 normalize_thing() {
   case "$1" in
-    "playbook"|"p") echo "playbook" ;;
-    *) echo "❌ Error: Invalid thing '$1'. Must be 'playbook' or 'p'"; exit 1 ;;
+  "playbook" | "p") echo "playbook" ;;
+  *)
+    echo "❌ Error: Invalid thing '$1'. Must be 'playbook' or 'p'"
+    exit 1
+    ;;
   esac
 }
 
 # Function to normalize version parameter
 normalize_version() {
   case "$1" in
-    "dw1"|"1") echo "1" ;;
-    "dw2"|"2") echo "2" ;;
-    *) echo "❌ Error: Invalid version '$1'. Must be 'dw1', '1', 'dw2', or '2'"; exit 1 ;;
+  "dw1" | "1") echo "1" ;;
+  "dw2" | "2") echo "2" ;;
+  *)
+    echo "❌ Error: Invalid version '$1'. Must be 'dw1', '1', 'dw2', or '2'"
+    exit 1
+    ;;
   esac
 }
 
 # Function to normalize colorscheme parameter
 normalize_colorscheme() {
   case "$1" in
-    "light"|"l") echo "l" ;;
-    "dark"|"d") echo "d" ;;
-    *) echo "❌ Error: Invalid colorscheme '$1'. Must be 'light', 'l', 'dark', or 'd'"; exit 1 ;;
+  "light" | "l") echo "l" ;;
+  "dark" | "d") echo "d" ;;
+  *)
+    echo "❌ Error: Invalid colorscheme '$1'. Must be 'light', 'l', 'dark', or 'd'"
+    exit 1
+    ;;
   esac
 }
 
@@ -37,19 +53,19 @@ if [ $# -eq 4 ] && [ "$3" = "template" ]; then
   thing=$(normalize_thing "$1")
   version=$(normalize_version "$2")
   output_file="$4"
-  
+
   template_source="/usr/local/share/dw-playbook-templates/dw${version}_template.tex"
-  
+
   if [ ! -f "$template_source" ]; then
     echo "❌ Error: Template file not found in container"
     exit 1
   fi
-  
+
   if [ -f "$output_file" ]; then
     echo "❌ Error: File '$output_file' already exists"
     exit 1
   fi
-  
+
   echo "📄 Copying DW${version} template to $output_file..."
   cp "$template_source" "$output_file"
   echo "✅ Template copied successfully"
@@ -97,11 +113,21 @@ fi
 
 # Generate PDF
 if [ "$mode" = "d" ]; then
-  echo "Running pdflatex with dark mode..."
-  pdflatex -interaction=nonstopmode -file-line-error "\\def\\DARKMODE{1} \\input{$texfile}" 2>&1
+  if [ "$VERBOSE" = "true" ]; then
+    echo "Running pdflatex with dark mode..."
+    pdflatex -interaction=nonstopmode -file-line-error "\\def\\DARKMODE{1} \\input{$texfile}"
+  else
+    echo "Running pdflatex with dark mode..."
+    pdflatex -interaction=nonstopmode -file-line-error "\\def\\DARKMODE{1} \\input{$texfile}" >/dev/null 2>&1
+  fi
 else
-  echo "Running pdflatex..."
-  pdflatex -interaction=nonstopmode -file-line-error "$texfile" 2>&1
+  if [ "$VERBOSE" = "true" ]; then
+    echo "Running pdflatex..."
+    pdflatex -interaction=nonstopmode -file-line-error "$texfile"
+  else
+    echo "Running pdflatex..."
+    pdflatex -interaction=nonstopmode -file-line-error "$texfile" >/dev/null 2>&1
+  fi
 fi
 
 # Move the generated PDF to the target location
