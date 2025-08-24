@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dw_playbook}[2021/07/02 Dungeon World Playbook Document Class]
+\ProvidesClass{dw1_playbook}[2021/07/02 Dungeon World Playbook Document Class]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    package declarations
@@ -16,7 +16,7 @@
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
 
-\RequirePackage{dw_playbook}
+\RequirePackage{dw1_playbook}
 
 \RequirePackage{geometry}
 \RequirePackage{tikz}
@@ -32,7 +32,11 @@
 
 \DeclareOption{twocolumn}{\OptionNotUsed}
 \DeclareOption{a4paper}{\OptionNotUsed}
-\DeclareOption{darkmode}{
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
+% Dark mode color overrides (must come after package loading)
+\ifdefined\DARKMODE
     % Dark Mode Color Scheme
     \definecolor{mainTextColorD}{HTML}{E0E0E0}
     \colorlet{mainTextColor}{mainTextColorD}
@@ -48,7 +52,7 @@
     \colorlet{titleFill}{titleFillD}
     \definecolor{headerFillD}{HTML}{505050}
     \colorlet{headerFill}{headerFillD}
-    \definecolor{offWhiteD}{HTML}{E0E0E0}
+    \definecolor{offWhiteD}{HTML}{303030}
     \colorlet{offWhite}{offWhiteD}
     \definecolor{paleD}{HTML}{F3F3F3}
     \colorlet{pale}{paleD}
@@ -58,9 +62,7 @@
     \colorlet{shade}{shadeD}
     \definecolor{shadeishD}{HTML}{A0A0A0}
     \colorlet{shadeish}{shadeishD}
-}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptions\relax
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    page setup
@@ -210,7 +212,7 @@
             \filldraw [rotate=30,color=black,fill=pale,thick]
                 (\x+2.5,-1.9) circle (6.5mm and 4.5mm);
 
-            \draw [color=paleish] (\x+2.87,0.475) node {\headertext{¢}};
+            \draw [color=paleish] (\x+2.87,0.475) node {\hugetext{¢}};
         \end{tikzpicture}
     }
 
@@ -224,7 +226,7 @@
         \def\x{4.4}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
-            \draw [color=headerTextColor] (1.2,0.375  ) node {\headertext{Level}};
+            \draw [color=headerTextColor] (1.2,0.375  ) node {\hugetext{Level}};
 
             \filldraw [color=black,fill=white,thick]
                 (\x+1.75,0.7) -- (\x+2.25,1)
@@ -259,7 +261,7 @@
                 to [out=270,in=165] (\x+0.75,-0.25)
                 to [out=15,in=270] cycle (\x+0.5,0.75);
 
-            \draw [text width=1cm,color=headerTextColor] (6.8,0.4) node {\headertext{Armor}};
+            \draw [text width=1cm,color=headerTextColor] (6.8,0.4) node {\hugetext{Armor}};
         \end{tikzpicture}
     }
 
@@ -270,7 +272,7 @@
         \def\x{7.25}
         \begin{tikzpicture}
             \filldraw [color=headerFill] (0,0) rectangle (8.5,0.75);
-            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\headertext{Hit Points}};
+            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\hugetext{Hit Points}};
   
             % thanks to A.Ellett for the heart:
             % https://tex.stackexchange.com/questions/139733/can-we-make-a-love-heart-with-latex
@@ -300,7 +302,7 @@
 
             #1
 
-            \draw [text width=1cm,color=headerTextColor] (6.55,0.35) node {\headertext{Damage}};
+            \draw [text width=1cm,color=headerTextColor] (6.55,0.35) node {\hugetext{Damage}};
         \end{tikzpicture}
     }
 
@@ -475,7 +477,7 @@
                 -- cycle;
 
             \draw (\x+0.9,0.155) node {\textsl{\color{headerLightColor}\footnotesize Max (\loadbase+STR)}};
-            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\headertext{Load}};
+            \draw [text width=1cm,color=headerTextColor] (1,0.4) node {\hugetext{Load}};
         \end{tikzpicture}
     }
 
@@ -555,7 +557,7 @@
                 \end{minipage}
                 \begin{minipage}[t]{0.85\textwidth}
                     \vspace{3mm}
-                    \headertext{Name:}
+                    \hugetext{Name:}
                     \blank{5.9}
                 \end{minipage}
             \end{minipage}
