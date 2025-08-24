@@ -7,22 +7,22 @@ default:
     just -l
 
 # Generate a DW playbook PDF from a tex file using Docker.
-# Usage: just gen <version> <mode> <input.tex> <output.pdf>
-# - version: 1 or 2 (for DW 1 or DW 2)
-# - mode: l or d (for light or dark mode)
+# Usage: just gen <version> <colorscheme> <input.tex> <output.pdf>
+# - version: dw1/1 or dw2/2 (for DW 1 or DW 2)
+# - colorscheme: light/l or dark/d (for light or dark mode)
 # - input.tex: source tex file
 # - output.pdf: output PDF file
 [group('PDF Generation')]
-gen version mode texfile output_pdf:
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} {{version}} {{mode}} {{texfile}} {{output_pdf}}
+gen version colorscheme texfile output_pdf:
+    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} playbook {{version}} {{colorscheme}} {{texfile}} {{output_pdf}}
 
 # Copy a DW playbook template from the Docker image to your local filesystem.
 # Usage: just template <version> <output.tex>
-# - version: 1 or 2 (for DW 1 or DW 2 template)
+# - version: dw1/1 or dw2/2 (for DW 1 or DW 2 template)
 # - output.tex: where to save the template file
-[group('PDF Generation')]
+[group('Template')]
 template version output_file:
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} template {{version}} {{output_file}}
+    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} playbook {{version}} template {{output_file}}
 
 # Build the Docker image locally
 [group('docker')]
