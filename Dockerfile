@@ -1,12 +1,18 @@
-# Use the official TeX Live full distribution
-FROM texlive/texlive:latest
+# Use official TeX Live Docker image (small variant) - maintained and up-to-date
+FROM texlive/texlive:latest-small
 
-# Install additional packages that might be needed
-RUN apt-get update && apt-get install -y \
-    ghostscript \
+# Install additional packages we need
+RUN apt-get update \
+    && apt-get install -qy \
+        bash \
+        wget \
+        unzip \
     && rm -rf /var/lib/apt/lists/*
 
-# Create local TeX directory structure in texmf-local (the standard location)
+# Install libertinus fonts and other LaTeX package dependencies using tlmgr
+RUN tlmgr install libertinus libertinus-type1 fontaxes titlesec
+
+# Create directory for dw-playbooks
 RUN mkdir -p /usr/local/texlive/texmf-local/tex/latex/dw-playbooks
 
 # Create directory for template files
