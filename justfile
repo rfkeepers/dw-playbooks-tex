@@ -1,7 +1,7 @@
 # DW Playbook Builder
 # Usage: just <input.tex> <output.pdf>
 
-IMAGE_NAME := "ghcr.io/ryankeepers/dw-playbooks-tex:latest"
+IMAGE_NAME := "ghcr.io/rfkeepers/dw-playbooks-tex:latest"
 
 default:
     just -l
