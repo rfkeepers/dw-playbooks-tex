@@ -27,7 +27,7 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 
    Edit the file to your little heart's content, and then...
 
-### 4
+### 4. Create a PDF
 
    ```bash
     # generates a pdf from a dw2 playbook in Light mode.
