@@ -18,9 +18,13 @@ COPY dw2/dw2_playbook.sty /usr/local/texlive/texmf-local/tex/latex/dw-playbooks/
 # Update TeX database to recognize the new files
 RUN mktexlsr
 
+# Copy and set up the entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 # Set the working directory
 WORKDIR /tex
 
-# Default command - compile a tex file
-# Usage: docker run --rm -v "$(pwd):/tex" dw-playbooks-tex pdflatex filename.tex
-CMD ["pdflatex", "--help"]
+# Set entrypoint to our wrapper script
+# Usage: docker run --rm -v "$(pwd):/tex" dw-playbooks-tex <version> <mode> <input.tex> <output.pdf>
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
