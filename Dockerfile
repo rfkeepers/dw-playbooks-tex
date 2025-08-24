@@ -9,11 +9,18 @@ RUN apt-get update && apt-get install -y \
 # Create local TeX directory structure in texmf-local (the standard location)
 RUN mkdir -p /usr/local/texlive/texmf-local/tex/latex/dw-playbooks
 
+# Create directory for template files
+RUN mkdir -p /usr/local/share/dw-playbook-templates
+
 # Copy the class and style files directly into the TeX system
 COPY dw1/dw1_playbook.cls /usr/local/texlive/texmf-local/tex/latex/dw-playbooks/
 COPY dw1/dw1_playbook.sty /usr/local/texlive/texmf-local/tex/latex/dw-playbooks/
 COPY dw2/dw2_playbook.cls /usr/local/texlive/texmf-local/tex/latex/dw-playbooks/
 COPY dw2/dw2_playbook.sty /usr/local/texlive/texmf-local/tex/latex/dw-playbooks/
+
+# Copy template files for user access
+COPY dw1/template_playbook.tex /usr/local/share/dw-playbook-templates/dw1_template.tex
+COPY dw2/template_playbook.tex /usr/local/share/dw-playbook-templates/dw2_template.tex
 
 # Update TeX database to recognize the new files
 RUN mktexlsr
