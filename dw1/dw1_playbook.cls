@@ -16,7 +16,7 @@
 \renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
 \RequirePackage[T1]{fontenc}
 
-\RequirePackage{dw_playbook}
+\RequirePackage{dw1_playbook}
 
 \RequirePackage{geometry}
 \RequirePackage{tikz}
@@ -32,7 +32,11 @@
 
 \DeclareOption{twocolumn}{\OptionNotUsed}
 \DeclareOption{a4paper}{\OptionNotUsed}
-\DeclareOption{darkmode}{
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
+% Dark mode color overrides (must come after package loading)
+\ifdefined\DARKMODE
     % Dark Mode Color Scheme
     \definecolor{mainTextColorD}{HTML}{E0E0E0}
     \colorlet{mainTextColor}{mainTextColorD}
@@ -48,7 +52,7 @@
     \colorlet{titleFill}{titleFillD}
     \definecolor{headerFillD}{HTML}{505050}
     \colorlet{headerFill}{headerFillD}
-    \definecolor{offWhiteD}{HTML}{E0E0E0}
+    \definecolor{offWhiteD}{HTML}{303030}
     \colorlet{offWhite}{offWhiteD}
     \definecolor{paleD}{HTML}{F3F3F3}
     \colorlet{pale}{paleD}
@@ -58,9 +62,7 @@
     \colorlet{shade}{shadeD}
     \definecolor{shadeishD}{HTML}{A0A0A0}
     \colorlet{shadeish}{shadeishD}
-}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptions\relax
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    page setup

@@ -53,7 +53,11 @@
 
 \DeclareOption{twocolumn}{\OptionNotUsed}
 \DeclareOption{a4paper}{\OptionNotUsed}
-\DeclareOption{darkmode}{
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+
+% Dark mode color overrides (must come after package loading)
+\ifdefined\DARKMODE
     % Dark Mode Color Scheme
     \definecolor{mainTextColorD}{HTML}{E0E0E0}
     \colorlet{mainTextColor}{mainTextColorD}
@@ -69,7 +73,7 @@
     \colorlet{titleFill}{titleFillD}
     \definecolor{headerFillD}{HTML}{505050}
     \colorlet{headerFill}{headerFillD}
-    \definecolor{offWhiteD}{HTML}{E0E0E0}
+    \definecolor{offWhiteD}{HTML}{505050}
     \colorlet{offWhite}{offWhiteD}
     \definecolor{paleD}{HTML}{F3F3F3}
     \colorlet{pale}{paleD}
@@ -79,9 +83,7 @@
     \colorlet{shade}{shadeD}
     \definecolor{shadeishD}{HTML}{A0A0A0}
     \colorlet{shadeish}{shadeishD}
-}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
-\ProcessOptions\relax
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    page setup
@@ -150,10 +152,10 @@
         \begin{minipage}[t]{\textwidth}
             \medskip
             \hspace{3em}\makebox[\dimexpr\textwidth-8em][s]{%
-                \subtext{\underline{\color{shadeish}Name}}
+                \subtext{\underline{\color{headerTextColor}Name}}
                 \blank{5}
-                \subtext{\underline{\color{shadeish}Pronouns}}
-                \hugetext{\color{shadeish}(\hspace{1cm}/\hspace{1.2cm}),}%
+                \subtext{\underline{\color{headerTextColor}Pronouns}}
+                \hugetext{\color{headerTextColor}(\hspace{1cm}/\hspace{1.2cm}),}%
                 \hfill\parbox[t]{9.75cm}{
                   \raggedleft\textbf{\color{headerTextColor}\Huge\@title}%
                 }%
@@ -634,7 +636,7 @@
     }
 
 \newcommand
-    {\pageThree}[4][m]
+    {\pageThree}[3][m]
     {
       \margined{
         % left column: filler lines
@@ -667,13 +669,13 @@
         \vbreak
         % right column: moves
         \begin{minipage}[t]{\dimexpr0.65\textwidth - 2mm\relax}
-            #2
+            #1
     
             \ifx m#1\begin{multicols*}{2}\fi
-                #3
+                #2
             \ifx m#1\end{multicols*}\fi
             
-            #4
+            #3
         \end{minipage}
       }
     }
@@ -890,14 +892,14 @@
         \begin{tikzpicture}
 
         % left face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.25cm*\mult)
             -- (\x-0.45cm*\mult,\y-0.5cm*\mult)
             -- (\x-0cm*\mult,\y-0.75cm*\mult)
             -- cycle;
 
         % top right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.25cm*\mult)
             -- (\x+0.45cm*\mult,\y-0.5cm*\mult)
             -- (\x+0cm*\mult,\y-0.75cm*\mult)
@@ -921,7 +923,7 @@
         \begin{tikzpicture}
 
         % primary face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0cm*\mult)
             -- (\x+0.4cm*\mult,\y+0cm*\mult)
             -- (\x+0.4cm*\mult,\y+0.4cm*\mult)
@@ -929,7 +931,7 @@
             -- cycle;
 
         % right face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0.4cm*\mult,\y+0.4cm*\mult)
             -- (\x+0.4cm*\mult,\y+0cm*\mult)
             -- (\x+0.5cm*\mult,\y+0.1cm*\mult)
@@ -937,7 +939,7 @@
             -- cycle;
 
         % right face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.4cm*\mult)
             -- (\x+0.4cm*\mult,\y+0.4cm*\mult)
             -- (\x+0.5cm*\mult,\y+0.5cm*\mult)
@@ -1036,28 +1038,28 @@
         \begin{tikzpicture}
         
         % primary face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x+0.433cm*\mult,\y-0.25cm*\mult)
             -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
             -- cycle;
         
         % top right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x+0.433cm*\mult,\y+0.25cm*\mult)
             -- (\x+0.433cm*\mult,\y-0.25cm*\mult)
             -- cycle;
         
         % bottom
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0.433cm*\mult,\y-0.25cm*\mult)
             -- (\x+0cm*\mult,\y-0.5cm*\mult)
             -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
             -- cycle;
         
         % top right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x-0.433cm*\mult,\y+0.25cm*\mult)
             -- (\x-0.433cm*\mult,\y-0.25cm*\mult)
@@ -1076,7 +1078,7 @@
         \begin{tikzpicture}
         
         % primary face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
             -- (\x-0cm*\mult,\y-0.3cm*\mult)
@@ -1084,7 +1086,7 @@
             -- cycle;
         
         % top right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
             -- (\x+0.475cm*\mult,\y-0.1cm*\mult)
@@ -1092,20 +1094,20 @@
             -- cycle;
 
         % top left
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.5cm*\mult)
             -- (\x-0.294cm*\mult,\y-0.154cm*\mult)
             -- (\x-0.475cm*\mult,\y-0.1cm*\mult)
             -- (\x-0.475cm*\mult,\y+0.1cm*\mult)
             -- cycle;
 
-        \draw [color=mainPageColor,fill=titleFill]
+        \draw [color=mainPageColor,fill=offWhite]
             (\x-0.25cm*\mult,\y-0.05cm*\mult)
             rectangle
             (\x+0.26cm*\mult,\y+0.12cm*\mult);
 
         % bottom right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y-0.5cm*\mult)
             -- (\x+0cm*\mult,\y-0.3cm*\mult)
             -- (\x+0.294cm*\mult,\y-0.154cm*\mult)
@@ -1113,7 +1115,7 @@
             -- cycle;
         
         % bottom left
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y-0.5cm*\mult)
             -- (\x+0cm*\mult,\y-0.3cm*\mult)
             -- (\x-0.294cm*\mult,\y-0.154cm*\mult)
@@ -1133,14 +1135,14 @@
         \begin{tikzpicture}
 
         % left face
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.25cm*\mult)
             -- (\x-0.45cm*\mult,\y+0.02cm*\mult)
             -- (\x-0cm*\mult,\y-0.75cm*\mult)
             -- cycle;
 
         % top right
-        \draw [color=shade,fill=titleFill,thick]
+        \draw [color=shade,fill=offWhite,thick]
             (\x+0cm*\mult,\y+0.25cm*\mult)
             -- (\x+0.45cm*\mult,\y-0.5cm*\mult)
             -- (\x+0cm*\mult,\y-0.75cm*\mult)

@@ -6,55 +6,15 @@ IMAGE_NAME := "ghcr.io/ryankeepers/dw-playbooks-tex:latest"
 default:
     just -l
 
-# Generate a DW 1 playbook PDF from a tex file.
-# Usage: just gen1 <input.tex> <output.pdf>
-[group('DW 1')]
-gen1 texfile output_pdf:
-    @echo "Building DW1 PDF from {{texfile}} -> {{output_pdf}}..."
-    @if [ ! -f "{{texfile}}" ]; then echo "Error: File '{{texfile}}' not found"; exit 1; fi
-    @echo "Pulling latest image..."
-    -docker pull {{IMAGE_NAME}} 2>/dev/null || echo "Using local image..."
-    @echo "Ensuring tex file uses dw1_playbook class..."
-    @if ! grep -q "\\documentclass.*dw1_playbook" "{{texfile}}"; then \
-        echo "⚠️  Warning: {{texfile}} should use \documentclass{dw1_playbook}"; \
-    fi
-    @echo "Running pdflatex (first pass)..."
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} pdflatex -interaction=nonstopmode -file-line-error {{texfile}} 2>&1
-    @echo "Running pdflatex (second pass)..."
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} pdflatex -interaction=nonstopmode -file-line-error {{texfile}} 2>&1
-    @basename="$(basename {{texfile}} .tex)"; \
-    if [ -f "$basename.pdf" ]; then \
-        mv "$basename.pdf" "{{output_pdf}}"; \
-        echo "✅ Successfully created {{output_pdf}}"; \
-    else \
-        echo "❌ Failed to create PDF"; exit 1; \
-    fi
-    @just clean {{texfile}}
-
-# Generate a DW 2 playbook PDF from a tex file.
-# Usage: just gen2 <input.tex> <output.pdf>
-[group('DW 2')]
-gen2 texfile output_pdf:
-    @echo "Building DW2 PDF from {{texfile}} -> {{output_pdf}}..."
-    @if [ ! -f "{{texfile}}" ]; then echo "Error: File '{{texfile}}' not found"; exit 1; fi
-    @echo "Pulling latest image..."
-    -docker pull {{IMAGE_NAME}} 2>/dev/null || echo "Using local image..."
-    @echo "Ensuring tex file uses dw2_playbook class..."
-    @if ! grep -q "\\documentclass.*dw2_playbook" "{{texfile}}"; then \
-        echo "⚠️  Warning: {{texfile}} should use \documentclass{dw2_playbook}"; \
-    fi
-    @echo "Running pdflatex (first pass)..."
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} pdflatex -interaction=nonstopmode -file-line-error {{texfile}} 2>&1
-    @echo "Running pdflatex (second pass)..."
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} pdflatex -interaction=nonstopmode -file-line-error {{texfile}} 2>&1
-    @basename="$(basename {{texfile}} .tex)"; \
-    if [ -f "$basename.pdf" ]; then \
-        mv "$basename.pdf" "{{output_pdf}}"; \
-        echo "✅ Successfully created {{output_pdf}}"; \
-    else \
-        echo "❌ Failed to create PDF"; exit 1; \
-    fi
-    @just clean {{texfile}}
+# Generate a DW playbook PDF from a tex file.
+# Usage: just gen <version> <mode> <input.tex> <output.pdf>
+# - version: 1 or 2 (for DW 1 or DW 2)
+# - mode: l or d (for light or dark mode)
+# - input.tex: source tex file
+# - output.pdf: output PDF file
+[group('PDF Generation')]
+gen version mode texfile output_pdf:
+    ./gen-pdf.sh {{version}} {{mode}} {{texfile}} {{output_pdf}}
 
 # Build the Docker image locally
 [group('docker')]
