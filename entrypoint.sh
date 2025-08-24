@@ -2,20 +2,55 @@
 set -euo pipefail
 
 # DW Playbook PDF Generator - Docker Entrypoint
-# Usage: docker run --rm -v "$(pwd):/tex" image:tag <dw version> <mode> <input.tex> <output.pdf>
-# - dw version: 1 or 2
-# - mode: l or d (for light or dark mode)
-# - input.tex: source tex file
-# - output.pdf: output PDF file
+# Usage:
+#   Generate PDF: docker run --rm -v "$(pwd):/tex" image:tag <dw version> <mode> <input.tex> <output.pdf>
+#   Copy template: docker run --rm -v "$(pwd):/tex" image:tag template <version> <output.tex>
 
-# Check if correct number of arguments provided
+# Handle template copying command
+if [ $# -eq 3 ] && [ "$1" = "template" ]; then
+  version="$2"
+  output_file="$3"
+  
+  # Validate version
+  if [[ "$version" != "1" && "$version" != "2" ]]; then
+    echo "❌ Error: Version must be '1' or '2', got '$version'"
+    exit 1
+  fi
+  
+  template_source="/usr/local/share/dw-playbook-templates/dw${version}_template.tex"
+  
+  if [ ! -f "$template_source" ]; then
+    echo "❌ Error: Template file not found in container"
+    exit 1
+  fi
+  
+  if [ -f "$output_file" ]; then
+    echo "❌ Error: File '$output_file' already exists"
+    exit 1
+  fi
+  
+  echo "📄 Copying DW${version} template to $output_file..."
+  cp "$template_source" "$output_file"
+  echo "✅ Template copied successfully"
+  exit 0
+fi
+
+# Check if correct number of arguments provided for PDF generation
 if [ $# -ne 4 ]; then
   echo "❌ Error: Invalid number of arguments"
-  echo "Usage: docker run --rm -v \"\$(pwd):/tex\" IMAGE <version> <mode> <input.tex> <output.pdf>"
+  echo "Usage:"
+  echo "  Generate PDF: docker run --rm -v \"\$(pwd):/tex\" IMAGE <version> <mode> <input.tex> <output.pdf>"
+  echo "  Copy template: docker run --rm -v \"\$(pwd):/tex\" IMAGE template <version> <output.tex>"
+  echo ""
+  echo "PDF Generation:"
   echo "  version: 1 or 2 (for DW 1 or DW 2)"
   echo "  mode: l or d (for light or dark mode)"
   echo "  input.tex: source tex file"
   echo "  output.pdf: output PDF file"
+  echo ""
+  echo "Template Copy:"
+  echo "  version: 1 or 2 (for DW 1 or DW 2 template)"
+  echo "  output.tex: where to save the template"
   exit 1
 fi
 

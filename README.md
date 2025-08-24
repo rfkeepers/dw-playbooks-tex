@@ -6,37 +6,35 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 
 **No LaTeX installation required!** Use Docker to build your playbooks:
 
-1. **Install prerequisites:**
-   - [Docker](https://docs.docker.com/get-docker/) or equivalent (try orbstack?)
-   - [Just](https://github.com/casey/just#installation) to run the commands
+### 1. **Install prerequisites:**
 
-2. **Generate a PDF:**
+- [Docker](https://docs.docker.com/get-docker/) or equivalent (try orbstack?)
+- (local runs only) [Just](https://github.com/casey/just#installation)
+
+### 2. **Download the runner:**
 
    ```bash
-   just my-template.tex my-character.pdf
+    curl -o dw-pdf https://raw.githubusercontent.com/ryankeepers/dw-playbooks-tex/main/dw-pdf
+    chmod +x dw-pdf
    ```
 
-That's it! The Docker image will be pulled automatically and your PDF will be generated.
+### 3. Copy a template file
 
-### Docker Usage
+   ```bash
+    # copy the playbook template for dw2 to my_playbook.tex
+    ./dw-pdf template 2 my_playbook.tex
+   ```
 
-The basic command is:
+   Edit the file to your little heart's content, and then...
 
-```bash
-just <input.tex> <output.pdf>
-```
+### 4
 
-**Examples:**
+   ```bash
+    # generates a pdf from a dw2 playbook in Light mode.
+    ./dw-pdf 2 l my_playbook.tex my_finished_playbook.pdf
+   ```
 
-```bash
-# Generate the template playbook
-just template_playbook.tex template.pdf
-
-# Create your own character sheet
-just my-character.tex my-character.pdf
-```
-
-## Building Your Own Playbooks (Traditional LaTeX)
+## Working locally (Traditional LaTeX... not recommended)
 
 Want to use these files with a local LaTeX installation? All you need is LaTeX 2e installed and ready to compile your work. Once the language is installed, grab the three files listed below (no other images or fonts involved), put them into a folder, tell them to compile, and that's it. If everything goes well, the Template should compile neatly into a pdf, and that's your signal to start ripping out the boilerplate and plugging in your own content.
 

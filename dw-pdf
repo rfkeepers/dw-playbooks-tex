@@ -4,15 +4,25 @@ set -euo pipefail
 # DW Playbook PDF Generator - Convenience Wrapper
 # This script automatically pulls and runs the Docker image for generating DW playbook PDFs
 # 
-# Usage: dw-pdf <version> <mode> <input.tex> <output.pdf>
+# Usage: 
+#   Generate PDF: dw-pdf <version> <mode> <input.tex> <output.pdf>
+#   Copy template: dw-pdf template <version> <output.tex>
+#
+# PDF Generation:
 # - version: 1 or 2 (for DW 1 or DW 2)
 # - mode: l or d (for light or dark mode)  
 # - input.tex: source tex file
 # - output.pdf: output PDF file
 #
+# Template Copy:
+# - version: 1 or 2 (for DW 1 or DW 2 template)
+# - output.tex: where to save the template
+#
 # Examples:
 #   dw-pdf 1 l my_playbook.tex output.pdf     # DW1 in light mode
 #   dw-pdf 2 d my_playbook.tex dark_book.pdf  # DW2 in dark mode
+#   dw-pdf template 1 new_playbook.tex        # Copy DW1 template
+#   dw-pdf template 2 new_playbook.tex        # Copy DW2 template
 
 IMAGE_NAME="ghcr.io/ryankeepers/dw-playbooks-tex:latest"
 
