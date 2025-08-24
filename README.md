@@ -14,7 +14,7 @@ Innumerable Engines' LaTeX files for composing Dungeon World Playbooks
 ### 2. **Download the runner:**
 
    ```bash
-    curl -o dw-pdf https://raw.githubusercontent.com/ryankeepers/dw-playbooks-tex/main/dw-pdf
+    curl -o dw-pdf https://raw.githubusercontent.com/rfkeepers/dw-playbooks-tex/main/dw-pdf
     chmod +x dw-pdf
    ```
 
