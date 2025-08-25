@@ -636,7 +636,7 @@
     }
 
 \newcommand
-    {\pageThree}[3][m]
+    {\pageThree}[4][m]
     {
       \margined{
         % left column: filler lines
@@ -669,55 +669,13 @@
         \vbreak
         % right column: moves
         \begin{minipage}[t]{\dimexpr0.65\textwidth - 2mm\relax}
-            #1
-    
+            #2  
+
             \ifx m#1\begin{multicols*}{2}\fi
-                #2
+                #3
             \ifx m#1\end{multicols*}\fi
             
-            #3
-        \end{minipage}
-      }
-    }
-
-\newcommand
-    {\pageThreeShort}[3][m]
-    {
-      \margined{
-        % left column: filler lines
-        \begin{minipage}[t]{\dimexpr0.3\textwidth - 2mm\relax}
-            \notes\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}\gap
-            \blank{5.8}
-    
-        \end{minipage}
-        \vbreak
-        % right column: moves
-        \begin{minipage}[t]{\dimexpr0.65\textwidth - 2mm\relax}
-            #2
-            \begin{multicols*}{2}
-                #3
-            \end{multicols*}
+            #4
         \end{minipage}
       }
     }
