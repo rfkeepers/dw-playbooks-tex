@@ -384,7 +384,7 @@
         \begin{minipage}[t]{\textwidth}
             \vspace{1mm}
             \begin{flushleft}
-                \important{#1}: #2
+                \bold{#1}: #2
             \end{flushleft}
         \end{minipage}
     }
@@ -434,7 +434,7 @@
         {
           \subtext
           {
-            You start with one Bond centered around another Player Character; it may be a belief, goal, or even past events involving them.
+            \!You start with one Bond centered around another Player Character; it may be a belief, goal, or even past events involving them.
           }
           \gap
           \blankw
@@ -451,15 +451,17 @@
 \newcommand
     {\supply}
     [3][u]
-    {\singletake[#1]{\important{#2 supplies} #3}}
+    {\singletake[#1]{\bold{#2 supplies} #3}}
 
 \newcommand
     {\featuresheader}
-    {\header{Feature}\\[2mm]}
+    [1]
+    {\header{#1}\\[2mm]}
 
 \newcommand
     {\gearheader}
     {\header{Gear}\\[2mm]}
+
 \newcommand
     {\gear}
     [1]
@@ -481,8 +483,12 @@
     {\header{Notes}\\}
 
 \newcommand
+    {\twelveplus}
+    {\!\mbox{\dsixtiny{12+}{6}}\!}
+
+\newcommand
     {\tenplus}
-    {\!\mbox{\dsixtiny{10+}{6}}\!}
+    {\!\mbox{\dsixtiny{10+}{5}}\!}
 
 \newcommand
     {\sevennine}
@@ -529,7 +535,7 @@
         \hfill \subtext{#1}
         \vspace{3mm}
 
-        \twocol{0.35}{0.65}
+        \twocol{0.35}{0.635}
         {
             \stats
         }
@@ -549,7 +555,7 @@
           \begin{center}
             \fcolorbox{mainPageColor}{mainPageColor}{#8}
           \end{center}
-        \twocol{0.4}{0.6}
+        \twocol{0.4}{0.59}
           {
               \vspace{2.5mm}
               \drivesheader
@@ -569,7 +575,7 @@
 
                   #6
 
-                  \vspace{4mm}
+                  \vspace{2mm}
                   \instruction{After you've marked 5 above, you can also choose from the following list:}
                   \gap
 
@@ -580,16 +586,17 @@
     }
 
 \newcommand
-    {\pageTwo}[4]
+    {\pageTwo}
+    [5]
     {
       \margined{
-        \twocol{0.3}{0.7}
+        \twocol{0.35}{0.65}
         {
-            \featuresheader
-            \margincol{0.25cm}{\unskip\subtext{#1}}
+            \featuresheader{#1}
+            \margincol{0.25cm}{\!\subtext{#2}}
 
             \vspace{3mm}
-            \margincol{0.5cm}{#2}
+            \margincol{0.5cm}{#3}
 
             \vspace{4mm}
             \gearheader
@@ -605,11 +612,11 @@
         {
             \startingMoves
             \begin{multicols*}{2}
-                #3
+                #4
             \end{multicols*}
             \advancedMoves
             \begin{multicols*}{2}
-                #4
+                #5
             \end{multicols*}
         }
       }
@@ -686,7 +693,7 @@
       \margined{
         ~\gap
 
-        This playbook template is freely available at:\\\url{https://github.com/rfkeepers/dw-playbooks}
+        This playbook template is freely available at:\\\url{https://github.com/rfkeepers/dw-playbooks-tex}
         ~\gap
 
         Playbooks made by the author of this tool can be found at:\\\url{https://innumerable-engines.net/dwplaybooks}
