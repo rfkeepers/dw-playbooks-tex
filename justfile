@@ -14,7 +14,7 @@ default:
 # - output.pdf: output PDF file
 [group('PDF Generation')]
 gen version colorscheme texfile output_pdf:
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} playbook {{version}} {{colorscheme}} {{texfile}} {{output_pdf}}
+    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} -v playbook {{version}} {{colorscheme}} {{texfile}} {{output_pdf}}
 
 # Copy a DW playbook template from the Docker image to your local filesystem.
 # Usage: just template <version> <output.tex>
@@ -22,7 +22,7 @@ gen version colorscheme texfile output_pdf:
 # - output.tex: where to save the template file
 [group('Template')]
 template version output_file:
-    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} playbook {{version}} template {{output_file}}
+    docker run --rm -v "$(pwd):/tex" {{IMAGE_NAME}} -v playbook {{version}} template {{output_file}}
 
 # Build the Docker image locally
 [group('docker')]

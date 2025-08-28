@@ -53,27 +53,12 @@
     {\raggedright\textsl{\color{shade}#1}}
 
 \newcommand
-    {\requires}
-    [1]
-    {\instruction{Requires: #1}\gapSm}
-
-\newcommand
-    {\replaces}
-    [1]
-    {\instruction{Replaces: #1}\gapSm}
-
-\newcommand
-    {\notboth}
-    [1]
-    {\instruction{You cannot take #1 if you take this move.}\gapSm}
-
-\newcommand
-    {\important}
+    {\bold}
     [1]
     {\textbf{\color{boldTextColor}#1}}
 
 \newcommand
-    {\tag}
+    {\ital}
     [1]
     {\textsl{#1}}
 
@@ -101,21 +86,12 @@
 
 \newcommand
     {\gap}
-    {\\[3mm]}
-
-\newcommand
-    {\gapSm}
-    {\\[1mm]}
+    [1][3]
+    {\\[#1mm]}
 
 \newcommand
     {\vbreak}
-    {
-      \begin{minipage}[t]{4mm}
-        ~
-    \end{minipage}}
-\newcommand
-    {\vbreakSz}
-    [1]
+    [1][4mm]
     {
       \begin{minipage}[t]{#1}
         ~
@@ -160,10 +136,9 @@
     [1]
     {
       \margin{0.01}
-        \begin{minipage}[t]{\dimexpr\textwidth-0.02cm\relax}
-          #1
-        \end{minipage}
-      \margin{0.01}
+      \begin{minipage}[t]{\dimexpr\textwidth-0.2cm\relax}
+        #1
+      \end{minipage}
     }
 
 \newcommand
@@ -219,10 +194,11 @@
     {\header}
     [2][l]
     {
+      \def\tw{\dimexpr\textwidth - 3mm\relax}
       \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]%
             \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
-            \draw [text width=1cm,color=headerTextColor] (0.75,0.4) node {\hugetext{#2}};
+            \draw [text width=\tw,color=headerTextColor,anchor=west] (3mm,0.4) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
@@ -242,10 +218,11 @@
     {\headerl}
     [2][l]
     {
+      \def\tw{\dimexpr\textwidth - 3mm\relax}
       \ifx l#1%
         \begin{tikzpicture}[baseline=(current bounding box.north)]
             \filldraw [color=headerFill] (0,0) rectangle (\textwidth,0.75);
-            \draw [text width=1cm,color=headerTextColor] (0.75,0.325) node {\hugetext{#2}};
+            \draw [text width=\tw,color=headerTextColor,anchor=west] (3mm,0.325) node {\hugetext{#2}};
         \end{tikzpicture}%
         \fi%
         \ifx r#1%
@@ -298,13 +275,24 @@
     {\takemove}
     [2]
     {
-        \take{\important{#1}}
+        \take{\bold{#1}}
         \begin{minipage}{0.65cm}
           ~
         \end{minipage}
-        \begin{minipage}[t]{\dimexpr\linewidth-3cm\relax}
+        \begin{minipage}[t]{\dimexpr\linewidth-2cm\relax}
             {\raggedright\small #2}
         \end{minipage}
+    }
+
+\newcommand
+    {\multiclassmove}
+    {
+      \move{Multiclass}
+        {
+          Take an Advanced Move from another class:
+          \blank{6}
+          \vspace{6mm}
+        }
     }
 
 \newcommand
@@ -313,7 +301,7 @@
     {
         \vspace{2mm}
 
-        \take{\important{#1}}
+        \take{\bold{#1}}
         \begin{minipage}{0.45cm}
           ~
         \end{minipage}
@@ -352,7 +340,7 @@
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\textwidth - 0.5cm\relax}
             \begin{flushleft}
-                {\small #2}
+                \raisebox{-0.175mm}{\small #2}
             \end{flushleft}
         \end{minipage}
       }
@@ -401,7 +389,7 @@
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\textwidth - 0.9cm\relax}
             \begin{flushleft}
-                {\small #1}
+                \raisebox{-0.175mm}{\small #1}
             \end{flushleft}
         \end{minipage}
       }
@@ -421,8 +409,29 @@
         \end{minipage}
         \begin{minipage}[t]{\dimexpr\textwidth - 1.3cm\relax}
             \begin{flushleft}
-                {\small #1}
+                \raisebox{-0.175mm}{\small #1}
             \end{flushleft}
+        \end{minipage}
+      }
+    }
+
+\newcommand
+    {\counter}
+    [2]
+    {
+      \parbox{\textwidth}{
+        \begin{minipage}[t]{0.25\textwidth}
+            \begin{flushleft}
+                \raisebox{-0.175mm}{\small #2:}
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}{0.7\textwidth}
+            \begin{tikzpicture}[baseline=(current bounding box.east)]
+            \foreach \i in {0,1,...,#1} {
+                \pgfmathsetmacro{\x}{\textwidth - ((\i + 1) * 0.5)}
+                \draw [rounded corners,color=boldTextColor,anchor=east] (\x,0) rectangle (\x + 0.4,0.4cm);
+              }
+            \end{tikzpicture}
         \end{minipage}
       }
     }

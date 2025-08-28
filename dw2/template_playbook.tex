@@ -31,6 +31,30 @@
 %
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    Common Errors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%   It doesn't compile!  There's an error!
+%
+%   Run it with verbose mode (dw-pdf -v ...).  There's a _lot_ of chaff output,
+%   but among it all you should be able to find some kind of error.  Common
+%   build errors include:
+%
+%   1. You have a typo in a \commandName{}.
+%   2. You have too many or too few \command{parameters}{supplied}.
+%   3. You put an optional \command[first]{parameter} in {} instead of [].
+%   4. LaTeX doesn't like that you added a \\ or \gap right there.
+%
+%   ---
+%   The page went blank!  All the content is on the next page!
+%
+%   You added too much content and now it's overflowing out the bottom of the
+%   current page.  Why it produces this particular visual is beyond me.  If the
+%   content is on the first page (such as the ancestry or drives), you'll have
+%   to trim some out.  If it's on the second or third page you could break out
+%   some content to a new page.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %    Playbook Details
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -69,36 +93,36 @@
   {
       \drive{Fame}
         {
-          You're famous to the point of being recognized by everyone at the local game store. Only a few of the many stories circulating about you have grains of truth. \important{Resolve this} by falling from grace or adopting a new identity.
+          You're famous to the point of being recognized by everyone at the local game store. Only a few of the many stories circulating about you have grains of truth. \bold{Resolve this} by falling from grace or adopting a new identity.
         }
       \drive{Love}
         {
-          You're in love with someone forbidden to you. \important{Resolve this} by overcoming all obstacles with your love or getting your heart broken.
+          You're in love with someone forbidden to you. \bold{Resolve this} by overcoming all obstacles with your love or getting your heart broken.
         }
       \drive{Status}
         {
-          You're a member of a prestigious gaming table. \important{Resolve this} by joining a different group or getting too busy for it.
+          You're a member of a prestigious gaming table. \bold{Resolve this} by joining a different group or getting too busy for it.
         }
       \diyDrive
   }
   % early leveling options
   {
-      \taketwo{Gain an a new career advancement}
-      \take{Multiclass — Gain an Advanced Hobby from another obsession}
+      \taketwo{Gain an advanced move from you class}
+      \take{Multiclass — Gain an advanced move from another class}
       \taketwo{+1 to any Stat (max. +2)}
       \take{+1 to two different Defiances}
-      \take{Acquire a computer, tablet, or gadget of your profession}
-      \take{Unlock another type of local ethnic grocer}
+      \take{Acquire a \ital{magic armor}, \ital{tool}, or \ital{weapon}}
+      \take{Unlock another type of Supplies}
       \take{Gain a new Hobby that is definitely not another Obsession}
-      \take{Mark something off your bucket list}
+      \take{Mark another Drive}
   }
   % level 6+ options
   {
-      \takethree{Get a 2\% salary increase}
-      \taketwo{Multiclass — Take over your friends hobby}
+      \takethree{Gain an advanced move from your class}
+      \taketwo{Multiclass — Gain an advanced move from another class}
       \take{+1 to any Stat (max. +2)}
       \take{+1 to any Stat (max. +3)}
-      \take{Acquire an Award, Inheritence, or Lottery}
+      \take{Acquire an \ital{artifact armor}, \ital{tool}, or \ital{weapon}}
       \taketwo{Gain another Hobby that, sure, this is straight up Obsession}
       \takemove
           {
@@ -122,6 +146,10 @@
 ~
 
 \pageTwo
+    % Feature Title
+    {
+      Obsession
+    }
     % Feature description.
     {
       You're intensely interested in a few particular games. They often inspire your hobbies and frequently appear in your evenings.
@@ -165,47 +193,52 @@ When you express your feelings to an npc, you may spend one Obsession to give th
     % Add [x] to a move to mark it as automatically selected.
     {
         \move[x]{All the World's a Fandom}
-        {
-          You entertain others with a particular skill. Is it voice acting, cosplay, rules knowledge, or something else? When you entertain an audience, lose all Inspiration and roll +Compelling. On a\tenplus, gain 3 Entertainment. On a\sevennine, only 2. On a\sixminus, you feel the entertainment was awful; gain 1 Inspiration, but mark a condition.
-          \gap
-          You can spend Inspiration, 1-for-1, for any of the following benefits. When affecting a PC or NPC, they must have been a member of your audience.
-          \gap
-          \option{Aid a friend without spending Money}
-          \option{Treat an acquaintance as if you both have Bonds with each other for a scene}
-          \option{Cause an acquaintance  to try to speak with you privately}
-          \option{Cause a friend to give you a meaningful gift}
-        }
+          {
+            You entertain others with a particular skill. Is it voice acting, cosplay, rules knowledge, or something else? When you entertain an audience, lose all Inspiration and roll +Compelling. On a\tenplus, gain 3 Entertainment. On a\sevennine, only 2. On a\sixminus, you feel the entertainment was awful; gain 1 Inspiration, but mark a condition.
+            \gap
+            You can spend Inspiration, 1-for-1, for any of the following benefits. When affecting a PC or NPC, they must have been a member of your audience.
+            \gap
+            \option{Aid a friend without spending Money}
+            \option{Treat an acquaintance as if you both have Bonds with each other for a scene}
+            \option{Cause an acquaintance  to try to speak with you privately}
+            \option{Cause a friend to give you a meaningful gift}
+          }
         \gap
         \move[x]{Spout Headcannon}
-        {
-          When you first encounter someone or something that you’ve heard leaks, rumors, or previews about (your call), tell the GM something interesting you’ve heard about it. The GM will tell you what else you’ve heard that complicates things. The next time you Entertain, if you incorporate what you’ve heard about (or the complication), roll with ADV.
-        }
+          {
+            When you first encounter someone or something that you’ve heard leaks, rumors, or previews about (your call), tell the GM something interesting you’ve heard about it. The GM will tell you what else you’ve heard that complicates things. The next time you Entertain, if you incorporate what you’ve heard about (or the complication), roll with ADV.
+          }
     }
     % Advanced Moves
     % You don't need a \gap after every move.
     % Just add them in as needed.
     {
         \move{Vel}
-        {
+          {
             \takeeither{Gazeebo}{Gozorbo}
-            Balance domain chaos domain dispel check \important{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.
+            Balance domain chaos domain dispel check \bold{effective character} level insight bonus native subtype point of origin reach weapon scent teleportation subschool threat range. Ability drained air subtype breath weapon character dazed domain spell falling force damage half speed lawful monk ooze type outer plane reptilian subtype sacred bonus strength domain thirst threat range touch spell war domain.
           }
         \gap
         \move{Placerat}
-        {
-          \requires{Elit}
-          Change shape \important{cold immunity} constrict dazed dispel domain spell effective character level fighter figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered take 10.
-        }
-        \move{Sem Pharetra}
-        {
-          \replaces{Lorem}
-          \important{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.
-        }
+          {
+            \counter{3}{Malkovich}
+            \gap
+            Change shape \bold{cold immunity} constrict dazed dispel domain spell effective character level fighter.
+            \gap
+            figment subschool huge illusion magical beast type natural weapon player character powerful charge reptilian subtype staggered
+            \gap
+            take 10.
+          }
+        % ampersands (&) have to be escaped.
+        \move{Sem \& Pharetra}
+          {
+            \bold{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.
+          }
         \gap
         \move{Vitae}
-        {
-            Armor bonus class skill \important{dispel check dodge bonus enhancement} bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.
-        }
+          {
+              Armor bonus class skill \bold{dispel check dodge bonus enhancement} bonus fighter fire domain initiative count intelligence large massive damage outer plane petrified poison spell slot strength domain take 10 time domain trickery domain untrained.
+          }
     }
 
 % ----------------------------------------------------------
@@ -230,10 +263,10 @@ When you express your feelings to an npc, you may spend one Obsession to give th
     % command and add the [s] option (ie: \pageThree[s]).  That'll put this section
     % in single-column mode.
     {
-    \move{Abundance}
-      {
-        When you \important{write more moves than can fit on two pages}, add the last of them to this page.  Or maybe write fewer moves.  Or smaller moves.
-      }
+      \move{Abundance}
+        {
+          When you \bold{write more moves than can fit on two pages}, add the last of them to this page.  Or maybe write fewer moves.  Or smaller moves.
+        }
     }
     % a final, single-column section in case you wanted to add both moves and some
     % other single-column formatted content at the bottom of the page.
@@ -241,7 +274,11 @@ When you express your feelings to an npc, you may spend one Obsession to give th
     % previous two-column style that the moves use, this final section is the best
     % place to handle that layout.
     {
-      ~ % space to make the build happy when unused.
+      \multiclassmove
+      \gap
+      \multiclassmove
+      \gap
+      \multiclassmove
     }
 % ----------------------------------------------------------
 % Thanks for using this tool, fellow playbook creator!  Formatting documents
