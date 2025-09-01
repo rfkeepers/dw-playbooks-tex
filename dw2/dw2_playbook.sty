@@ -279,7 +279,7 @@
         \begin{minipage}{0.65cm}
           ~
         \end{minipage}
-        \begin{minipage}[t]{\dimexpr\linewidth-2cm\relax}
+        \begin{minipage}[t]{\dimexpr\textwidth-1.5cm\relax}
             {\raggedright\small #2}
         \end{minipage}
     }
@@ -329,7 +329,7 @@
 
 \newcommand
     {\take}
-    [2][u]
+    [2][a]
     {
       \parbox{\textwidth}{
         \begin{minipage}{0.5cm}
@@ -366,14 +366,29 @@
     }
 
 \newcommand
-    {\singletake}
+    {\takeinline}
     [2][u]
     {
-        \begin{tikzpicture}[baseline=(current bounding box.north)]
+        \begin{tikzpicture}[baseline=(current bounding box.west)]
             \draw [rounded corners,color=boldTextColor] (0,0) rectangle (0.4cm,0.4cm);
             \draw [color=boldTextColor] (0.2,0.2) node {\ifx x#1 {\large x}\fi};
             \draw [color=boldTextColor,anchor=west] (0.4,0.17) node {\raggedright\small #2};
         \end{tikzpicture}
+    }
+
+\newcommand
+    {\takewith}
+    [3][1]
+    {
+        \ifx 1#1 \take{#2} \fi
+        \ifx 2#1 \taketwo{#2} \fi
+        \ifx 3#1 \takethree{#2} \fi
+        \begin{minipage}{\dimexpr 0.45cm * #1\relax}
+          ~
+        \end{minipage}
+        \begin{minipage}[t]{\dimexpr\linewidth-2cm\relax}
+            \rule{0pt}{2.5mm}#3
+        \end{minipage}
     }
 
 \newcommand
@@ -420,19 +435,41 @@
     [2]
     {
       \parbox{\textwidth}{
-        \begin{minipage}[t]{0.25\textwidth}
+        \begin{minipage}[t]{0.35\textwidth}
             \begin{flushleft}
                 \raisebox{-0.175mm}{\small #2:}
             \end{flushleft}
         \end{minipage}
-        \begin{minipage}{0.7\textwidth}
+        \begin{minipage}{0.6\textwidth}
             \begin{tikzpicture}[baseline=(current bounding box.east)]
-            \foreach \i in {0,1,...,#1} {
+              \pgfmathsetmacro{\n}{#1 - 1}
+            \foreach \i in {0,...,\n} {
                 \pgfmathsetmacro{\x}{\textwidth - ((\i + 1) * 0.5)}
                 \draw [rounded corners,color=boldTextColor,anchor=east] (\x,0) rectangle (\x + 0.4,0.4cm);
               }
             \end{tikzpicture}
         \end{minipage}
+      }
+    }
+
+\newcommand
+    {\range}
+    [3]
+    {
+      \parbox{\textwidth}{
+        \begin{tikzpicture}[baseline=(current bounding box.north)]%
+            \pgfmathsetmacro{\m}{\textwidth * 0.013}
+            \pgfmathsetmacro{\c}{#2 * 0.25}
+            \pgfmathsetmacro{\s}{\m - \c}
+            \pgfmathsetmacro{\e}{\m + \c}
+            \node[anchor=east, color=headerTextColor] at (\s + 0.5,0) {#1};
+            \pgfmathsetmacro{\n}{#2 - 1}
+            \foreach \i in {0,...,\n} {
+                \pgfmathsetmacro{\x}{\s + ((\i + 1) * 0.5)}
+                \draw [rounded corners,color=boldTextColor,anchor=center] (\x,0.2cm) rectangle (\x + 0.4,-0.2cm);
+              }
+              \node[anchor=west, color=headerTextColor] at (\e + 0.4,0) {#3};
+        \end{tikzpicture}%
       }
     }
 
@@ -447,7 +484,10 @@
         \end{minipage}
         \begin{minipage}[t]{0.93\textwidth}
             \begin{flushleft}
-                {\small #1}
+                {
+                  \linespread{0.3}\selectfont\small #1\par
+                  \vspace{1mm}
+                }
             \end{flushleft}
         \end{minipage}
     }
