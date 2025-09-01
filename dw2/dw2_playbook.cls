@@ -451,7 +451,7 @@
 \newcommand
     {\supply}
     [3][u]
-    {\singletake[#1]{\bold{#2 supplies} #3}}
+    {\takeinline[#1]{\bold{#2 supplies} #3}}
 
 \newcommand
     {\featuresheader}
@@ -493,6 +493,10 @@
 \newcommand
     {\sevennine}
     {\!\mbox{\dsixtiny{7-9}{4}}\!}
+
+\newcommand
+    {\sevenplus}
+    {\!\mbox{\dsixtiny{7+}{4}}\!}
 
 \newcommand
     {\sixminus}
@@ -568,16 +572,15 @@
               \vspace{0mm}
               \level
               \margined{
-
-                  \vspace{2mm}
+                  \vspace{0mm}
                   \instruction{When you Level Up, choose one of the following:}
-                  \gap
+                  \gap[1.5]
 
                   #6
 
-                  \vspace{2mm}
+                  \vspace{1mm}
                   \instruction{After you've marked 5 above, you can also choose from the following list:}
-                  \gap
+                  \gap[1.5]
 
                   #7
               }

@@ -107,7 +107,7 @@
   }
   % early leveling options
   {
-      \taketwo{Gain an advanced move from you class}
+      \taketwo{Gain an advanced move from your class}
       \take{Multiclass — Gain an advanced move from another class}
       \taketwo{+1 to any Stat (max. +2)}
       \take{+1 to two different Defiances}
@@ -123,7 +123,12 @@
       \take{+1 to any Stat (max. +2)}
       \take{+1 to any Stat (max. +3)}
       \take{Acquire an \ital{artifact armor}, \ital{tool}, or \ital{weapon}}
-      \taketwo{Gain another Hobby that, sure, this is straight up Obsession}
+      \takewith[2]{Gain another Hobby that, sure, this is straight up Obsession}
+        {
+          Add the following to your options:\\
+          \takeinline{Vampire Survivors}
+          \takeinline{Friends at the Table}
+        }
       \takemove
           {
             Star of the Table
@@ -232,6 +237,7 @@ When you express your feelings to an npc, you may spend one Obsession to give th
         % ampersands (&) have to be escaped.
         \move{Sem \& Pharetra}
           {
+            \range{smol}{3}{beeg}
             \bold{Ability damaged} ability modifier adventuring party aquatic subtype burrow class class feature deafened diminutive dwarf domain engaged masterwork natural ability nonabilities prone reaction regeneration sickened slime domain transmutation water domain. Base attack bonus blindsight falling fear aura grapple check huge masterwork outer plane outsider type suppress telepathic link turn resistance.
           }
         \gap
